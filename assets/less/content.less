@@ -1,0 +1,122 @@
+// less
+// content
+
+// imports
+@import 'variables';
+@import 'mixins';
+
+// container
+.container-fluid {
+  max-width: 1450px;
+  flex: 1 0 auto;
+}
+
+.container-fluid-feature {
+  width: 100%;
+}
+
+.container-master {
+  display: flex;
+}
+
+// row
+.row {
+  margin: 1em 0;
+}
+
+// header
+.navbar {
+  border-bottom: 5px solid @white;
+}
+
+.navWrap {
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+}
+
+.navbar {
+  background: @grey;
+}
+
+// menu module
+.menuModuleWrap {
+  width: 100%;
+  background: @grey;
+  margin-bottom: 50px;
+  border-top: 5px solid @white;
+}
+
+.menuModuleWrap ul {
+  margin-bottom: 0;
+}
+
+.menuModule {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menuModule a {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 1.4em;
+  color: @white;
+  padding-bottom: 0;
+  padding-top: 0;
+  border-bottom: 2px solid transparent;
+  border-top: 2px solid transparent;
+  transition-duration: 300ms;
+}
+
+.menuModule a:hover {
+  color: @white;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-bottom: 2px solid @white;
+  border-top: 2px solid @white;
+}
+
+.menuModule li {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 100%;
+  text-align: center;
+  width: 20%;
+}
+
+// sidebar
+.sidebarHeading {
+text-transform: uppercase;
+}
+
+// map
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+// footer
+footer {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin: 0 auto;
+  height: 80px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: @grey;
+  width: 100%;
+}
+
+.footerWrap {
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
