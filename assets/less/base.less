@@ -1,3 +1,6 @@
+// less
+// base
+
 // imports
 @import 'variables';
 @import 'mixins';
@@ -5,6 +8,7 @@
 // resets
 * {
 	.reset-mixin(@bord: 0; @pad: 0; @mar: 0px; @box: border-box; @dec: none; @list: none);
+	font-family: @font;
 }
 
 // body/html
@@ -14,6 +18,16 @@ body {
 	color: @grey;
 }
 
+// headings
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: @font;
+}
+
+// article
 article {
 	column-count: 2;
 }
