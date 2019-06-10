@@ -17,6 +17,8 @@
 	},
 	"homepage": "https://github.com/WildPastry/nonproflite#readme",
 	"devDependencies": {
+		"autoprefixer": "^9.6.0",
+		"cssnano": "^4.1.10",
 		"gulp": "^4.0.2",
 		"postcss-font-magician": "^2.2.1"
 	}
