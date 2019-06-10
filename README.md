@@ -1,6 +1,6 @@
 # Non-Prof Lite
 
-Custom wordpress theme
+Custom WordPress theme
 
 ## Features
 
