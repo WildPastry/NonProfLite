@@ -1,1 +1,0 @@
-cd /vagrant/www/pit-rescue/wp-content/themes/non-prof-lite
