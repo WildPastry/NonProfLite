@@ -1,0 +1,23 @@
+{
+	"name": "non-prof-lite",
+	"version": "1.0.0",
+	"description": "Non-Prof Lite is a user-friendly and free WordPress theme.",
+	"main": "gulpfile.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Mike Parker",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/WildPastry/nonproflite"
+	},
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/WildPastry/nonproflite/issues"
+	},
+	"homepage": "https://github.com/WildPastry/nonproflite#readme",
+	"devDependencies": {
+		"gulp": "^4.0.2",
+		"postcss-font-magician": "^2.2.1"
+	}
+}
