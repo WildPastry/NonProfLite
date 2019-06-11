@@ -7,7 +7,15 @@
 function enqueue_files()
 {
   // css
-  wp_enqueue_style('nonproflite_fonts', get_template_directory_uri() . 'https://fonts.googleapis.com/css?family=Fira+Sans:100,400,700&display=swap', array(), '1.0');
+//   fira sans
+  wp_enqueue_style('nonproflite_fonts', get_template_directory_uri() . 'https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700&display=swap', array(), '1.0');
+//   merriweather
+// 'https://fonts.googleapis.com/css?family=Merriweather:300,400,700&display=swap'
+
+//   quicksand
+// 'https://fonts.googleapis.com/css?family=Quicksand:300,400,700&display=swap'
+
+
 //   wp_enqueue_style('nonproflite_bootstrap_css', get_template_directory_uri() . '/assets/css/vendor/bootstrap.css', array(), '4.1.3');
   wp_enqueue_style('nonproflite_css', get_template_directory_uri() . '/assets/css/nonproflite.css', array(), '1.0');
 
