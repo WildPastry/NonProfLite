@@ -10,94 +10,116 @@ function npl_customize_register($wp_customize)
 	// $wp_customize->remove_section('installed_themes'); // Themes // 0
 	// $wp_customize->remove_section('title_tagline'); // Site Identity // 20
 	// $wp_customize->remove_section('colors'); // Colours // 40
-	// $wp_customize->remove_section('header_image'); // Header Image // 60
-	// $wp_customize->remove_section('background_image'); // Background Image // 80
+	$wp_customize->remove_section('header_image'); // Header Image // 60
+	$wp_customize->remove_section('background_image'); // Background Image // 80
 	// $wp_customize->remove_section('static_front_page'); // Home Page Settings // 120
-	// $wp_customize->remove_section('custom_css'); // Additional CSS // 200
+	$wp_customize->remove_section('custom_css'); // Additional CSS // 200
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// create homepage panel ––––––––––––––––––––––––––––––––––––––––––––––––
 	$wp_customize->add_panel('homepage_panel', array(
-	  'title'      => __('Home Page Content', 'nonproflite'),
-	  'priority'   => 10,
-	  'description' => 'Edit the home page content'
+		'title'      => __('Home Page Content', 'nonproflite'),
+		'priority'   => 10,
+		'description' => 'Edit the home page content'
 	));
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// create colours panel –––––––––––––––––––––––––––––––––––––––––––––––––
-	  $wp_customize->add_panel('site_colours_panel', array(
-	    'title'      => __('Site Colours', 'nonproflite'),
-	    'priority'   => 15,
-	    'description' => 'Edit the site colours'
-	  ));
+	$wp_customize->add_panel('site_colours_panel', array(
+		'title'      => __('Site Colours', 'nonproflite'),
+		'priority'   => 15,
+		'description' => 'Edit the site colours'
+	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// colours –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// background
-	  $wp_customize->add_section('background_colour_section', array(
-	    'title'      => __('Background colour', 'nonproflite'),
-	    'priority'   => 10,
-	    'panel' => 'site_colours_panel'
-	  ));
+	$wp_customize->add_section('background_colour_section', array(
+		'title'      => __('Background colour', 'nonproflite'),
+		'priority'   => 5,
+		'panel' => 'site_colours_panel'
+	));
 
-	  $wp_customize->add_setting('background_colour_setting', array(
-	    'default'   => '#fff',
-	    'transport' => 'refresh',
-	  ));
+	$wp_customize->add_setting('background_colour_setting', array(
+		'default'   => '#fff',
+		'transport' => 'refresh',
+	));
 
-	  $wp_customize->add_control(new WP_Customize_Color_Control(
-	    $wp_customize,
-	    'background_colour_control',
-	    array(
-	      'label'      => __('Set the background color', 'nonproflite'),
-	      'section'    => 'background_colour_section',
-	      'settings'   => 'background_colour_setting',
-	    )
-	  ));
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'background_colour_control',
+		array(
+			'label'      => __('Set the background color', 'nonproflite'),
+			'section'    => 'background_colour_section',
+			'settings'   => 'background_colour_setting',
+		)
+	));
+
+	// heading text
+	$wp_customize->add_section('heading_colour_section', array(
+		'title'      => __('Heading text', 'nonproflite'),
+		'priority'   => 10,
+		'panel' => 'site_colours_panel'
+	));
+
+	$wp_customize->add_setting('heading_colour_setting', array(
+		'default'   => '#2b2b2b',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'heading_colour_control',
+		array(
+			'label'      => __('Set the heading text colour', 'nonproflite'),
+			'section'    => 'heading_colour_section',
+			'settings'   => 'heading_colour_setting',
+		)
+	));
 
 	// paragraph text
-	//   $wp_customize->add_section('paragraph_colour_section', array(
-	//     'title'      => __('Body text', 'nonproflite'),
-	//     'priority'   => 15,
-	//     'panel' => 'site_colours_panel'
-	//   ));
+	$wp_customize->add_section('paragraph_colour_section', array(
+		'title'      => __('Body text', 'nonproflite'),
+		'priority'   => 15,
+		'panel' => 'site_colours_panel'
+	));
 
-	//   $wp_customize->add_setting('paragraph_colour_setting', array(
-	//     'default'   => '#2b2b2b',
-	//     'transport' => 'refresh',
-	//   ));
+	$wp_customize->add_setting('paragraph_colour_setting', array(
+		'default'   => '#2b2b2b',
+		'transport' => 'refresh',
+	));
 
-	//   $wp_customize->add_control(new WP_Customize_Color_Control(
-	//     $wp_customize,
-	//     'paragraph_colour_control',
-	//     array(
-	//       'label'      => __('Set the body text colour', 'nonproflite'),
-	//       'section'    => 'paragraph_colour_section',
-	//       'settings'   => 'paragraph_colour_setting',
-	//     )
-	//   ));
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'paragraph_colour_control',
+		array(
+			'label'      => __('Set the body text colour', 'nonproflite'),
+			'section'    => 'paragraph_colour_section',
+			'settings'   => 'paragraph_colour_setting',
+		)
+	));
 
 	// header and footer
-	//   $wp_customize->add_section('bar_colour_section', array(
-	//     'title'      => __('Header and footer', 'nonproflite'),
-	//     'priority'   => 20,
-	//     'panel' => 'site_colours_panel'
-	//   ));
+	// $wp_customize->add_section('bar_colour_section', array(
+	// 	'title'      => __('Header and footer', 'nonproflite'),
+	// 	'priority'   => 20,
+	// 	'panel' => 'site_colours_panel'
+	// ));
 
-	//   $wp_customize->add_setting('bar_colour_setting', array(
-	//     'default'   => '#fff',
-	//     'transport' => 'refresh',
-	//   ));
+	// $wp_customize->add_setting('bar_colour_setting', array(
+	// 	'default'   => '#fff',
+	// 	'transport' => 'refresh',
+	// ));
 
-	//   $wp_customize->add_control(new WP_Customize_Color_Control(
-	//     $wp_customize,
-	//     'bar_colour_control',
-	//     array(
-	//       'label'      => __('Set Header and footer colour', 'nonproflite'),
-	//       'section'    => 'bar_colour_section',
-	//       'settings'   => 'bar_colour_setting',
-	//     )
-	//   ));
+	// $wp_customize->add_control(new WP_Customize_Color_Control(
+	// 	$wp_customize,
+	// 	'bar_colour_control',
+	// 	array(
+	// 		'label'      => __('Set Header and footer colour', 'nonproflite'),
+	// 		'section'    => 'bar_colour_section',
+	// 		'settings'   => 'bar_colour_setting',
+	// 	)
+	// ));
 
 	// custom intro ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	//   $wp_customize->add_section('custom_intro_section', array(
@@ -176,13 +198,24 @@ function nonproflite_customize_css()
 				?>;
 		}
 
-		/* header and footer */
-		.navbar,
-		.footer {
-			background-color:
-				<?php echo get_theme_mod('bar_colour_setting', '#fff');
+		/* headings text */
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+			color:
+				<?php echo get_theme_mod('heading_colour_setting', '#2b2b2b');
 				?>;
 		}
+
+		/* header and footer */
+		/* .navbar,
+			.footer {
+				background-color:
+					<?php echo get_theme_mod('bar_colour_setting', '#fff');
+					?>;
+			} */
 	</style>
 <?php
 } // end of css for colours panel

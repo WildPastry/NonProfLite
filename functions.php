@@ -4,14 +4,25 @@
  * @package nonproflite
  */
 
-// enqueue css & scripts
-require get_template_directory() . '/inc/enqueue-files.php';
+// enqueue css & scripts –––––––––––––––––––––––––––––––––––––––––––––––––
+require get_template_directory() . '/inc/npl-enqueue-files.php';
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-// nav
-// require get_template_directory() . '/inc/nonproflite-nav.php';
+// control –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// greeting control
+require get_template_directory() . '/inc/control/npl-greeting-control.php';
+// dashboard control
+require get_template_directory() . '/inc/control/npl-dashboard-control.php';
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-// theme support
+// theme support –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // require get_template_directory() . '/inc/theme-support.php';
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-// customiser
-require get_template_directory() . '/inc/customiser.php';
+// customiser ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+require get_template_directory() . '/inc/npl-customiser.php';
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// misc functions ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+require get_template_directory() . '/inc/npl-misc-functions.php';
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
