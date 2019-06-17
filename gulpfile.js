@@ -71,7 +71,6 @@ gulp.task('compress', function() {
 	return gulp
 		.src('assets/js/*.js')
 		.pipe(uglify())
-		.pipe(notify('success'))
 		.pipe(gulp.dest('assets/js'));
 });
 

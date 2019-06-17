@@ -6,6 +6,8 @@
 
 ?>
 
+</div><!-- master container -->
+
 <?php wp_footer(); ?>
 </body>
 
