@@ -8,7 +8,7 @@ Non-Prof Lite is a user-friendly and free WordPress theme. It is a simple, clean
 
 ## Plugins
 
-**MetaSlider** <br>
+**WooCommerce** <br>
 **Which Template** <br>
 **AllInOne**
 
