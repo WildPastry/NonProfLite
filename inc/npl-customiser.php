@@ -211,11 +211,11 @@ function nonproflite_customize_css()
 
 		/* header and footer */
 		/* .navbar,
-			.footer {
-				background-color:
-					<?php echo get_theme_mod('bar_colour_setting', '#fff');
-					?>;
-			} */
+				.footer {
+					background-color:
+						<?php echo get_theme_mod('bar_colour_setting', '#fff');
+						?>;
+				} */
 	</style>
 <?php
 } // end of css for colours panel

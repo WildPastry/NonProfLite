@@ -4,7 +4,7 @@
  * @package nonproflite
  */
 
-// custom greeting
+// custom greeting –––––––––––––––––––––––––––––––––––––––––––––––––––––––
 function wp_admin_bar_my_custom_account_menu($wp_admin_bar)
 {
   $user_id = get_current_user_id();
@@ -30,3 +30,4 @@ function wp_admin_bar_my_custom_account_menu($wp_admin_bar)
   }
 }
 add_action('admin_bar_menu', 'wp_admin_bar_my_custom_account_menu', 11);
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
