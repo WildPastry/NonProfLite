@@ -21,6 +21,8 @@ require get_template_directory() . '/inc/npl-enqueue-files.php';
 require get_template_directory() . '/inc/control/npl-control-greeting.php';
 // dashboard control
 require get_template_directory() . '/inc/control/npl-control-dashboard.php';
+// sidebar control
+require get_template_directory() . '/inc/control/npl-control-sidebar.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 // functions –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

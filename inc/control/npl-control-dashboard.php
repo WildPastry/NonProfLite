@@ -74,6 +74,23 @@ add_filter('custom_menu_order', 'custom_menu_order');
 add_filter('menu_order', 'custom_menu_order');
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
+// custom dashboard widget –––––––––––––––––––––––––––––––––––––––––––––––
+function register_nonproflite_dash()
+{
+  wp_add_dashboard_widget(
+    'nonproflite_dash',
+    'Non-Prof Lite Dashboard',
+    'nonproflite_dash_display'
+  );
+}
+
+function nonproflite_dash_display()
+{
+  echo 'Welcome to Non-Prof Lite...';
+}
+add_action('wp_dashboard_setup', 'register_nonproflite_dash');
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // rename dashboard menu items –––––––––––––––––––––––––––––––––––––––––––
 // function edit_admin_menus() {
 //   global $menu;
