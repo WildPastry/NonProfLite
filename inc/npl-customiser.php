@@ -12,7 +12,7 @@ function npl_customize_register($wp_customize)
 	// $wp_customize->remove_section('colors'); // Colours // 40
 	$wp_customize->remove_section('header_image'); // Header Image // 60
 	$wp_customize->remove_section('background_image'); // Background Image // 80
-	// $wp_customize->remove_section('static_front_page'); // Home Page Settings // 120
+	$wp_customize->remove_section('static_front_page'); // Home Page Settings // 120
 	$wp_customize->remove_section('custom_css'); // Additional CSS // 200
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
@@ -30,6 +30,14 @@ function npl_customize_register($wp_customize)
 		'priority'   => 15,
 		'description' => 'Edit the site colours'
 	));
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	// create font panel –––––––––––––––––––––––––––––––––––––––––––––––––––––
+	// $wp_customize->add_panel('site_font_panel', array(
+	// 	'title'      => __('Site Font', 'nonproflite'),
+	// 	'priority'   => 20,
+	// 	'description' => 'Edit the site font'
+	// ));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// colours –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -50,6 +58,7 @@ function npl_customize_register($wp_customize)
 		'background_colour_control',
 		array(
 			'label'      => __('Set the background color', 'nonproflite'),
+			'description' => __( 'Using this option you can change the background colour of your site' ),
 			'section'    => 'background_colour_section',
 			'settings'   => 'background_colour_setting',
 		)
@@ -72,6 +81,7 @@ function npl_customize_register($wp_customize)
 		'heading_colour_control',
 		array(
 			'label'      => __('Set the heading text colour', 'nonproflite'),
+			'description' => __( 'Using this option you can change the heading colour throughout your entire site' ),
 			'section'    => 'heading_colour_section',
 			'settings'   => 'heading_colour_setting',
 		)
@@ -94,32 +104,40 @@ function npl_customize_register($wp_customize)
 		'paragraph_colour_control',
 		array(
 			'label'      => __('Set the body text colour', 'nonproflite'),
+			'description' => __( 'Using this option you can change the body text colour throughout your entire site' ),
 			'section'    => 'paragraph_colour_section',
 			'settings'   => 'paragraph_colour_setting',
 		)
 	));
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-	// header and footer
-	// $wp_customize->add_section('bar_colour_section', array(
-	// 	'title'      => __('Header and footer', 'nonproflite'),
-	// 	'priority'   => 20,
-	// 	'panel' => 'site_colours_panel'
-	// ));
+	// fonts –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	$wp_customize->add_section('custom_font_section', array(
+		'title'      => __('Site Fonts', 'nonproflite'),
+		'priority'   => 20
+	));
 
-	// $wp_customize->add_setting('bar_colour_setting', array(
-	// 	'default'   => '#fff',
-	// 	'transport' => 'refresh',
-	// ));
+	$wp_customize->add_setting('custom_font_setting', array(
+		'transport' => 'refresh'
+	));
 
-	// $wp_customize->add_control(new WP_Customize_Color_Control(
-	// 	$wp_customize,
-	// 	'bar_colour_control',
-	// 	array(
-	// 		'label'      => __('Set Header and footer colour', 'nonproflite'),
-	// 		'section'    => 'bar_colour_section',
-	// 		'settings'   => 'bar_colour_setting',
-	// 	)
-	// ));
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'custom_font_control',
+		array(
+			'label'      => __('Set the site font', 'nonproflite'),
+			'description' => __( 'Using this option you can change the font throughout your entire site' ),
+			'section'    => 'custom_font_section',
+			'settings'   => 'custom_font_setting',
+			'type'    => 'select',
+			'choices' => array(
+				'default' => 'Fira Sans',
+				'merriweather' => 'Merriweather',
+				'quicksand' => 'Quicksand'
+			)
+		)
+	));
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// custom intro ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	//   $wp_customize->add_section('custom_intro_section', array(
@@ -209,13 +227,12 @@ function nonproflite_customize_css()
 				?>;
 		}
 
-		/* header and footer */
-		/* .navbar,
-				.footer {
-					background-color:
-						<?php echo get_theme_mod('bar_colour_setting', '#fff');
-						?>;
-				} */
+		/* font */
+		* {
+			font-family:
+				<?php echo get_theme_mod('custom_font_setting', 'Fira Sans');
+				?>;
+		}
 	</style>
 <?php
 } // end of css for colours panel

@@ -31,5 +31,5 @@ require get_template_directory() . '/inc/functions/npl-function-misc.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 // theme support –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// require get_template_directory() . '/inc/theme-support.php';
+require get_template_directory() . '/inc/npl-theme-support.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
