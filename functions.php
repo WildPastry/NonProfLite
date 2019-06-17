@@ -14,4 +14,4 @@ require get_template_directory() . '/inc/enqueue-files.php';
 // require get_template_directory() . '/inc/theme-support.php';
 
 // customiser
-// require get_template_directory() . '/inc/customiser.php';
+require get_template_directory() . '/inc/customiser.php';
