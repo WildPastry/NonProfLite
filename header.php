@@ -15,7 +15,7 @@
 	<?php wp_head(); ?>
 </head><!-- head -->
 
-<body>
+<body <?php body_class(); ?>>
 
 	<!-- master container -->
-	<div class="container-fluid">
+	<div class="container-fluid mt-3">
