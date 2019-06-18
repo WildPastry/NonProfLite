@@ -140,25 +140,25 @@ function npl_customize_register($wp_customize)
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// custom intro ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	//   $wp_customize->add_section('custom_intro_section', array(
-	//     'title'      => __('Custom intro text', 'nonproflite'),
-	//     'priority'   => 80
-	//   ));
+	  $wp_customize->add_section('custom_intro_section', array(
+	    'title'      => __('Custom intro text', 'nonproflite'),
+	    'priority'   => 25
+	  ));
 
-	//   $wp_customize->add_setting('custom_intro_setting', array(
-	//     'default'   => 'Welcome to nonproflite',
-	//     'transport' => 'refresh',
-	//   ));
+	  $wp_customize->add_setting('custom_intro_setting', array(
+	    'default'   => 'Welcome to CHCH Bull Breed Rescue',
+	    'transport' => 'refresh',
+	  ));
 
-	//   $wp_customize->add_control(new WP_Customize_Control(
-	//     $wp_customize,
-	//     'custom_intro_control',
-	//     array(
-	//       'label'      => __('Change custom intro text', 'nonproflite'),
-	//       'section'    => 'title_tagline',
-	//       'settings'   => 'custom_intro_setting',
-	//     )
-	//   ));
+	  $wp_customize->add_control(new WP_Customize_Control(
+	    $wp_customize,
+	    'custom_intro_control',
+	    array(
+	      'label'      => __('Change custom intro text', 'nonproflite'),
+	      'section'    => 'title_tagline',
+	      'settings'   => 'custom_intro_setting',
+	    )
+	  ));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// featured posts ––––––––––––––––––––––––––––––––––––––––––––––––––––––

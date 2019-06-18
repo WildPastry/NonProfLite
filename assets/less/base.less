@@ -21,21 +21,38 @@ body {
 // body
 body {
 	font-weight: @light !important;
+	display: flex;
+  flex-direction: column;
 }
 
 // // paragraph
-// p {
-// 	font-weight: @light !important;
-// }
+p {
+	margin: 0;
+}
 
 // headings
-// h1,
-// h2,
-// h3,
-// h4,
-// h5 {
-// 	font-family: @font;
-// }
+h1 {
+  font-size: 3em;
+  letter-spacing: 2px;
+}
+
+h2,
+h3,
+h4,
+h5 {
+	line-height: 1.45em;
+}
+
+/* links */
+a {
+  color: @white;
+  transition-duration: 500ms;
+}
+
+a:hover {
+  color: @pink;
+  text-decoration: none;
+}
 
 // article
 article {
