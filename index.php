@@ -10,66 +10,69 @@ $defaultText = 'Welcome to CHCH Bull Breed Rescue';
 
 get_header(); ?>
 
-<!-- FEATURE SLIDESHOW -->
+<!-- feature slideshow -->
 <div class="container-fluid-feature">
 
-  <div id="homePageSlider" class="carousel slide carousel-fade" data-ride="carousel">
+	<div id="homePageSlider" class="carousel slide carousel-fade" data-ride="carousel">
 
-    <!-- SLIDESHOW INDICATORS -->
-    <ol id="indicators" class="carousel-indicators">
-      <li data-target="#homePageSlider" data-slide-to="0" class="active"></li>
-      <li data-target="#homePageSlider" data-slide-to="1"></li>
-      <li data-target="#homePageSlider" data-slide-to="2"></li>
-    </ol>
+		<!-- slideshow indicators -->
+		<ol id="indicators" class="carousel-indicators">
+			<li data-target="#homePageSlider" data-slide-to="0" class="active"></li>
+			<li data-target="#homePageSlider" data-slide-to="1"></li>
+			<li data-target="#homePageSlider" data-slide-to="2"></li>
+		</ol>
 
-    <!-- INNER SLIDESHOW LOOP -->
-    <div class="carousel-inner fullImageWrap">
+		<!-- inner slideshow loop -->
+		<div class="carousel-inner fullImageWrap">
 
-      <?php
-      $default_slide = get_template_directory_uri() . '/assets/img/default-img.jpg';
+			<?php
+			$default_slide = get_template_directory_uri() . '/assets/img/default-slide.jpg';
 
-      // THEME MOD LOOP
-      for ($i = 1; $i < 4; $i++) {
-        $all_slides = array(
-          $featured_slide = get_theme_mod('featured_slide_' . $i . '_setting'),
-        );
-        if ($featured_slide == "") : $featured_slide = $default_slide;
-        endif;
+			// theme mod loop
+			for ($i = 1; $i < 4; $i++) {
+				$all_slides = array(
+					$featured_slide = get_theme_mod('featured_slide_' . $i . '_setting'),
+				);
+				if ($featured_slide == "") : $featured_slide = $default_slide;
+				endif;
 
-        // DISPLAY LOOP
-        if ($i == 1) {
-          echo '<div class="carousel-item active fullImage embed-responsive-item" style="background-image: url(' . $featured_slide . ');background-position: center center; background-size: 100%; background-repeat: no-repeat;"></div>';
-        } else {
-          echo '<div class="carousel-item fullImage embed-responsive-item" style="background-image: url(' . $featured_slide . ');background-position: center center; background-size: 100%; background-repeat: no-repeat;"></div>';
-        }
-      }
-      ?>
+				// display loop
+				if ($i == 1) {
+					echo '<div class="carousel-item active fullImage embed-responsive-item" style="background-image: url(' . $featured_slide . ');background-position: center; background-size: cover; background-repeat: no-repeat;"></div>';
+				} else {
+					echo '<div class="carousel-item fullImage embed-responsive-item" style="background-image: url(' . $featured_slide . ');background-position: center; background-size: cover; background-repeat: no-repeat;"></div>';
+				}
+			}
+			?>
 
-    </div><!-- CLOSE INNER SLIDESHOW-->
+		</div><!-- inner slideshow -->
 
-    <!-- SLIDESHOW CONTROLS -->
-    <a class="carousel-control-prev" href="#homePageSlider" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#homePageSlider" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+		<!-- slideshow controls -->
+		<a class="carousel-control-prev" href="#homePageSlider" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#homePageSlider" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
 
-</div><!-- CLOSE CONTAINER FLUID FEATURE-->
+</div><!-- feature slideshow -->
 
 <div class='container-fluid'>
 
-	<?php if ($customText == "") : echo '<h1>' . $defaultText . '</h1>';
-	else :
-		echo '<h1>' . $customText . '</h1>';
-	endif;
-	?>
+	<div class="row">
+		<?php if ($customText == "") : echo '<h1>' . $defaultText . '</h1>';
+		else :
+			echo '<h1>' . $customText . '</h1>';
+		endif;
+		?>
+	</div> <!-- row -->
 
-	<h5>custom theme</h5>
-	<p>Non-Prof Lite is a user-friendly and free WordPress theme. It is a simple, clean and professional theme that is best suited for Charity, NGO, foundations, churches, political organizations etc. It is very easy to setup and it comes with all the basic features that is needed to create your own website.</p>
+	<div class="row">
+		<p>Non-Prof Lite is a user-friendly and free WordPress theme. It is a simple, clean and professional theme that is best suited for Charity, NGO, foundations, churches, political organizations etc. It is very easy to setup and it comes with all the basic features that is needed to create your own website.</p>
+	</div> <!-- row -->
 
 </div> <!-- container-fluid -->
 

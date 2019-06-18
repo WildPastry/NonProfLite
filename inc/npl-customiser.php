@@ -17,11 +17,11 @@ function npl_customize_register($wp_customize)
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// create homepage panel ––––––––––––––––––––––––––––––––––––––––––––––––
-	// $wp_customize->add_panel('homepage_panel', array(
-	// 	'title'      => __('Home Page Content', 'nonproflite'),
-	// 	'priority'   => 10,
-	// 	'description' => 'Edit the home page content'
-	// ));
+	$wp_customize->add_panel('homepage_panel', array(
+		'title'      => __('Home Page Content', 'nonproflite'),
+		'priority'   => 10,
+		'description' => 'Edit the home page content'
+	));
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// create colours panel –––––––––––––––––––––––––––––––––––––––––––––––––
@@ -38,6 +38,32 @@ function npl_customize_register($wp_customize)
 	// 	'priority'   => 20,
 	// 	'description' => 'Edit the site font'
 	// ));
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+  // slideshow –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+  $wp_customize->add_section('featured_slide_section', array(
+    'title'      => __('Slideshow', 'non-prof-lite'),
+    'description' => 'Insert images for the home page slideshow',
+    'priority'   => 15,
+    'panel' => 'homepage_panel'
+  ));
+
+  for ($i = 1; $i <= 3; $i++) {
+    $wp_customize->add_setting('featured_slide_' . $i . '_setting', array(
+      'default'   => get_template_directory_uri() . '/assets/img/default-slide.jpg',
+      'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control(
+      $wp_customize,
+      'featured_slide_' . $i . '_control',
+      array(
+        'label'      => __('Slideshow Image ' . $i, 'non-prof-lite'),
+        'section'    => 'featured_slide_section',
+        'settings'   => 'featured_slide_' . $i . '_setting'
+      )
+    ));
+  }
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// colours –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
