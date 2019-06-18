@@ -9,13 +9,13 @@ function enqueue_files()
 	// css
 	// fonts ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// fira sans
-	wp_enqueue_style('nonproflite_fonts', get_template_directory_uri() . 'https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700&display=swap', array(), '1.0');
+	wp_enqueue_style('nonproflite_fira_font', 'https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700&display=swap', array(), '1.0');
 
-	//   merriweather
-	wp_enqueue_style('nonproflite_fonts', get_template_directory_uri() . 'https://fonts.googleapis.com/css?family=Merriweather:300,400,700&display=swap', array(), '1.0');
+	// merriweather
+	wp_enqueue_style('nonproflite_merriweather_font', 'https://fonts.googleapis.com/css?family=Merriweather:300,400,700&display=swap', array(), '1.0');
 
-	//   quicksand
-	wp_enqueue_style('nonproflite_fonts', get_template_directory_uri() . 'https://fonts.googleapis.com/css?family=Quicksand:300,400,700&display=swap', array(), '1.0');
+	// quicksand
+	wp_enqueue_style('nonproflite_quicksand_font', 'https://fonts.googleapis.com/css?family=Quicksand:300,400,700&display=swap', array(), '1.0');
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// vendor –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

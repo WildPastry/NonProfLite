@@ -1,1 +1,1 @@
-console.log("ts connected...");
+console.log("ts connected...");var myNumOne=54,myNumTwo=10,myNum=myNumOne+myNumTwo;console.log(myNum);var myFinalNum=myNum.toString();console.log(myFinalNum);

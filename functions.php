@@ -13,7 +13,7 @@ require get_template_directory() . '/inc/npl-enqueue-files.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 // admin –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// require get_template_directory() . '/inc/admin/theme-support.php';
+// require get_template_directory() . '/inc/admin/npl-admin-functions.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 // control –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
