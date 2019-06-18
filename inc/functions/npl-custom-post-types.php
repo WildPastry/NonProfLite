@@ -4,7 +4,7 @@
  * @package nonproflite
  */
 
-// dog post type
+// dog post type ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 function add_dog_post_type()
 {
 
@@ -38,3 +38,4 @@ function add_dog_post_type()
 	register_post_type('dog', $args);
 }
 add_action('init', 'add_dog_post_type');
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

@@ -28,7 +28,6 @@ function edit_admin_menu()
 	// First Separator ––––––––––––––––––––––––––––––––––––––––––––––––––
 	// remove_menu_page('edit.php?post_type=page'); // Pages
 	// remove_menu_page('edit.php'); // Posts
-	// remove_menu_page('edit.php?post_type=custom'); //Custom Post Type
 	// remove_menu_page('upload.php'); // Media
 	// remove_menu_page('link-manager.php'); // Links
 	remove_menu_page('edit-comments.php'); // Comments
@@ -54,7 +53,8 @@ function custom_menu_order($menu_ord)
 		// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 		'edit.php?post_type=page', // Pages
 		'edit.php', // Posts
-		'edit.php?post_type=dog', // Custom Post Type
+		'edit.php?post_type=dog', // Dogs
+		'npl_map_page', // Map
 		'upload.php', // Media
 		// 'link-manager.php', // Links
 		// 'edit-comments.php', // Comments
