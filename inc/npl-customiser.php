@@ -17,11 +17,11 @@ function npl_customize_register($wp_customize)
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// create homepage panel ––––––––––––––––––––––––––––––––––––––––––––––––
-	$wp_customize->add_panel('homepage_panel', array(
-		'title'      => __('Home Page Content', 'nonproflite'),
-		'priority'   => 10,
-		'description' => 'Edit the home page content'
-	));
+	// $wp_customize->add_panel('homepage_panel', array(
+	// 	'title'      => __('Home Page Content', 'nonproflite'),
+	// 	'priority'   => 10,
+	// 	'description' => 'Edit the home page content'
+	// ));
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// create colours panel –––––––––––––––––––––––––––––––––––––––––––––––––

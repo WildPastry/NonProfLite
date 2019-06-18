@@ -13,7 +13,10 @@ require get_template_directory() . '/inc/npl-enqueue-files.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 // admin –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// require get_template_directory() . '/inc/admin/npl-admin-functions.php';
+// load admin menu
+require get_template_directory() . '/inc/admin/npl-admin-menu.php';
+// load admin styles
+require get_template_directory() . '/inc/admin/npl-admin-styles.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 // control –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -26,8 +29,12 @@ require get_template_directory() . '/inc/control/npl-control-sidebar.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 // functions –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// custom fields
+require get_template_directory() . '/inc/functions/npl-custom-fields.php';
+// custom post types
+require get_template_directory() . '/inc/functions/npl-custom-post-types.php';
 // misc functions
-require get_template_directory() . '/inc/functions/npl-function-misc.php';
+require get_template_directory() . '/inc/functions/npl-misc-functions.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 // theme support –––––––––––––––––––––––––––––––––––––––––––––––––––––––––

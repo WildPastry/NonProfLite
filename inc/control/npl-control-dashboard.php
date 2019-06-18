@@ -25,21 +25,20 @@ add_action('wp_dashboard_setup', 'disable_default_dashboard_widgets', 999);
 function edit_admin_menu()
 {
 	// Dashboard
-	// First separator ––––––––––––––––––––––––––––––––––––––––––––––––––
+	// First Separator ––––––––––––––––––––––––––––––––––––––––––––––––––
 	// remove_menu_page('edit.php?post_type=page'); // Pages
 	// remove_menu_page('edit.php'); // Posts
-	// remove_menu_page('edit.php?post_type=event'); //Custom Events
-	// remove_menu_page('edit.php?post_type=meeting'); //Custom Meetings
+	// remove_menu_page('edit.php?post_type=custom'); //Custom Post Type
 	// remove_menu_page('upload.php'); // Media
 	// remove_menu_page('link-manager.php'); // Links
 	remove_menu_page('edit-comments.php'); // Comments
-	// Second separator ––––––––––––––––––––––––––––––––––––––––––––––––––
+	// Second Separator ––––––––––––––––––––––––––––––––––––––––––––––––––
 	// remove_menu_page('themes.php'); // Appearance
 	// remove_menu_page('plugins.php'); // Plugins
 	// remove_menu_page('users.php'); // Users
 	// remove_menu_page('tools.php'); // Tools
 	// remove_menu_page('options-general.php'); // Settings
-	// Last separator ––––––––––––––––––––––––––––––––––––––––––––––––––––
+	// Last Separator ––––––––––––––––––––––––––––––––––––––––––––––––––––
 }
 add_action('admin_menu', 'edit_admin_menu');
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -51,22 +50,22 @@ function custom_menu_order($menu_ord)
 
 	return array(
 		'index.php', // Dashboard
-		'separator1', // First separator
+		'separator1', // First Separator
 		// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 		'edit.php?post_type=page', // Pages
 		'edit.php', // Posts
-		// 'edit.php?post_type=custom', // Custom Post Type
+		'edit.php?post_type=dog', // Custom Post Type
 		'upload.php', // Media
 		// 'link-manager.php', // Links
 		// 'edit-comments.php', // Comments
-		'separator2', // Second separator
+		'separator2', // Second Separator
 		// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 		'themes.php', // Appearance
 		'plugins.php', // Plugins
 		'users.php', // Users
 		'tools.php', // Tools
 		'options-general.php', // Settings
-		'separator-last', // Last separator
+		'separator-last', // Last Separator
 		// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	);
 }
