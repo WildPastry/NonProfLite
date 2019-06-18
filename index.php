@@ -23,7 +23,7 @@ get_header(); ?>
 		</ol>
 
 		<!-- inner slideshow loop -->
-		<div class="carousel-inner fullImageWrap">
+		<div class="carousel-inner fullImgWrap">
 
 			<?php
 			$default_slide = get_template_directory_uri() . '/assets/img/default-slide.jpg';
@@ -38,14 +38,14 @@ get_header(); ?>
 
 				// display loop
 				if ($i == 1) {
-					echo '<div class="carousel-item active fullImage embed-responsive-item" style="background-image: url(' . $featured_slide . ');background-position: center; background-size: cover; background-repeat: no-repeat;"></div>';
+					echo '<div class="carousel-item active fullImg embed-responsive-item" style="background-image: url(' . $featured_slide . ');background-position: center; background-size: cover; background-repeat: no-repeat;"></div>';
 				} else {
-					echo '<div class="carousel-item fullImage embed-responsive-item" style="background-image: url(' . $featured_slide . ');background-position: center; background-size: cover; background-repeat: no-repeat;"></div>';
+					echo '<div class="carousel-item fullImg embed-responsive-item" style="background-image: url(' . $featured_slide . ');background-position: center; background-size: cover; background-repeat: no-repeat;"></div>';
 				}
 			}
 			?>
 
-		</div><!-- inner slideshow -->
+		</div> <!-- inner slideshow -->
 
 		<!-- slideshow controls -->
 		<a class="carousel-control-prev" href="#homePageSlider" role="button" data-slide="prev">
@@ -58,10 +58,14 @@ get_header(); ?>
 		</a>
 	</div>
 
-</div><!-- feature slideshow -->
+</div> <!-- feature slideshow -->
+
+<!-- menu -->
+<?php get_template_part('inc/templates/menu'); ?>
 
 <div class='container-fluid'>
 
+	<!-- custom greeting -->
 	<div class="row">
 		<?php if ($customText == "") : echo '<h1>' . $defaultText . '</h1>';
 		else :

@@ -6,7 +6,7 @@
 
 ?>
 
-</div><!-- master container -->
+</div> <!-- master container -->
 
 <footer class="footer">
   <div class="container-fluid">
@@ -17,7 +17,7 @@
       <p class="">Material &copy; <a href='https://www.chchbullbreedrescue.org.nz/' target='_blank'>CHCH Bull Breed Rescue</a></p>
     </div>
   </div>
-</footer><!-- footer -->
+</footer> <!-- footer -->
 
 <?php wp_footer(); ?>
 </body>

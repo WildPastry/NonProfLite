@@ -31,6 +31,8 @@ require get_template_directory() . '/inc/control/npl-control-sidebar.php';
 // functions –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // custom fields
 require get_template_directory() . '/inc/functions/npl-custom-fields.php';
+// custom menu
+require get_template_directory() . '/inc/functions/npl-custom-menu.php';
 // custom post types
 require get_template_directory() . '/inc/functions/npl-custom-post-types.php';
 // misc functions
