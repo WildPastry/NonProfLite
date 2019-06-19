@@ -16,35 +16,38 @@ get_header(); ?>
 	<?php  /* start posts if */ if (have_posts()) :
 		while /* start posts while */ (have_posts()) : the_post(); ?>
 
-    <!-- feature image -->
-    <div class="container-fluid-feature">
+			<!-- feature image -->
+			<div class="container-fluid-feature">
 
-			<!-- thumbnail image -->
-			<div class="thumbnailWrap">
-				<?php /* start thumbnail if */ if (has_post_thumbnail()) : ?>
-					<?php echo '<div class="thumbnailImg" style="background-image: url(' . $thumbnailImg . ');background-position: center; background-size: cover;  background-repeat: no-repeat;"></div>';
-				else :
-					echo '<div class="thumbnailImg" style="background-image: url(' . $defaultThumb . ');background-position: center; background-size: cover;  background-repeat: no-repeat;"></div>';
-					?>
-				<?php /* end thumbnail if */ endif; ?>
-			</div> <!-- thumbnail image -->
+				<!-- thumbnail image -->
+				<div class="thumbnailWrap">
+					<?php /* start thumbnail if */ if (has_post_thumbnail()) : ?>
+						<?php echo '<div class="thumbnailImg" style="background-image: url(' . $thumbnailImg . ');background-position: center; background-size: cover;  background-repeat: no-repeat;"></div>';
+					else :
+						echo '<div class="thumbnailImg" style="background-image: url(' . $defaultThumb . ');background-position: center; background-size: cover;  background-repeat: no-repeat;"></div>';
+						?>
+					<?php /* end thumbnail if */ endif; ?>
+				</div> <!-- thumbnail image -->
 
-		</div> <!-- feature image-->
+			</div> <!-- feature image-->
 
 			<!-- menu -->
 			<?php get_template_part('inc/templates/menu'); ?>
 
-			<?php get_template_part('inc/templates/content');
+			<!-- content -->
+			<div class="row">
+				<?php get_template_part('inc/templates/content'); ?>
+			</div> <!-- row -->
 
-		/* end posts while */
-		endwhile;
+			<!-- end posts while -->
+		<?php endwhile;
 
-	else :
+else :
 
-		get_template_part('templates/content', 'none');
+	get_template_part('templates/content', 'none');
 
-	/* end posts if */
-	endif; ?>
+/* end posts if */
+endif; ?>
 
 </section> <!-- main content-area -->
 

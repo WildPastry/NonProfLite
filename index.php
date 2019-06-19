@@ -74,8 +74,9 @@ get_header(); ?>
 		?>
 	</div> <!-- row -->
 
+	<!-- content -->
 	<div class="row">
-		<p>Non-Prof Lite is a user-friendly and free WordPress theme. It is a simple, clean and professional theme that is best suited for Charity, NGO, foundations, churches, political organizations etc. It is very easy to setup and it comes with all the basic features that is needed to create your own website.</p>
+	<?php get_template_part('inc/templates/content'); ?>
 	</div> <!-- row -->
 
 </div> <!-- container-fluid -->
