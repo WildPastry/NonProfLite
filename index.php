@@ -122,6 +122,7 @@ get_header(); ?>
 							</div>
 							<div class="card-body">
 								<?php the_excerpt(); ?>
+								<a href="<?php the_permalink(); ?>">Find out more...</a>
 							</div>
 						</div>
 					</div>
@@ -135,6 +136,7 @@ get_header(); ?>
 							</div>
 							<div class="card-body">
 								<?php the_excerpt(); ?>
+								<a href="<?php the_permalink(); ?>">Find out more...</a>
 							</div>
 						</div>
 					</div>

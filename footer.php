@@ -11,7 +11,6 @@ $blog_title = get_bloginfo('name');
 
 </div> <!-- master container -->
 
-<div class="container-fluid">
 	<footer class="footer">
 		<div class="container-fluid">
 			<div class="footerWrap">
@@ -22,7 +21,6 @@ $blog_title = get_bloginfo('name');
 			</div>
 		</div> <!-- container -->
 	</footer> <!-- footer -->
-</div> <!-- container -->
 
 <?php wp_footer(); ?>
 </body>
