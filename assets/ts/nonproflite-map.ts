@@ -1,8 +1,8 @@
 console.log('ts map connected...');
 var latLngInput: any;
 console.log(latLngInput);
-var myLat = parseFloat(latLngInput['latInput']);
-var myLng = parseFloat(latLngInput['lngInput']);
+var myLat = parseFloat(latLngInput.latInput);
+var myLng = parseFloat(latLngInput.lngInput);
 
 // variables
 var map;

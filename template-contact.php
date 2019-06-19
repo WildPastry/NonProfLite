@@ -27,22 +27,49 @@ get_header(); ?>
 
 			</div> <!-- feature map -->
 
-			<!-- menu -->
-			<?php get_template_part('inc/templates/menu'); ?>
+			<!-- posts and content -->
+			<div class='container-fluid'>
 
-			<!-- content -->
-			<?php get_template_part('inc/templates/content'); ?>
+				<!-- menu -->
+				<?php get_template_part('inc/templates/menu'); ?>
 
-			<!-- end posts while -->
-		<?php endwhile;
+				<!-- content -->
+				<?php get_template_part('inc/templates/content'); ?>
 
-else : ?>
+				<!-- form outer-->
+				<div class="row">
+					<div class="col-12">
+							<div class="contactWrap">
+								<h2>Get in touch</h2>
 
-		<!-- no content -->
-		<?php get_template_part('templates/content', 'none'); ?>
+								<!-- form inner -->
+								<form action="#" class="contactForm">
+									<div class="row">
+										<div class="col-6"><input type="text" class="contactInput" placeholder="Name" required="required"></div>
+										<div class="col-6"><input type="email" class="contactInput" placeholder="Email" required="required"></div>
+										<div class="col-12"><input type="phone" class="contactInput" placeholder="Mobile" required="required"></div>
+										<div class="col-12"><input type="text" class="contactInput" placeholder="Subject"></div>
+										<div class="col-12"><textarea class="contactInput contactText" placeholder="Message" required="required"></textarea></div>
+										<button class="button contactButton">Submit</button>
+									</div> <!-- row -->
+								</form> <!-- form inner -->
 
-		<!-- end posts if -->
-	<?php endif; ?>
+							</div>
+					</div>
+				</div> <!-- form outer-->
+
+				<!-- end posts while -->
+			<?php endwhile;
+
+	else : ?>
+
+			<!-- no content -->
+			<?php get_template_part('templates/content', 'none'); ?>
+
+			<!-- end posts if -->
+		<?php endif; ?>
+
+	</div> <!-- container-fluid -->
 
 </section> <!-- main content-area -->
 

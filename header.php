@@ -43,4 +43,4 @@ $url = home_url();
 	</div> <!-- logo -->
 
 	<!-- master container -->
-	<div class="container-fluid">
+	<div class="container-fluid-master">

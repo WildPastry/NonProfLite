@@ -13,7 +13,7 @@ get_header(); ?>
 <!-- feature slideshow -->
 <div class="container-fluid-feature">
 
-	<div id="homePageSlider" class="carousel slide carousel-fade" data-ride="carousel">
+	<div id="homePageSlider" class="carousel slide carousel-slide" data-ride="carousel">
 
 		<!-- slideshow indicators -->
 		<ol id="indicators" class="carousel-indicators">
@@ -60,11 +60,11 @@ get_header(); ?>
 
 </div> <!-- feature slideshow -->
 
-<!-- menu -->
-<?php get_template_part('inc/templates/menu'); ?>
-
 <!-- posts and content -->
 <div class='container-fluid'>
+
+	<!-- menu -->
+	<?php get_template_part('inc/templates/menu'); ?>
 
 	<!-- custom greeting -->
 	<div class="row">
@@ -81,8 +81,10 @@ get_header(); ?>
 	<div class="row">
 		<?php /* start posts if */ if (have_posts()) : ?>
 			<?php /* start posts while */ while (have_posts()) : the_post() ?>
+
 				<!-- get content -->
 				<?php get_template_part('inc/templates/content', get_post_format()); ?>
+
 			<?php /* end posts if */ endwhile; ?>
 		<?php  /* end posts while */ endif; ?>
 	</div> <!-- row -->
