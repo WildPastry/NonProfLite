@@ -76,7 +76,7 @@ get_header(); ?>
 
 	<!-- content -->
 	<div class="row">
-	<?php get_template_part('inc/templates/content'); ?>
+	<?php get_template_part('inc/templates/content', get_post_format()); ?>
 	</div> <!-- row -->
 
 </div> <!-- container-fluid -->

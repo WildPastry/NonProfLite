@@ -16,7 +16,6 @@
         <?php /* start post type if */ if ('post' == get_post_type()) : ?>
           <div class="postmeta">
             <div class="post-date"><?php the_date(); ?></div> <!-- post-date -->
-            <div class="post-comment"> <a href="<?php comments_link(); ?>"><?php comments_number(); ?></a></div>
           </div> <!-- postmeta -->
         <?php /* end post type if */ endif; ?>
       </header>
