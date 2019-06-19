@@ -39,3 +39,27 @@ function add_dog_post_type()
 }
 add_action('init', 'add_dog_post_type');
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// enquiries post type ––––––––––––––––––––––––––––––––––––––––––––––––––
+function add_enquiries_post_type()
+{
+	$labels = array(
+		'name' => _x('Enquiries', 'post type name', 'nonproflite'),
+		'singular_name' => _x('Enquiry', 'post types singluar name', 'nonproflite'),
+		'add_new_item' => _x('Add New Enquiry', 'adding new enquiry', 'nonproflite')
+	);
+	$args = array(
+		'labels' => $labels,
+		'description' => 'Enquiries from the contact and donate form',
+		'public' => true,
+		'query_var' => true,
+		'menu_icon' => 'dashicons-email-alt',
+		'supports' => array(
+			'title',
+			'editor'
+		),
+	);
+	register_post_type('enquiries', $args);
+}
+add_action('init', 'add_enquiries_post_type');
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

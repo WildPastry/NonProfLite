@@ -55,6 +55,7 @@ function custom_menu_order($menu_ord)
 		'edit.php', // Posts
 		'edit.php?post_type=dog', // Dogs
 		'npl_map_page', // Map
+		'edit.php?post_type=enquiries', // Enquiries
 		'upload.php', // Media
 		// 'link-manager.php', // Links
 		// 'edit-comments.php', // Comments

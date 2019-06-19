@@ -14,7 +14,7 @@
 		<!-- single post title -->
 		<div class="col-12">
 			<header>
-				<h3><?php the_title(); ?></h3>
+				<h2><?php the_title(); ?></h2>
 				<?php /* start post type if */ if ('post' == get_post_type()) : ?>
 					<div class="post-date"><?php the_date(); ?></div> <!-- post-date -->
 				<?php /* end post type if */ endif; ?>
