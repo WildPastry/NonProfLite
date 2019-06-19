@@ -34,7 +34,7 @@ get_header(); ?>
 			<!-- menu -->
 			<?php get_template_part('inc/templates/menu'); ?>
 
-			<?php get_template_part('templates/content');
+			<?php get_template_part('inc/templates/content');
 
 		/* end posts while */
 		endwhile;
