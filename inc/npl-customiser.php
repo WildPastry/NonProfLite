@@ -282,14 +282,14 @@ function nonproflite_customize_css()
 
 		/* paragraph text */
 		p,
-		li {
+		li,
+		.text-muted {
 			color:
 				<?php echo get_theme_mod('paragraph_colour_setting', '#2b2b2b');
-				?>;
+				?> !important;
 		}
 
 		/* headings text */
-		h1
 		h1,
 		h2,
 		h3,
@@ -320,7 +320,7 @@ function nonproflite_customize_css()
 		footer a {
 			color:
 				<?php echo get_theme_mod('menu-footer-text_colour_setting', '#ffffff');
-				?>;
+				?> !important;
 		}
 
 		.menuModule a:hover {

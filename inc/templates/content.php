@@ -21,16 +21,6 @@
 			</header>
 		</div>
 
-		<!-- single post thumbnail -->
-		<?php if (has_post_thumbnail()) : ?>
-			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-				<?php the_post_thumbnail('medium_large', ['class' => 'singlePostImg', 'alt' => 'image from post']) ?>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-				<?php the_content(); ?>
-			</div>
-		<?php endif; ?>
-
 		<!-- single post content -->
 		<div class="col-12">
 			<article>

@@ -7,7 +7,7 @@
 // add general theme support
 function themename_add_theme_support()
 {
-	//   add_theme_support('post-thumbnails');
+	  add_theme_support('post-thumbnails');
 	//   add_theme_support('wp-block-styles');
 	//   add_theme_support('automatic-feed-links');
 	//   add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
