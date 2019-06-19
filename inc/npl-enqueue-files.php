@@ -6,6 +6,24 @@
 
 function enqueue_files()
 {
+	// map ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	// get page template
+	$pageTemplate = get_page_template_slug();
+
+	// map key info
+	$map_key = get_option('mapKeyInput');
+	$gmaps = 'https://maps.googleapis.com/maps/api/js?key=' . $map_key . '&callback=initMap#asyncload';
+
+	// christchurch lat lng
+	$latInput = -43.5321;
+	$lngInput = 172.6362;
+
+	// load map script
+	if ($pageTemplate === 'template-contact.php') {
+		wp_enqueue_script('nonproflite_map_key', $gmaps, array(), '1.0', true);
+	}
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 	// css
 	// fonts ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// fira sans
@@ -46,6 +64,29 @@ function enqueue_files()
 
 	// nonproflite admin
 	wp_enqueue_script('nonproflite_admin_js', get_template_directory_uri() . '/assets/js/nonproflite-admin.js', array(), '1.0', true);
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	// map script addons ––––––––––––––––––––––––––––––––––––––––––––––––––––
+	wp_enqueue_script('nonproflite_map_js', get_template_directory_uri() . '/assets/js/nonproflite-map.js', array(), '1.0', true);
+
+	// localize javascript
+	wp_localize_script('nonproflite_map_js', 'latLngInput', array(
+		'latInput' => $latInput,
+		'lngInput' => $lngInput
+	));
+
+	// async load
+	add_filter('clean_url', 'ikreativ_async_scripts', 11, 1);
+	function ikreativ_async_scripts($url)
+	{
+		if (strpos($url, '#asyncload') === false) {
+			return $url;
+		} elseif (is_admin()) {
+			return str_replace('#asyncload', '', $url);
+		} else {
+			return str_replace('#asyncload', '', $url) . "' async='async";
+		}
+	}
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 }

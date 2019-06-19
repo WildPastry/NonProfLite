@@ -29,7 +29,7 @@ get_header(); ?>
 					<?php /* end thumbnail if */ endif; ?>
 				</div> <!-- thumbnail image -->
 
-			</div> <!-- feature image-->
+			</div> <!-- feature image -->
 
 			<!-- menu -->
 			<?php get_template_part('inc/templates/menu'); ?>

@@ -9,8 +9,15 @@ function admin_styles()
 {
 	echo '<style>
 	.form-table th {
-		width: 40px;
+		padding: 20px 0;
+		width: 80px;
 			}
+			.form-table td {
+				padding: 15px 0;
+		}
+			#mapKeyInput, #locationInput {
+				width: 320px;
+		}
 	</style>';
 }
 add_action('admin_head', 'admin_styles');
