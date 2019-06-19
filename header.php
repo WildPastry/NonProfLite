@@ -4,6 +4,9 @@
  * @package nonproflite
  */
 
+// get site title
+$blog_title = get_bloginfo('name');
+
 // custom logo
 $custom_logo_size = get_theme_mod('custom_logo');
 $custom_logo = wp_get_attachment_image_src($custom_logo_size, $defaults);
@@ -26,7 +29,7 @@ $url = home_url();
 	<meta name="title" content="Non-Prof Lite - Custom Wordpress Theme">
 	<meta name="description" content="Non-Prof Lite - Non-Prof Lite is a user-friendly and free WordPress theme">
 	<meta name="keywords" content="one-column, flexible-header, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, slideshow, map-support">
-	<title>Non-Prof Lite | <?php the_title(); ?></title>
+	<title><?php echo $blog_title ?> | <?php the_title(); ?></title>
 	<?php wp_head(); ?>
 </head> <!-- head -->
 

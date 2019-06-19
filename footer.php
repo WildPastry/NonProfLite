@@ -4,21 +4,24 @@
  * @package nonproflite
  */
 
+// get site title
+$blog_title = get_bloginfo('name');
+
 ?>
 
 </div> <!-- master container -->
 
 <div class="container-fluid">
-<footer class="footer">
-<div class="container-fluid">
-    <div class="footerWrap">
-      <a target="_blank" href="<?php echo esc_url(__('https://mikeparker.co.nz/', 'nonproflite')); ?>">
-        <?php printf(__('Theme by %s', 'nonproflite'), 'Mike Parker'); ?>
-      </a>
-      <p>Material &copy; <a href='https://www.chchbullbreedrescue.org.nz/' target='_blank'>CHCH Bull Breed Rescue</a></p>
-    </div>
+	<footer class="footer">
+		<div class="container-fluid">
+			<div class="footerWrap">
+				<a target="_blank" href="<?php echo esc_url(__('https://mikeparker.co.nz/', 'nonproflite')); ?>">
+					<?php printf(__('Theme by %s', 'nonproflite'), 'Mike Parker'); ?>
+				</a>
+				<p>Content &copy; <a href='https://www.chchbullbreedrescue.org.nz/' target='_blank'><?php echo $blog_title ?> <?php echo date('Y'); ?></a></p>
+			</div>
 		</div> <!-- container -->
-</footer> <!-- footer -->
+	</footer> <!-- footer -->
 </div> <!-- container -->
 
 <?php wp_footer(); ?>

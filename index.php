@@ -63,6 +63,7 @@ get_header(); ?>
 <!-- menu -->
 <?php get_template_part('inc/templates/menu'); ?>
 
+<!-- posts and content -->
 <div class='container-fluid'>
 
 	<!-- custom greeting -->
@@ -76,13 +77,73 @@ get_header(); ?>
 		</div>
 	</div> <!-- row -->
 
-	<!-- content -->
+	<!-- post content -->
 	<div class="row">
-		<?php if (have_posts()) : ?>
-			<?php while (have_posts()) : the_post() ?>
+		<?php /* start posts if */ if (have_posts()) : ?>
+			<?php /* start posts while */ while (have_posts()) : the_post() ?>
+				<!-- get content -->
 				<?php get_template_part('inc/templates/content', get_post_format()); ?>
-			<?php endwhile; ?>
-		<?php endif; ?>
+			<?php /* end posts if */ endwhile; ?>
+		<?php  /* end posts while */ endif; ?>
+	</div> <!-- row -->
+
+	<!-- featured dogs -->
+	<?php
+	$args = array(
+		'orderby' => 'title',
+		'order' => 'ASC',
+		'post_type' => 'dog',
+	);
+	$allDogs = new WP_Query($args);
+	?>
+
+	<!-- featured dogs title -->
+	<div class="row mt-3">
+		<div class="col-12">
+			<h2>Latest dogs for adoption</h2>
+		</div>
+	</div> <!-- row -->
+
+	<!-- post content -->
+	<div class="row">
+
+		<?php /* start dogs if */ if ($allDogs->have_posts()) : ?>
+			<?php /* start dogs count */ $dogNum = 1; ?>
+			<?php /* start dogs while */ while ($allDogs->have_posts()) : $allDogs->the_post(); ?>
+				<?php /* start dogs image if */ if (has_post_thumbnail()) : ?>
+
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-3">
+						<div class="card">
+							<a href="<?php the_permalink(); ?>">
+								<?php the_post_thumbnail('medium_large', ['class' => 'card-img-top img-fluid', 'alt' => 'image from dog post type']) ?>
+							</a>
+							<div class="card-header">
+								<?php the_title(); ?>
+							</div>
+							<div class="card-body">
+								<?php the_excerpt(); ?>
+							</div>
+						</div>
+					</div>
+
+				<?php /* else */ else : ?>
+
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-3">
+						<div class="card">
+							<div class="card-header">
+								<?php the_title(); ?>
+							</div>
+							<div class="card-body">
+								<?php the_excerpt(); ?>
+							</div>
+						</div>
+					</div>
+
+				<?php /* end dogs image if */ endif; ?>
+			<?php /* end dogs while */ endwhile; ?>
+			<?php /* end dogs count */ $dogNum++; ?>
+		<?php /* end dogs if */ endif; ?>
+
 	</div> <!-- row -->
 
 </div> <!-- container-fluid -->

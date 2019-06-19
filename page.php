@@ -35,18 +35,15 @@ get_header(); ?>
 			<?php get_template_part('inc/templates/menu'); ?>
 
 			<!-- content -->
-			<div class="row">
-				<?php get_template_part('inc/templates/content'); ?>
-			</div> <!-- row -->
+			<?php get_template_part('inc/templates/content'); ?>
 
 			<!-- end posts while -->
 		<?php endwhile;
 
 else : ?>
 
-		<div class="row">
-			<?php get_template_part('templates/content', 'none'); ?>
-		</div> <!-- row -->
+		<!-- no content -->
+		<?php get_template_part('templates/content', 'none'); ?>
 
 		<!-- end posts if -->
 	<?php endif; ?>

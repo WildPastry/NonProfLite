@@ -24,7 +24,7 @@ function nonproflite_theme_settings()
 {
     register_setting('nonproflite_settings_group', 'first_name');
 
-    add_settings_section('nonproflite_sidebar_options', 'Google Map Key Options', 'nonproflite_sidebar_options', 'npl_map_page');
+    add_settings_section('nonproflite_sidebar_options', 'Google Map Key', 'nonproflite_sidebar_options', 'npl_map_page');
 
     add_settings_field('sidebar-name', 'Key', 'nonproflite_sidebar_name', 'npl_map_page', 'nonproflite_sidebar_options');
 
