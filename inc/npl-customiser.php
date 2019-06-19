@@ -289,6 +289,7 @@ function nonproflite_customize_css()
 		}
 
 		/* headings text */
+		h1
 		h1,
 		h2,
 		h3,

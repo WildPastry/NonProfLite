@@ -67,16 +67,22 @@ get_header(); ?>
 
 	<!-- custom greeting -->
 	<div class="row">
+		<div class="col-12">
 		<?php if ($customText == "") : echo '<h1>' . $defaultText . '</h1>';
 		else :
 			echo '<h1>' . $customText . '</h1>';
 		endif;
 		?>
+		</div>
 	</div> <!-- row -->
 
 	<!-- content -->
 	<div class="row">
-	<?php get_template_part('inc/templates/content', get_post_format()); ?>
+		<?php if (have_posts()) : ?>
+			<?php while (have_posts()) : the_post() ?>
+				<?php get_template_part('inc/templates/content', get_post_format()); ?>
+			<?php endwhile; ?>
+		<?php endif; ?>
 	</div> <!-- row -->
 
 </div> <!-- container-fluid -->

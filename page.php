@@ -42,12 +42,14 @@ get_header(); ?>
 			<!-- end posts while -->
 		<?php endwhile;
 
-else :
+else : ?>
 
-	get_template_part('templates/content', 'none');
+		<div class="row">
+			<?php get_template_part('templates/content', 'none'); ?>
+		</div> <!-- row -->
 
-/* end posts if */
-endif; ?>
+		<!-- end posts if -->
+	<?php endif; ?>
 
 </section> <!-- main content-area -->
 

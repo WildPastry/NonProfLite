@@ -4,7 +4,7 @@
  * @package nonproflite
  */
 
- // get thumbnail image
+// get thumbnail image
 $defaultThumb = get_template_directory_uri() . '/assets/img/default-thumb.jpg';
 $thumbnailImg = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 
@@ -35,19 +35,18 @@ get_header(); ?>
 			<?php get_template_part('inc/templates/menu'); ?>
 
 			<!-- content -->
-			<div class="row">
-				<?php get_template_part('inc/templates/content'); ?>
-			</div> <!-- row -->
+			<?php get_template_part('inc/templates/content'); ?>
 
 			<!-- end posts while -->
 		<?php endwhile;
 
-else :
+else : ?>
 
-	get_template_part('templates/content', 'none');
+		<!-- no content -->
+		<?php get_template_part('templates/content', 'none'); ?>
 
-/* end posts if */
-endif; ?>
+		<!-- end posts if -->
+	<?php endif; ?>
 
 </section> <!-- main content-area -->
 

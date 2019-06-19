@@ -15,7 +15,7 @@
       <a target="_blank" href="<?php echo esc_url(__('https://mikeparker.co.nz/', 'nonproflite')); ?>">
         <?php printf(__('Theme by %s', 'nonproflite'), 'Mike Parker'); ?>
       </a>
-      <p class="">Material &copy; <a href='https://www.chchbullbreedrescue.org.nz/' target='_blank'>CHCH Bull Breed Rescue</a></p>
+      <p>Material &copy; <a href='https://www.chchbullbreedrescue.org.nz/' target='_blank'>CHCH Bull Breed Rescue</a></p>
     </div>
 		</div> <!-- container -->
 </footer> <!-- footer -->
