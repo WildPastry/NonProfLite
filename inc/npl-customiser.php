@@ -90,13 +90,14 @@ function npl_customize_register($wp_customize)
 		)
 	));
 
-	// heading text
-	$wp_customize->add_section('heading_colour_section', array(
-		'title'      => __('Heading text', 'nonproflite'),
+	// text
+	$wp_customize->add_section('text_colour_section', array(
+		'title'      => __('Text', 'nonproflite'),
 		'priority'   => 10,
 		'panel' => 'site_colours_panel'
 	));
 
+	// heading text
 	$wp_customize->add_setting('heading_colour_setting', array(
 		'default'   => '#2b2b2b',
 		'transport' => 'refresh',
@@ -108,18 +109,12 @@ function npl_customize_register($wp_customize)
 		array(
 			'label'      => __('Set the heading text colour', 'nonproflite'),
 			'description' => __('Using this option you can change the heading colour throughout your entire site'),
-			'section'    => 'heading_colour_section',
+			'section'    => 'text_colour_section',
 			'settings'   => 'heading_colour_setting',
 		)
 	));
 
 	// paragraph text
-	$wp_customize->add_section('paragraph_colour_section', array(
-		'title'      => __('Body text', 'nonproflite'),
-		'priority'   => 15,
-		'panel' => 'site_colours_panel'
-	));
-
 	$wp_customize->add_setting('paragraph_colour_setting', array(
 		'default'   => '#2b2b2b',
 		'transport' => 'refresh',
@@ -131,18 +126,19 @@ function npl_customize_register($wp_customize)
 		array(
 			'label'      => __('Set the body text colour', 'nonproflite'),
 			'description' => __('Using this option you can change the body text colour throughout your entire site'),
-			'section'    => 'paragraph_colour_section',
+			'section'    => 'text_colour_section',
 			'settings'   => 'paragraph_colour_setting',
 		)
 	));
 
-	// menu and footer bg colours
-	$wp_customize->add_section('menu-footer-bg_colour_section', array(
-		'title'      => __('Menu and footer background', 'nonproflite'),
-		'priority'   => 20,
+	// menu and footer colours
+	$wp_customize->add_section('menu-footer_colour_section', array(
+		'title'      => __('Menu + Footer', 'nonproflite'),
+		'priority'   => 15,
 		'panel' => 'site_colours_panel'
 	));
 
+	// menu and footer background colours
 	$wp_customize->add_setting('menu-footer-bg_colour_setting', array(
 		'default'   => '#b74f87',
 		'transport' => 'refresh',
@@ -154,18 +150,12 @@ function npl_customize_register($wp_customize)
 		array(
 			'label'      => __('Set the menu and footer background colour', 'nonproflite'),
 			'description' => __('Using this option you can change the background colour of the menu and footer throughout your entire site'),
-			'section'    => 'menu-footer-bg_colour_section',
+			'section'    => 'menu-footer_colour_section',
 			'settings'   => 'menu-footer-bg_colour_setting',
 		)
 	));
 
 	// menu and footer text colours
-	$wp_customize->add_section('menu-footer-text_colour_section', array(
-		'title'      => __('Menu and footer text', 'nonproflite'),
-		'priority'   => 25,
-		'panel' => 'site_colours_panel'
-	));
-
 	$wp_customize->add_setting('menu-footer-text_colour_setting', array(
 		'default'   => '#ffffff',
 		'transport' => 'refresh',
@@ -177,18 +167,19 @@ function npl_customize_register($wp_customize)
 		array(
 			'label'      => __('Set the menu and footer text colour', 'nonproflite'),
 			'description' => __('Using this option you can change the text colour of the menu and footer throughout your entire site'),
-			'section'    => 'menu-footer-text_colour_section',
+			'section'    => 'menu-footer_colour_section',
 			'settings'   => 'menu-footer-text_colour_setting',
 		)
 	));
 
-	// button backgrounds
-	$wp_customize->add_section('buttons_bg_colour_section', array(
-		'title'      => __('Button background', 'nonproflite'),
-		'priority'   => 30,
+	// button colours
+	$wp_customize->add_section('buttons_colour_section', array(
+		'title'      => __('Buttons', 'nonproflite'),
+		'priority'   => 25,
 		'panel' => 'site_colours_panel'
 	));
 
+	// button backgrounds
 	$wp_customize->add_setting('buttons_bg_colour_setting', array(
 		'default'   => '#00b2ff',
 		'transport' => 'refresh',
@@ -200,18 +191,12 @@ function npl_customize_register($wp_customize)
 		array(
 			'label'      => __('Set the background colour of the buttons', 'nonproflite'),
 			'description' => __('Using this option you can change the background colour of all the buttons on your site'),
-			'section'    => 'buttons_bg_colour_section',
+			'section'    => 'buttons_colour_section',
 			'settings'   => 'buttons_bg_colour_setting',
 		)
 	));
 
 	// button text
-	// $wp_customize->add_section('buttons_text_colour_section', array(
-	// 	'title'      => __('Button text', 'nonproflite'),
-	// 	'priority'   => 35,
-	// 	'panel' => 'site_colours_panel'
-	// ));
-
 	$wp_customize->add_setting('buttons_text_colour_setting', array(
 		'default'   => '#fff',
 		'transport' => 'refresh',
@@ -223,7 +208,7 @@ function npl_customize_register($wp_customize)
 		array(
 			'label'      => __('Set the text colour of the buttons', 'nonproflite'),
 			'description' => __('Using this option you can change the text colour of all the buttons on your site'),
-			'section'    => 'buttons_bg_colour_section',
+			'section'    => 'buttons_colour_section',
 			'settings'   => 'buttons_text_colour_setting',
 		)
 	));
