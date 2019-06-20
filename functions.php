@@ -42,3 +42,10 @@ require get_template_directory() . '/inc/functions/npl-misc-functions.php';
 // theme support –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 require get_template_directory() . '/inc/npl-theme-support.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// plugin support ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// plugin activation
+require_once get_template_directory() . '/inc/functions/plugins/class-tgm-plugin-activation.php';
+// plugin function
+require get_template_directory() . '/inc/functions/plugins/npl-plugins.php';
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
