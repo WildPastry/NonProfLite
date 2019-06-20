@@ -10,55 +10,8 @@ $defaultText = 'Welcome to CHCH Bull Breed Rescue';
 
 get_header(); ?>
 
-<!-- feature slideshow -->
-<div class="container-fluid-feature">
-
-	<div id="homePageSlider" class="carousel slide carousel-slide" data-ride="carousel">
-
-		<!-- slideshow indicators -->
-		<ol id="indicators" class="carousel-indicators">
-			<li data-target="#homePageSlider" data-slide-to="0" class="active"></li>
-			<li data-target="#homePageSlider" data-slide-to="1"></li>
-			<li data-target="#homePageSlider" data-slide-to="2"></li>
-		</ol>
-
-		<!-- inner slideshow loop -->
-		<div class="carousel-inner fullImgWrap">
-
-			<?php
-			$default_slide = get_template_directory_uri() . '/assets/img/default-slide.jpg';
-
-			// theme mod loop
-			for ($i = 1; $i < 4; $i++) {
-				$all_slides = array(
-					$featured_slide = get_theme_mod('featured_slide_' . $i . '_setting'),
-				);
-				if ($featured_slide == "") : $featured_slide = $default_slide;
-				endif;
-
-				// display loop
-				if ($i == 1) {
-					echo '<div class="carousel-item active fullImg embed-responsive-item" style="background-image: url(' . $featured_slide . ');background-position: center; background-size: cover; background-repeat: no-repeat;"></div>';
-				} else {
-					echo '<div class="carousel-item fullImg embed-responsive-item" style="background-image: url(' . $featured_slide . ');background-position: center; background-size: cover; background-repeat: no-repeat;"></div>';
-				}
-			}
-			?>
-
-		</div> <!-- inner slideshow -->
-
-		<!-- slideshow controls -->
-		<a class="carousel-control-prev" href="#homePageSlider" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control-next" href="#homePageSlider" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
-
-</div> <!-- feature slideshow -->
+<!-- slideshow -->
+<?php get_template_part('inc/templates/slideshow'); ?>
 
 <!-- posts and content -->
 <div class='container-fluid'>
@@ -77,34 +30,101 @@ get_header(); ?>
 		</div>
 	</div> <!-- row -->
 
-</div> <!-- container-fluid -->
-
-<!-- feature section -->
-<div class="container-fluid-feature container-background">
+</div> <!-- posts and content -->
 
 <!-- posts and content -->
 <div class='container-fluid'>
 
-	<!-- latest news title -->
-	<div class="row mt-3">
-		<div class="col-12">
-			<h2>Latest news</h2>
-		</div>
-	</div> <!-- row -->
-
-	<!-- post content -->
-	<div class="row">
+	<!-- home page content -->
+	<div class="row justify-content-center">
 		<?php /* start posts if */ if (have_posts()) : ?>
 			<?php /* start posts while */ while (have_posts()) : the_post() ?>
 
 				<!-- get content -->
-				<?php get_template_part('inc/templates/content', get_post_format()); ?>
+				<div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
+					<article>
+						<?php the_content(); ?>
+					</article>
+				</div>
 
 			<?php /* end posts if */ endwhile; ?>
 		<?php  /* end posts while */ endif; ?>
 	</div> <!-- row -->
 
 </div> <!-- posts and content -->
+
+<!-- feature section -->
+<div class="container-fluid-feature container-background">
+
+	<!-- posts and content -->
+	<div class='container-fluid'>
+
+		<!-- latest news -->
+		<?php
+		$args = array(
+			'orderby' => 'date',
+			'order' => 'ASC',
+			'post_type' => 'post',
+			'posts_per_page' => 2
+		);
+		$allNews = new WP_Query($args);
+		?>
+
+		<!-- latest news title -->
+		<div class="row mt-3">
+			<div class="col-12">
+				<h2>Latest news</h2>
+			</div>
+		</div> <!-- row -->
+
+		<!-- post content -->
+		<div class="row">
+
+			<?php /* start news if */ if ($allNews->have_posts()) : ?>
+				<?php /* start news count */ $newsNum = 1; ?>
+				<?php /* start news while */ while ($allNews->have_posts()) : $allNews->the_post(); ?>
+					<?php /* start news image if */ if (has_post_thumbnail()) : ?>
+
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+							<div class="card">
+								<a href="<?php the_permalink(); ?>">
+									<?php the_post_thumbnail('medium_large', ['class' => 'card-img-top img-fluid', 'alt' => 'image from dog post type']) ?>
+								</a>
+								<div class="card-body">
+									<h4 class="card-title"><?php the_title(); ?></h4>
+
+									<!-- excerpt -->
+									<?php the_excerpt(); ?>
+									<a href="<?php the_permalink(); ?>">Find out more...</a>
+								</div>
+							</div>
+						</div>
+
+					<?php /* else */ else : ?>
+
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="card-title"><?php the_title(); ?></h4>
+
+									<!-- excerpt -->
+									<?php the_excerpt(); ?>
+								</div>
+								<div class="card-footer">
+									<button class="button cardButton"><a href="<?php the_permalink(); ?>">Find out more...</a></button>
+									<p class="card-text"><small class="text-muted">News posted at: <?php the_date('F j, Y'); ?><?php the_time('g:i a'); ?></small></p>
+								</div> <!-- card-footer -->
+							</div>
+						</div>
+
+					<?php /* end news image if */ endif; ?>
+				<?php /* end news while */ endwhile; ?>
+				<?php /* end news count */ $newsNum++; ?>
+			<?php /* end news if */ endif; ?>
+
+		</div> <!-- row -->
+
+	</div> <!-- container-fluid -->
 
 </div> <!-- feature section -->
 
@@ -114,7 +134,7 @@ get_header(); ?>
 	<!-- featured dogs -->
 	<?php
 	$args = array(
-		'orderby' => 'title',
+		'orderby' => 'date',
 		'order' => 'ASC',
 		'post_type' => 'dog',
 		'posts_per_page' => 3

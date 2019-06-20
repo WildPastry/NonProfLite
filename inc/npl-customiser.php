@@ -12,7 +12,7 @@ function npl_customize_register($wp_customize)
 	// $wp_customize->remove_section('colors'); // Colours // 40
 	$wp_customize->remove_section('header_image'); // Header Image // 60
 	$wp_customize->remove_section('background_image'); // Background Image // 80
-	$wp_customize->remove_section('static_front_page'); // Home Page Settings // 120
+	// $wp_customize->remove_section('static_front_page'); // Home Page Settings // 120
 	$wp_customize->remove_section('custom_css'); // Additional CSS // 200
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 

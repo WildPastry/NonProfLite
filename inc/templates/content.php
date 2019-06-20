@@ -9,12 +9,12 @@
 <?php /* start singular if */ if (is_singular()) : ?>
 
 	<!-- single post -->
-	<div class="row">
+	<div class="row justify-content-center">
 
 		<!-- single post title -->
 		<div class="col-12">
 			<header>
-				<h2><?php the_title(); ?></h2>
+				<h1><?php the_title(); ?></h1>
 				<?php /* start post type if */ if ('post' == get_post_type()) : ?>
 					<div class="post-date"><?php the_date(); ?></div> <!-- post-date -->
 				<?php /* end post type if */ endif; ?>
@@ -22,7 +22,7 @@
 		</div>
 
 		<!-- single post content -->
-		<div class="col-12">
+		<div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
 			<article>
 				<?php the_content(); ?>
 			</article>

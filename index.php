@@ -13,7 +13,7 @@ get_header(); ?>
 <!-- feature slideshow -->
 <div class="container-fluid-feature">
 
-	<div id="homePageSlider" class="carousel slide carousel-fade" data-ride="carousel">
+	<div id="homePageSlider" class="carousel slide carousel-slide" data-ride="carousel">
 
 		<!-- slideshow indicators -->
 		<ol id="indicators" class="carousel-indicators">
@@ -60,11 +60,11 @@ get_header(); ?>
 
 </div> <!-- feature slideshow -->
 
-<!-- menu -->
-<?php get_template_part('inc/templates/menu'); ?>
-
 <!-- posts and content -->
 <div class='container-fluid'>
+
+	<!-- menu -->
+	<?php get_template_part('inc/templates/menu'); ?>
 
 	<!-- custom greeting -->
 	<div class="row">
@@ -77,15 +77,39 @@ get_header(); ?>
 		</div>
 	</div> <!-- row -->
 
+</div> <!-- container-fluid -->
+
+<!-- feature section -->
+<div class="container-fluid-feature container-background">
+
+<!-- posts and content -->
+<div class='container-fluid'>
+
+	<!-- latest news title -->
+	<div class="row mt-3">
+		<div class="col-12">
+			<h2>Latest news</h2>
+		</div>
+	</div> <!-- row -->
+
 	<!-- post content -->
 	<div class="row">
 		<?php /* start posts if */ if (have_posts()) : ?>
 			<?php /* start posts while */ while (have_posts()) : the_post() ?>
+
 				<!-- get content -->
 				<?php get_template_part('inc/templates/content', get_post_format()); ?>
+
 			<?php /* end posts if */ endwhile; ?>
 		<?php  /* end posts while */ endif; ?>
 	</div> <!-- row -->
+
+</div> <!-- posts and content -->
+
+</div> <!-- feature section -->
+
+<!-- posts and content -->
+<div class='container-fluid'>
 
 	<!-- featured dogs -->
 	<?php
@@ -93,6 +117,7 @@ get_header(); ?>
 		'orderby' => 'title',
 		'order' => 'ASC',
 		'post_type' => 'dog',
+		'posts_per_page' => 3
 	);
 	$allDogs = new WP_Query($args);
 	?>
@@ -117,10 +142,10 @@ get_header(); ?>
 							<a href="<?php the_permalink(); ?>">
 								<?php the_post_thumbnail('medium_large', ['class' => 'card-img-top img-fluid', 'alt' => 'image from dog post type']) ?>
 							</a>
-							<div class="card-header">
-								<?php the_title(); ?>
-							</div>
 							<div class="card-body">
+								<h4 class="card-title"><?php the_title(); ?></h4>
+
+								<!-- excerpt -->
 								<?php the_excerpt(); ?>
 								<a href="<?php the_permalink(); ?>">Find out more...</a>
 							</div>
@@ -131,13 +156,16 @@ get_header(); ?>
 
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-3">
 						<div class="card">
-							<div class="card-header">
-								<?php the_title(); ?>
-							</div>
 							<div class="card-body">
+								<h4 class="card-title"><?php the_title(); ?></h4>
+
+								<!-- excerpt -->
 								<?php the_excerpt(); ?>
-								<a href="<?php the_permalink(); ?>">Find out more...</a>
 							</div>
+							<div class="card-footer">
+								<button class="button cardButton"><a href="<?php the_permalink(); ?>">Find out more...</a></button>
+								<p class="card-text"><small class="text-muted">Dog listed at: <?php the_date('F j, Y'); ?><?php the_time('g:i a'); ?></small></p>
+							</div> <!-- card-footer -->
 						</div>
 					</div>
 
