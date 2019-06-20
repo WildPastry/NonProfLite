@@ -1,0 +1,51 @@
+// less
+// media
+
+// imports
+@import 'variables';
+@import 'mixins';
+
+// 992
+@media screen and (max-width: 992px) {
+  h1 {
+    font-size: 1.8em;
+  }
+  h2 {
+    font-size: 1.6em;
+  }
+  h3 {
+    font-size: 1.4em;
+  }
+  .menuModule a {
+    font-size: 1em;
+  }
+}
+
+// 768
+@media screen and (max-width: 768px) {
+  .menuModule a {
+    font-size: 1em;
+  }
+  .menuModuleWrap {
+    margin-bottom: 20px;
+    height: auto;
+  }
+  .menuModule {
+    height: auto;
+    display: block;
+    width: 100%;
+  }
+  .menuModule li {
+    width: 100%;
+		height: 60px;
+		margin-top: 1px;
+		margin-bottom: 1px;
+  }
+}
+
+// 576
+@media (max-width: 576px) {
+  article {
+    column-count: 1;
+  }
+}
