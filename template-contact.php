@@ -83,7 +83,7 @@ get_header(); ?>
 				<?php /* start form post if */ if ($_POST && empty($errors)) : ?>
 					<div class="row">
 						<div class="col">
-							<div class="alert alert-sucsess">
+							<div class="alert alert-success">
 								<p>Well Done, you sent the form</p>
 							</div>
 						</div>

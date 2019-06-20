@@ -5,15 +5,59 @@
 @import 'variables';
 @import 'mixins';
 
+// all icons
+.fa-icon,
+.fab,
+.fas {
+	font-size: 30px;
+	color: @white;
+	margin-left: 15px;
+	&:hover {
+		color: @lightest-grey;
+	}
+}
+
+// twitter
 .twitter {
 	.fa-icon;
 	.fab;
-	font-size: 40px;
-	color: @white;
 	&:before {
 		content: @fa-var-twitter;
 	}
-	&:hover {
-		color: @lightest-grey;
+}
+
+// facebook
+.facebook {
+	.fa-icon;
+	.fab;
+	&:before {
+		content: @fa-var-facebook;
+	}
+}
+
+// instagram
+.instagram {
+	.fa-icon;
+	.fab;
+	&:before {
+		content: @fa-var-instagram;
+	}
+}
+
+// youtube
+.youtube {
+	.fa-icon;
+	.fab;
+	&:before {
+		content: @fa-var-youtube;
+	}
+}
+
+// heart
+.heart {
+	.fa-icon;
+	.fas;
+	&:before {
+		content: @fa-var-heart;
 	}
 }

@@ -17,11 +17,26 @@ $url = home_url();
 
 ?>
 
-<!-- logo -->
-<div class="logoWrap">
-	<a title="<?php the_title(); ?>" href="<?php echo $url; ?>">
-		<img src="<?php echo $custom_logo; ?>" />
-	</a>
-	<a href="#" class="twitter"></a>
+<!-- header -->
+<div class="headerWrap">
+	<div class="headerWrapFlex">
 
-</div> <!-- logo -->
+		<!-- logo -->
+		<div class="logoWrap">
+			<a title="<?php the_title(); ?>" href="<?php echo $url; ?>">
+				<img src="<?php echo $custom_logo; ?>" />
+			</a>
+		</div> <!-- logo -->
+
+		<!-- social -->
+		<div class="socialWrap">
+		<!-- <a href="#" class="donate">DONATE</a> -->
+			<a href="#" class="heart"></a>
+			<a href="#" class="twitter"></a>
+			<a href="#" class="facebook"></a>
+			<a href="#" class="instagram"></a>
+			<a href="#" class="youtube"></a>
+		</div> <!-- social -->
+
+	</div> <!-- headerWrap -->
+</div> <!-- headerWrpFlex -->

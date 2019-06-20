@@ -56,10 +56,10 @@ function add_enquiries_post_type()
 		'supports' => array(
 			'title',
 			'editor'
-		),
-		'capabilities' => array(
-			'create_posts' => false
 		)
+		// 'capabilities' => array(
+		// 	'create_posts' => false
+		// )
 	);
 	register_post_type('enquiries', $args);
 }
