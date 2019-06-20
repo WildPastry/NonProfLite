@@ -45,8 +45,7 @@ function add_enquiries_post_type()
 {
 	$labels = array(
 		'name' => _x('Enquiries', 'post type name', 'nonproflite'),
-		'singular_name' => _x('Enquiry', 'post types singluar name', 'nonproflite'),
-		'add_new_item' => _x('Add New Enquiry', 'adding new enquiry', 'nonproflite')
+		'singular_name' => _x('Enquiry', 'post types singluar name', 'nonproflite')
 	);
 	$args = array(
 		'labels' => $labels,
@@ -58,6 +57,9 @@ function add_enquiries_post_type()
 			'title',
 			'editor'
 		),
+		'capabilities' => array(
+			'create_posts' => false
+		)
 	);
 	register_post_type('enquiries', $args);
 }

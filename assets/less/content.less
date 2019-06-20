@@ -19,8 +19,9 @@
 	width: 100%;
 }
 
-.container-master {
-	display: flex;
+.container-background {
+	background-color: @pink-t;
+	padding: 5px 0 50px 0;
 }
 
 // row
@@ -33,12 +34,22 @@ height: 100%;
 }
 
 // card
-.card a {
-	color: @grey;
+.card {
+	background-color: @white;
+	border-radius: 0;
+	height: 100%;
 }
 
-.card-footer a {
-	color: @white;
+.card-header, .card-footer {
+	background-color: rgba(0,0,0,.02);
+}
+
+.card-header {
+	border-bottom: none;
+}
+
+.card-footer {
+	border-top: none;
 }
 
 // article

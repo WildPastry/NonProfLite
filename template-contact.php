@@ -5,10 +5,6 @@
  * @package nonproflite
  */
 
-// get thumbnail image
-$defaultThumb = get_template_directory_uri() . '/assets/img/default-thumb.jpg';
-$thumbnailImg = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
-
 // set up contact form
 if ($_POST) {
 	$errors = array();

@@ -69,7 +69,7 @@ function npl_customize_register($wp_customize)
 	// colours –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// background
 	$wp_customize->add_section('background_colour_section', array(
-		'title'      => __('Background colour', 'nonproflite'),
+		'title'      => __('Site background', 'nonproflite'),
 		'priority'   => 5,
 		'panel' => 'site_colours_panel'
 	));
@@ -179,6 +179,52 @@ function npl_customize_register($wp_customize)
 			'description' => __('Using this option you can change the text colour of the menu and footer throughout your entire site'),
 			'section'    => 'menu-footer-text_colour_section',
 			'settings'   => 'menu-footer-text_colour_setting',
+		)
+	));
+
+	// button backgrounds
+	$wp_customize->add_section('buttons_bg_colour_section', array(
+		'title'      => __('Button background', 'nonproflite'),
+		'priority'   => 30,
+		'panel' => 'site_colours_panel'
+	));
+
+	$wp_customize->add_setting('buttons_bg_colour_setting', array(
+		'default'   => '#00b2ff',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'buttons_bg_colour_control',
+		array(
+			'label'      => __('Set the background colour of the buttons', 'nonproflite'),
+			'description' => __('Using this option you can change the background colour of all the buttons on your site'),
+			'section'    => 'buttons_bg_colour_section',
+			'settings'   => 'buttons_bg_colour_setting',
+		)
+	));
+
+	// button text
+	// $wp_customize->add_section('buttons_text_colour_section', array(
+	// 	'title'      => __('Button text', 'nonproflite'),
+	// 	'priority'   => 35,
+	// 	'panel' => 'site_colours_panel'
+	// ));
+
+	$wp_customize->add_setting('buttons_text_colour_setting', array(
+		'default'   => '#fff',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'buttons_text_colour_control',
+		array(
+			'label'      => __('Set the text colour of the buttons', 'nonproflite'),
+			'description' => __('Using this option you can change the text colour of all the buttons on your site'),
+			'section'    => 'buttons_bg_colour_section',
+			'settings'   => 'buttons_text_colour_setting',
 		)
 	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -328,6 +374,19 @@ function nonproflite_customize_css()
 																?>;
 			border-top: 2px solid <?php echo get_theme_mod('menu-footer-text_colour_setting', '#ffffff');
 														?>;
+		}
+
+		/* buttons */
+		.button {
+			background:
+				<?php echo get_theme_mod('buttons_bg_colour_setting', '#00b2ff');
+				?>;
+		}
+
+		.button a {
+			color:
+				<?php echo get_theme_mod('buttons_text_colour_setting', '#ffffff');
+				?>;
 		}
 	</style>
 <?php

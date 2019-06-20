@@ -1,12 +1,12 @@
 <?php
 /**
- * single-post
+ * single-dog
  * @package nonproflite
  */
 
-// get thumbnail image
-$defaultThumb = get_template_directory_uri() . '/assets/img/default-thumb.jpg';
-$thumbnailImg = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
+// get feature image
+$defaultImg = get_template_directory_uri() . '/assets/img/default-feature.jpg';
+$featureImg = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 
 get_header(); ?>
 
@@ -19,34 +19,39 @@ get_header(); ?>
 			<!-- feature image -->
 			<div class="container-fluid-feature">
 
-				<!-- thumbnail image -->
-				<div class="thumbnailWrap">
-					<?php /* start thumbnail if */ if (has_post_thumbnail()) : ?>
-						<?php echo '<div class="thumbnailImg" style="background-image: url(' . $thumbnailImg . ');background-position: center; background-size: cover;  background-repeat: no-repeat;"></div>';
+				<!-- feature image -->
+				<div class="fullImgWrap">
+					<?php /* start feature if */ if (has_post_thumbnail()) : ?>
+						<?php echo '<div class="fullImg" style="background-image: url(' . $featureImg . ');background-position: center; background-size: cover;  background-repeat: no-repeat;"></div>';
 					else :
-						echo '<div class="thumbnailImg" style="background-image: url(' . $defaultThumb . ');background-position: center; background-size: cover;  background-repeat: no-repeat;"></div>';
+						echo '<div class="fullImg" style="background-image: url(' . $defaultImg . ');background-position: center; background-size: cover;  background-repeat: no-repeat;"></div>';
 						?>
-					<?php /* end thumbnail if */ endif; ?>
-				</div> <!-- thumbnail image -->
+					<?php /* end feature if */ endif; ?>
+				</div> <!-- feature image -->
 
-			</div> <!-- feature image-->
+			</div> <!-- feature image -->
 
-			<!-- menu -->
-			<?php get_template_part('inc/templates/menu'); ?>
+			<!-- posts and content -->
+			<div class='container-fluid'>
 
-			<!-- content -->
-			<?php get_template_part('inc/templates/content'); ?>
+				<!-- menu -->
+				<?php get_template_part('inc/templates/menu'); ?>
 
-			<!-- end posts while -->
-		<?php endwhile;
+				<!-- content -->
+				<?php get_template_part('inc/templates/content'); ?>
 
-else : ?>
+				<!-- end posts while -->
+			<?php endwhile;
 
-		<!-- no content -->
-		<?php get_template_part('templates/content', 'none'); ?>
+	else : ?>
 
-		<!-- end posts if -->
-	<?php endif; ?>
+			<!-- no content -->
+			<?php get_template_part('templates/content', 'none'); ?>
+
+			<!-- end posts if -->
+		<?php endif; ?>
+
+	</div> <!-- container-fluid -->
 
 </section> <!-- main content-area -->
 

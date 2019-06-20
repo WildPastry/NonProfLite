@@ -43,7 +43,7 @@
 
 			<!-- multiple post title -->
 			<div class="card-body">
-				<h5 class="card-title"><?php the_title(); ?></h5>
+				<h4 class="card-title"><?php the_title(); ?></h4>
 
 				<!-- multiple post content -->
 				<?php the_excerpt(); ?>
@@ -51,8 +51,7 @@
 
 			<div class="card-footer">
 				<button class="button cardButton"><a href="<?php the_permalink(); ?>">View Post</a></button>
-				<p class="card-text"><small class="text-muted">Posted: <?php the_date('F j, Y'); ?> at
-						<?php the_time('g:i a'); ?></small></p>
+				<p class="card-text"><small class="text-muted">Posted at: <?php the_date('F j, Y'); ?><?php the_time('g:i a'); ?></small></p>
 			</div> <!-- card-footer -->
 
 		</div> <!-- card -->
