@@ -4,3 +4,16 @@
 // imports
 @import 'variables';
 @import 'mixins';
+
+.twitter {
+	.fa-icon;
+	.fab;
+	font-size: 40px;
+	color: @white;
+	&:before {
+		content: @fa-var-twitter;
+	}
+	&:hover {
+		color: @lightest-grey;
+	}
+}

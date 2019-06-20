@@ -94,7 +94,6 @@ get_header(); ?>
 					<div class="row">
 						<div class="col-12">
 							<div class="contactWrap">
-								<h2>Get in touch</h2>
 
 								<!-- form inner -->
 								<form class="contactForm" action="<?php echo get_permalink(); ?>" method="post">

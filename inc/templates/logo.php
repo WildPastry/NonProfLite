@@ -22,4 +22,6 @@ $url = home_url();
 	<a title="<?php the_title(); ?>" href="<?php echo $url; ?>">
 		<img src="<?php echo $custom_logo; ?>" />
 	</a>
+	<a href="#" class="twitter"></a>
+
 </div> <!-- logo -->
