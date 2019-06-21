@@ -386,16 +386,16 @@ function nonproflite_customize_css()
 		}
 
 		/* buttons */
-		.button {
+		.button, .product_type_simple, .wc-forward {
 			background:
 				<?php echo get_theme_mod('buttons_bg_colour_setting', '#00b2ff');
-				?>;
+				?> !important;
 		}
 
-		.button a {
+		.button a, .product_type_simple, .wc-forward {
 			color:
 				<?php echo get_theme_mod('buttons_text_colour_setting', '#ffffff');
-				?>;
+				?> !important;
 		}
 	</style>
 <?php
