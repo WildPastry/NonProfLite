@@ -38,5 +38,5 @@ $url = home_url();
 			<a href="#" class="youtube"></a>
 		</div> <!-- social -->
 
-	</div> <!-- headerWrap -->
-</div> <!-- headerWrpFlex -->
+	</div>
+</div> <!-- header -->

@@ -42,7 +42,7 @@ get_header(); ?>
 
 				<!-- get content -->
 				<div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
-					<article>
+					<article class="text-center">
 						<?php the_content(); ?>
 					</article>
 				</div>
