@@ -49,3 +49,7 @@ require_once get_template_directory() . '/inc/functions/plugins/class-tgm-plugin
 // plugin function
 require get_template_directory() . '/inc/functions/plugins/npl-plugins.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// woocommerce –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+require get_template_directory() . '/inc/functions/npl-woocommerce.php';
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

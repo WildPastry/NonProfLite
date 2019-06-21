@@ -131,14 +131,14 @@ function npl_customize_register($wp_customize)
 		)
 	));
 
-	// menu and footer colours
+	// menu/footer/header colours
 	$wp_customize->add_section('menu-footer_colour_section', array(
-		'title'      => __('Menu + Footer', 'nonproflite'),
+		'title'      => __('Header / Menu / Footer', 'nonproflite'),
 		'priority'   => 15,
 		'panel' => 'site_colours_panel'
 	));
 
-	// menu and footer background colours
+	// menu/footer/header background colours
 	$wp_customize->add_setting('menu-footer-bg_colour_setting', array(
 		'default'   => '#b74f87',
 		'transport' => 'refresh',
@@ -155,7 +155,7 @@ function npl_customize_register($wp_customize)
 		)
 	));
 
-	// menu and footer text colours
+	// menu/footer/header text colours
 	$wp_customize->add_setting('menu-footer-text_colour_setting', array(
 		'default'   => '#ffffff',
 		'transport' => 'refresh',
@@ -169,6 +169,23 @@ function npl_customize_register($wp_customize)
 			'description' => __('Using this option you can change the text colour of the menu and footer throughout your entire site'),
 			'section'    => 'menu-footer_colour_section',
 			'settings'   => 'menu-footer-text_colour_setting',
+		)
+	));
+
+	// header bg colour
+	$wp_customize->add_setting('header_bg_setting', array(
+		'default'   => '#f284bc',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'header_bg_setting',
+		array(
+			'label'      => __('Set the header background colour', 'nonproflite'),
+			'description' => __('Using this option you can change the background colour of the header throughout your entire site'),
+			'section'    => 'menu-footer_colour_section',
+			'settings'   => 'header_bg_setting',
 		)
 	));
 
@@ -359,6 +376,13 @@ function nonproflite_customize_css()
 																?>;
 			border-top: 2px solid <?php echo get_theme_mod('menu-footer-text_colour_setting', '#ffffff');
 														?>;
+		}
+
+		/* header  */
+	.headerWrap	{
+		background:
+				<?php echo get_theme_mod('header_bg_setting', '#f284bc');
+				?>;
 		}
 
 		/* buttons */

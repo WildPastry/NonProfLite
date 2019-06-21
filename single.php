@@ -12,9 +12,6 @@ get_header(); ?>
 	<?php  /* start posts if */ if (have_posts()) :
 		while /* start posts while */ (have_posts()) : the_post(); ?>
 
-			<!-- feature image -->
-			<?php get_template_part('inc/templates/feature'); ?>
-
 			<!-- posts and content -->
 			<div class='container-fluid'>
 

@@ -4,13 +4,15 @@
 // imports
 @import 'variables';
 @import 'mixins';
-@import "../fa/fontawesome.less";
-@import "../fa/solid.less";
-@import "../fa/brands.less";
+@import '../fa/fontawesome.less';
+@import '../fa/solid.less';
+@import '../fa/brands.less';
 
 // resets
 * {
-	.reset-mixin(@bord: 0; @pad: 0; @mar: 0px; @box: border-box; @dec: none; @list: none);
+	.reset-mixin(
+		@bord: 0; @pad: 0; @mar: 0px; @box: border-box; @dec: none; @list: none
+	);
 	font-family: @fontFira;
 }
 
@@ -26,7 +28,7 @@ body {
 	font-family: @fontFira !important;
 	font-weight: @light !important;
 	display: flex;
-  flex-direction: column;
+	flex-direction: column;
 }
 
 // paragraph
@@ -36,7 +38,7 @@ p {
 
 // headings
 h1 {
-  font-size: 3em;
+	font-size: 3em;
 	letter-spacing: 1px;
 	text-align: center;
 	font-weight: @bold;
@@ -54,14 +56,23 @@ h5 {
 	margin-bottom: 0;
 }
 
-.small, small {
+// small
+.small,
+small {
 	letter-spacing: 0.5px;
+}
+
+// lists
+li,
+select,
+option {
+	font-family: @fontFira !important;
 }
 
 // links
 a {
-  color: @white;
-  transition-duration: 500ms;
+	color: @white;
+	transition-duration: 500ms;
 }
 
 a:hover {
