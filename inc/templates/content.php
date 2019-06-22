@@ -4,6 +4,9 @@
  * @package nonproflite
  */
 
+// get thumbnail image
+$thumbImg = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
+
 ?>
 
 <?php /* start singular if */ if (is_singular()) : ?>
@@ -16,19 +19,38 @@
 			<header>
 				<h1><?php the_title(); ?></h1>
 				<?php /* start post type if */ if ('post' == get_post_type()) : ?>
-					<div class="post-date"><?php the_date(); ?></div> <!-- post-date -->
+					<h3><?php the_date(); ?></h3> <!-- post-date -->
 				<?php /* end post type if */ endif; ?>
 			</header>
 		</div>
+	</div> <!-- row -->
 
-		<!-- single post content -->
-		<div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
-			<article>
-				<?php the_content(); ?>
-			</article>
+	<div class="row justify-content-center">
+
+		<!-- single post image -->
+		<?php /* start thumbnail if */ if (has_post_thumbnail()) : ?>
+			<!-- single post content -->
+			<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+				<article>
+					<?php the_content(); ?>
+				</article>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+			<?php echo '<div class="thumbImg" style="background-image: url(' . $thumbImg . ');background-position: center; background-size: cover;  background-repeat: no-repeat;"></div>'; ?>
+			</div>
 		</div>
 
-	</div> <!-- row -->
+	<?php /* else */ else : ?>
+
+		<div class="row justify-content-center">
+			<div class="col-12">
+				<article class="text-center">
+					<?php the_content(); ?>
+				</article>
+			</div>
+
+		</div>
+	<?php /* end thumbnail if */ endif; ?>
 
 <?php /* else */ else : ?>
 
@@ -38,7 +60,7 @@
 
 			<!-- multiple post thumbnail -->
 			<?php /* start thumbnail if */ if (has_post_thumbnail()) : ?>
-				<?php the_post_thumbnail('thumbnail', ['class' => 'card-img-top img-fluid', 'alt' => 'image from post']) ?>
+				<?php the_post_thumbnail('thumbnail', ['class' => 'img-fluid', 'alt' => 'image from post']) ?>
 			<?php /* end thumbnail if */ endif; ?>
 
 			<!-- multiple post title -->

@@ -3,6 +3,8 @@
  * single-dog
  * @package nonproflite
  */
+// form logic
+get_template_part('inc/templates/form-logic');
 
 get_header(); ?>
 
@@ -19,7 +21,7 @@ get_header(); ?>
 				<?php get_template_part('inc/templates/menu'); ?>
 
 				<!-- content -->
-				<?php get_template_part('inc/templates/content'); ?>
+				<?php get_template_part('inc/templates/content-dog'); ?>
 
 				<!-- end posts while -->
 			<?php endwhile;

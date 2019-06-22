@@ -88,15 +88,18 @@ get_header(); ?>
 						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 							<div class="card">
 								<a href="<?php the_permalink(); ?>">
-									<?php the_post_thumbnail('medium_large', ['class' => 'card-img-top img-fluid', 'alt' => 'image from dog post type']) ?>
+									<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid', 'alt' => 'image from dog post type']) ?>
 								</a>
 								<div class="card-body">
 									<h4 class="card-title"><?php the_title(); ?></h4>
 
 									<!-- excerpt -->
 									<?php the_excerpt(); ?>
-									<a href="<?php the_permalink(); ?>">Find out more...</a>
 								</div>
+								<div class="card-footer">
+									<button class="button cardButton"><a href="<?php the_permalink(); ?>">Find out more...</a></button>
+									<p class="card-text"><small class="text-muted">News posted at: <?php the_date('F j, Y'); ?><?php the_time('g:i a'); ?></small></p>
+								</div> <!-- card-footer -->
 							</div>
 						</div>
 
@@ -160,15 +163,18 @@ get_header(); ?>
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-3">
 						<div class="card">
 							<a href="<?php the_permalink(); ?>">
-								<?php the_post_thumbnail('medium_large', ['class' => 'card-img-top img-fluid', 'alt' => 'image from dog post type']) ?>
+								<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid', 'alt' => 'image from dog post type']) ?>
 							</a>
 							<div class="card-body">
 								<h4 class="card-title"><?php the_title(); ?></h4>
 
 								<!-- excerpt -->
 								<?php the_excerpt(); ?>
-								<a href="<?php the_permalink(); ?>">Find out more...</a>
 							</div>
+							<div class="card-footer">
+								<button class="button cardButton"><a href="<?php the_permalink(); ?>">Find out more...</a></button>
+								<p class="card-text"><small class="text-muted">Dog listed at: <?php the_date('F j, Y'); ?><?php the_time('g:i a'); ?></small></p>
+							</div> <!-- card-footer -->
 						</div>
 					</div>
 

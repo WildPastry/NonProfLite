@@ -5,38 +5,8 @@
  * @package nonproflite
  */
 
-// set up contact form
-if ($_POST) {
-	$errors = array();
-	if (wp_verify_nonce($_POST['_wpnonce'], 'wp_enquiery_form')) {
-
-		if (!$_POST['enquiriesName']) {
-			array_push($errors, 'Your name is required');
-		}
-
-		if (!$_POST['enquiriesEmail']) {
-			array_push($errors, 'Your email is required');
-		}
-
-		if (!$_POST['enquiriesMessage']) {
-			array_push($errors, 'A message is required');
-		}
-
-		if (empty($errors)) {
-			$args = array(
-				'post_content' => $_POST['enquiriesMessage'],
-				'post_title' => $_POST['enquiriesName'],
-				'post_type' => 'enquiries',
-				'meta_input' => array(
-					'email' => $_POST['enquiriesEmail']
-				)
-			);
-			wp_insert_post($args);
-		}
-	} else {
-		array_push($errors, 'Something went wrong with submitting the form');
-	}
-}
+// form logic
+get_template_part('inc/templates/form-logic');
 
 get_header(); ?>
 
@@ -65,12 +35,12 @@ get_header(); ?>
 				<!-- content -->
 				<?php get_template_part('inc/templates/content'); ?>
 
-				<!-- form logic -->
+				<!-- form errors -->
 				<?php /* start form if */ if ($_POST && !empty($errors)) : ?>
 					<div class="row">
-						<div class="col">
+						<div class="col-12">
 							<div class="alert alert-danger">
-								<ul>
+								<ul class="text-center">
 									<?php foreach ($errors as $singleError) : ?>
 										<li><?php echo $singleError; ?></li>
 									<?php endforeach; ?>
@@ -82,12 +52,13 @@ get_header(); ?>
 
 				<?php /* start form post if */ if ($_POST && empty($errors)) : ?>
 					<div class="row">
-						<div class="col">
+						<div class="col-12">
 							<div class="alert alert-success">
-								<p>Well Done, you sent the form</p>
+								<p>Your enquiry has been sent successfully</p>
 							</div>
 						</div>
 					</div>
+
 				<?php else : ?>
 
 					<!-- form outer-->
@@ -99,11 +70,11 @@ get_header(); ?>
 								<form class="contactForm" action="<?php echo get_permalink(); ?>" method="post">
 									<?php wp_nonce_field('wp_enquiery_form'); ?>
 									<div class="row">
-										<div class="col-6"><input type="text" class="contactInput" placeholder="Name" name="enquiriesName" value="<?php echo $_POST['enquiriesName'] ?>"></div>
-										<div class="col-6"><input type="email" class="contactInput" placeholder="Email" name="enquiriesEmail" value=""></div>
-										<div class="col-12"><input type="phone" class="contactInput" placeholder="Mobile"></div>
-										<div class="col-12"><input type="text" class="contactInput" placeholder="Subject"></div>
-										<div class="col-12"><textarea class="contactInput contactText" placeholder="Message" name="enquiriesMessage"></textarea></div>
+										<div class="col-6"><input required type="text" class="contactInput" placeholder="Name" name="enquiriesName" value="<?php echo $_POST['enquiriesName'] ?>"></div>
+										<div class="col-6"><input required type="email" class="contactInput" placeholder="Email" name="enquiriesEmail" value=""></div>
+										<div class="col-12"><input required type="phone" class="contactInput" placeholder="Mobile"></div>
+										<div class="col-12"><input required type="text" class="contactInput" placeholder="Subject"></div>
+										<div class="col-12"><textarea required class="contactInput contactText" placeholder="Message" name="enquiriesMessage"></textarea></div>
 										<input type="submit" name="" value="Send Enquiry" class="button contactButton">
 									</div> <!-- row -->
 								</form> <!-- form inner -->
