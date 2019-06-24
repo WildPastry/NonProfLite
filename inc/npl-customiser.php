@@ -19,7 +19,7 @@ function npl_customize_register($wp_customize)
 	// create homepage panel ––––––––––––––––––––––––––––––––––––––––––––––––
 	$wp_customize->add_panel('homepage_panel', array(
 		'title'      => __('Home Page Content', 'nonproflite'),
-		'priority'   => 10,
+		'priority'   => 120,
 		'description' => 'Edit the home page content'
 	));
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -261,6 +261,47 @@ function npl_customize_register($wp_customize)
 			'description' => __('Using this option you can change the background colour when you hover over the buttons on your site'),
 			'section'    => 'buttons_colour_section',
 			'settings'   => 'buttons_hover_colour_setting',
+		)
+	));
+
+	// social media colours
+	$wp_customize->add_section('social_colour_section', array(
+		'title'      => __('Social Media Icons', 'nonproflite'),
+		'priority'   => 30,
+		'panel' => 'site_colours_panel'
+	));
+
+	// social media backgrounds
+	$wp_customize->add_setting('social_bg_colour_setting', array(
+		'default'   => '#ffffff',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'social_bg_colour_control',
+		array(
+			'label'      => __('Set the colour of the social media icons', 'nonproflite'),
+			'description' => __('Using this option you can change the colour of the social media icons on your site'),
+			'section'    => 'social_colour_section',
+			'settings'   => 'social_bg_colour_setting',
+		)
+	));
+
+	// social media hover
+	$wp_customize->add_setting('social_hover_colour_setting', array(
+		'default'   => '#2b2b2b',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'social_hover_colour_control',
+		array(
+			'label'      => __('Set the hover colour of the social media icons', 'nonproflite'),
+			'description' => __('Using this option you can change the hover colour of the social media icons on your site'),
+			'section'    => 'social_colour_section',
+			'settings'   => 'social_hover_colour_setting',
 		)
 	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -549,6 +590,27 @@ function nonproflite_customize_css()
 		.wc-forward:hover {
 			background:
 				<?php echo get_theme_mod('buttons_hover_colour_setting', '#2b2b2b');
+				?> !important;
+		}
+
+		/* social media */
+		.facebook,
+		.twitter,
+		.instagram,
+		.pinterest,
+		.youtube {
+			color:
+				<?php echo get_theme_mod('social_bg_colour_setting', '#ffffff');
+				?> !important;
+		}
+
+		.facebook:hover,
+		.twitter:hover,
+		.instagram:hover,
+		.pinterest:hover,
+		.youtube:hover {
+			color:
+				<?php echo get_theme_mod('social_hover_colour_setting', '#2b2b2b');
 				?> !important;
 		}
 	</style>

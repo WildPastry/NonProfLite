@@ -8,8 +8,9 @@
 function mytheme_add_woocommerce_support()
 {
 	add_theme_support('woocommerce', array(
-		'thumbnail_image_width' => 150,
-		'single_image_width'    => 300,
+		'thumbnail_image_width' => 600,
+		'gallery_thumbnail_image_width' => 600,
+		'single_image_width'    => 1200,
 
 		'product_grid'          => array(
 			'default_rows'    => 3,
@@ -47,12 +48,29 @@ function woo_custom_product_add_to_cart_text()
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 // image sizes –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// add_filter('woocommerce_gallery_image_size', function ($size) {
-
+// thumbnail
+// add_filter('woocommerce_get_image_size_thumbnail', function ($size) {
 // 	return array(
-// 		'width' => '600',
-// 		'height' => '600',
-// 		'crop' => '0',
+// 		'width' => 300,
+// 		'height' => 0,
+// 		'crop' => 0,
 // 	);
 // });
+// gallery
+// add_filter('woocommerce_get_image_size_gallery_thumbnails', function ($size) {
+// 	return array(
+// 		'width' => 300,
+// 		'height' => 0,
+// 		'crop' => 0,
+// 	);
+// });
+// single
+// add_filter('woocommerce_get_image_size_single', function ($size) {
+// 	return array(
+// 		'width' => 900,
+// 		'height' => 0,
+// 		'crop' => 0,
+// 	);
+// });
+
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
