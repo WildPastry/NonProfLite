@@ -13,16 +13,7 @@
 	color: @white;
 	margin-left: 15px;
 	&:hover {
-		color: @lightest-grey;
-	}
-}
-
-// twitter
-.twitter {
-	.fa-icon;
-	.fab;
-	&:before {
-		content: @fa-var-twitter;
+		color: @grey;
 	}
 }
 
@@ -35,12 +26,30 @@
 	}
 }
 
+// twitter
+.twitter {
+	.fa-icon;
+	.fab;
+	&:before {
+		content: @fa-var-twitter;
+	}
+}
+
 // instagram
 .instagram {
 	.fa-icon;
 	.fab;
 	&:before {
 		content: @fa-var-instagram;
+	}
+}
+
+// pinterest
+.pinterest {
+	.fa-icon;
+	.fab;
+	&:before {
+		content: @fa-var-pinterest;
 	}
 }
 
@@ -60,4 +69,23 @@
 	&:before {
 		content: @fa-var-heart;
 	}
+}
+
+// cart
+.cartIcon {
+	.fa-icon;
+	.fas;
+	&:before {
+		content: @fa-var-shopping-cart;
+	}
+}
+
+.hideIcon {
+	display: none;
+	visibility: hidden;
+}
+
+.showIcon {
+	display: block;
+	visibility: visible;
 }

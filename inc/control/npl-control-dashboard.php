@@ -86,7 +86,9 @@ function register_nonproflite_dash()
 
 function nonproflite_dash_display()
 {
-  echo 'Welcome to Non-Prof Lite...';
+	echo '<h2>Welcome to Non-Prof Lite...</h2>' . '<br>';
+	echo '<h3>Link to online repository here</h3>' . '<br>';
+	echo '<h3>Download full instructions here...</h3>' . '<br>';
 }
 add_action('wp_dashboard_setup', 'register_nonproflite_dash');
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

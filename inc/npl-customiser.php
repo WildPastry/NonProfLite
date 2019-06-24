@@ -90,6 +90,23 @@ function npl_customize_register($wp_customize)
 		)
 	));
 
+	// feature background
+	$wp_customize->add_setting('feature_background_colour_setting', array(
+		'default'   => '#ffc5e3',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'feature_background_colour_control',
+		array(
+			'label'      => __('Set the feature background colour', 'nonproflite'),
+			'description' => __('Using this option you can change the feature background colour of your site'),
+			'section'    => 'background_colour_section',
+			'settings'   => 'feature_background_colour_setting',
+		)
+	));
+
 	// text
 	$wp_customize->add_section('text_colour_section', array(
 		'title'      => __('Text', 'nonproflite'),
@@ -229,6 +246,23 @@ function npl_customize_register($wp_customize)
 			'settings'   => 'buttons_text_colour_setting',
 		)
 	));
+
+	// button hover
+	$wp_customize->add_setting('buttons_hover_colour_setting', array(
+		'default'   => '#2b2b2b',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'buttons_hover_colour_control',
+		array(
+			'label'      => __('Set the hover colour of the buttons', 'nonproflite'),
+			'description' => __('Using this option you can change the background colour when you hover over the buttons on your site'),
+			'section'    => 'buttons_colour_section',
+			'settings'   => 'buttons_hover_colour_setting',
+		)
+	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// fonts –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -281,36 +315,81 @@ function npl_customize_register($wp_customize)
 	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
+	// social media ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	$wp_customize->add_section('social_media_icons', array(
+		'title' => __('Social Media Icons', 'nonproflite'),
+		'description' => 'Using this option you can add your social media links'
+	));
+
+	// facebook
+	$wp_customize->add_setting('facebook_icon_setting', array(
+		'default' => 'Facebook link...',
+		'transport' => 'refresh'
+	));
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'facebook_icon_control',
+			array(
+				'label' => __('Facebook', 'nonproflite'),
+				'section' => 'social_media_icons',
+				'settings' => 'facebook_icon_setting',
+				'type' => 'input'
+			)
+		)
+	);
+
+	// pinterest
+	$wp_customize->add_setting('pinterest_icon_setting', array(
+		'default' => 'Pinterest link...',
+		'transport' => 'refresh'
+	));
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'pinterest_icon_control',
+			array(
+				'label' => __('Pinterst', 'nonproflite'),
+				'section' => 'social_media_icons',
+				'settings' => 'pinterest_icon_setting',
+				'type' => 'input'
+			)
+		)
+	);
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 	// featured posts ––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// $wp_customize->add_section('front_page_section', array(
 	//   'title'      => __('Front Page Info', 'nonproflite'),
 	//   'priority'   => 25,
 	// ));
 
-	// $wp_customize->add_setting('featured-post-setting', array(
-	//   'default'   => ' ',
-	//   'transport' => 'refresh',
-	// ));
+	$wp_customize->add_setting('featured-post-setting', array(
+	  'default'   => ' ',
+	  'transport' => 'refresh',
+	));
 
-	// $args = array(
-	//   'posts_per_page' => -1
-	// );
+	$args = array(
+	  'posts_per_page' => -1
+	);
 
-	// $allPosts = get_posts($args);
+	$allPosts = get_posts($args);
 
-	// $options = array();
-	// $options[''] = 'Please select a post';
-	// foreach ($allPosts as $singlePost) {
-	//   $options[$singlePost->ID] = $singlePost->post_title;
-	// }
+	$options = array();
+	$options[''] = 'Please select a post';
+	foreach ($allPosts as $singlePost) {
+	  $options[$singlePost->ID] = $singlePost->post_title;
+	}
 
-	// $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'featured-post-control', array(
-	//   'label'      => __('Featured Post', 'nonproflite'),
-	//   'section'    => 'front_page_section',
-	//   'settings'   => 'featured-post-setting',
-	//   'type'       => 'select',
-	//   'choices' => $options
-	// )));
+	$wp_customize->add_control(new WP_Customize_Control($wp_customize, 'featured-post-control', array(
+	  'label'      => __('Featured Post', 'nonproflite'),
+	  'section'    => 'static_front_page',
+	  'settings'   => 'featured-post-setting',
+	  'type'       => 'select',
+	  'choices' => $options
+	)));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 } // end of customiser function
@@ -326,6 +405,11 @@ function nonproflite_customize_css()
 			background:
 				<?php echo get_theme_mod('background_colour_setting', '#fff');
 				?>;
+		}
+
+		.container-background {
+			background-color: <?php echo get_theme_mod('feature_background_colour_setting', '#ffc5e3');
+												?>;
 		}
 
 		/* paragraph text */
@@ -379,22 +463,34 @@ function nonproflite_customize_css()
 		}
 
 		/* header  */
-	.headerWrap	{
-		background:
+		.headerWrap {
+			background:
 				<?php echo get_theme_mod('header_bg_setting', '#f284bc');
 				?>;
 		}
 
 		/* buttons */
-		.button, .product_type_simple, .wc-forward {
+		.button,
+		.product_type_simple,
+		.wc-forward {
 			background:
 				<?php echo get_theme_mod('buttons_bg_colour_setting', '#00b2ff');
 				?> !important;
 		}
 
-		.button a, .product_type_simple, .wc-forward {
+		.button a,
+		.product_type_simple,
+		.wc-forward {
 			color:
 				<?php echo get_theme_mod('buttons_text_colour_setting', '#ffffff');
+				?> !important;
+		}
+
+		.button a:hover,
+		.product_type_simple:hover,
+		.wc-forward:hover {
+			background:
+				<?php echo get_theme_mod('buttons_hover_colour_setting', '#2b2b2b');
 				?> !important;
 		}
 	</style>

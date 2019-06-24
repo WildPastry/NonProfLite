@@ -34,6 +34,22 @@ get_template_part('inc/templates/form-logic');
 			<article>
 				<?php the_content(); ?>
 			</article>
+
+			<!-- form errors -->
+			<?php /* start form if */ if ($_POST && !empty($errors)) : ?>
+				<div class="row">
+					<div class="col-12">
+						<div class="alert alert-danger">
+							<ul class="text-center">
+								<?php foreach ($errors as $singleError) : ?>
+									<li><?php echo $singleError; ?></li>
+								<?php endforeach; ?>
+							</ul>
+						</div>
+					</div>
+				</div>
+			<?php /* end form if */ endif; ?>
+
 			<?php /* start form post if */ if ($_POST && empty($errors)) : ?>
 				<div class="alert alert-success">
 					<p>Your request to adopt has been sent successfully</p>
@@ -43,11 +59,11 @@ get_template_part('inc/templates/form-logic');
 
 				<!-- form outer-->
 				<div class="adoptWrap">
-
 					<!-- form inner -->
 					<form class="adoptForm" action="<?php echo get_permalink(); ?>" method="post">
 						<?php wp_nonce_field('wp_enquiery_form'); ?>
 						<div class="row">
+							<h4>Adoption Form</h4>
 							<input required type="text" class="contactInput" placeholder="Name" name="enquiriesName" value="<?php echo $_POST['enquiriesName'] ?>">
 							<input required type="email" class="contactInput" placeholder="Email" name="enquiriesEmail" value="">
 							<input type="submit" name="" value="Request Adoption" class="button adoptButton">

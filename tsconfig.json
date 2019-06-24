@@ -2,7 +2,7 @@
   "files": [
 	  "assets/ts/nonproflite.ts",
 	  "assets/ts/nonproflite-admin.ts",
-	  "assets/ts/nonproflite-map.ts"
+		"assets/ts/nonproflite-map.ts"
   ],
   "compilerOptions": {
       "noImplicitAny": true,

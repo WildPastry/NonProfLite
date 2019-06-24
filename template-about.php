@@ -1,7 +1,7 @@
 <?php
 /**
- * how to help template
- * Template Name: Help
+ * about template
+ * Template Name: About
  * @package nonproflite
  */
 
@@ -36,33 +36,31 @@ get_header(); ?>
 			<!-- end posts if -->
 		<?php endif; ?>
 
-		<!-- all dogs -->
+		<!-- latest news -->
 		<?php
 		$args = array(
 			'orderby' => 'date',
 			'order' => 'ASC',
-			'post_type' => 'dog',
+			'post_type' => 'post',
 			'posts_per_page' => -1
 		);
-		$allDogs = new WP_Query($args);
+		$allNews = new WP_Query($args);
 		?>
 
-		<!-- all dogs title -->
-		<div class="row justify-content-center mt-3">
+		<!-- latest news title -->
+		<div class="row mt-3">
 			<div class="col-12">
-			<header>
-				<h2>All dogs for adoption</h2>
-				</header>
+				<h2>All news</h2>
 			</div>
 		</div> <!-- row -->
 
 		<!-- post content -->
 		<div class="row">
 
-			<?php /* start dogs if */ if ($allDogs->have_posts()) : ?>
-				<?php /* start dogs count */ $dogNum = 1; ?>
-				<?php /* start dogs while */ while ($allDogs->have_posts()) : $allDogs->the_post(); ?>
-					<?php /* start dogs image if */ if (has_post_thumbnail()) : ?>
+			<?php /* start news if */ if ($allNews->have_posts()) : ?>
+				<?php /* start news count */ $newsNum = 1; ?>
+				<?php /* start news while */ while ($allNews->have_posts()) : $allNews->the_post(); ?>
+					<?php /* start news image if */ if (has_post_thumbnail()) : ?>
 
 						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-3">
 							<div class="card">
@@ -77,7 +75,7 @@ get_header(); ?>
 								</div>
 								<div class="card-footer">
 									<button class="button cardButton"><a href="<?php the_permalink(); ?>">Find out more...</a></button>
-									<p class="card-text"><small class="text-muted">Dog listed at: <?php the_date('F j, Y'); ?><?php the_time('g:i a'); ?></small></p>
+									<p class="card-text"><small class="text-muted">News posted at: <?php the_date('F j, Y'); ?><?php the_time('g:i a'); ?></small></p>
 								</div> <!-- card-footer -->
 							</div>
 						</div>
@@ -94,15 +92,15 @@ get_header(); ?>
 								</div>
 								<div class="card-footer">
 									<button class="button cardButton"><a href="<?php the_permalink(); ?>">Find out more...</a></button>
-									<p class="card-text"><small class="text-muted">Dog listed at: <?php the_date('F j, Y'); ?><?php the_time('g:i a'); ?></small></p>
+									<p class="card-text"><small class="text-muted">News posted at: <?php the_date('F j, Y'); ?><?php the_time('g:i a'); ?></small></p>
 								</div> <!-- card-footer -->
 							</div>
 						</div>
 
-					<?php /* end dogs image if */ endif; ?>
-				<?php /* end dogs while */ endwhile; ?>
-				<?php /* end dogs count */ $dogNum++; ?>
-			<?php /* end dogs if */ endif; ?>
+					<?php /* end news image if */ endif; ?>
+				<?php /* end news while */ endwhile; ?>
+				<?php /* end news count */ $newsNum++; ?>
+			<?php /* end news if */ endif; ?>
 
 		</div> <!-- row -->
 
