@@ -40,10 +40,10 @@ $url = home_url();
 		<!-- <a href="#" class="donate">DONATE</a> -->
 			<a href="#" class="cartIcon"></a>
 			<a id="fbIcon" target="_blank" href="<?php echo $facebookIcon ?>" class="facebook hideIcon"></a>
-			<a id="twIcon" target="_blank" href="<?php echo $twitterIcon ?>" class="twitter"></a>
-			<a id="inIcon" target="_blank" href="<?php echo $instagramIcon ?>" class="instagram"></a>
-			<a id="piIcon" target="_blank" href="<?php echo $pinterestIcon ?>" class="pinterest"></a>
-			<a id="yoIcon" target="_blank" href="<?php echo $youtubeIcon ?>" class="youtube"></a>
+			<a id="twIcon" target="_blank" href="<?php echo $twitterIcon ?>" class="twitter hideIcon"></a>
+			<a id="inIcon" target="_blank" href="<?php echo $instagramIcon ?>" class="instagram hideIcon"></a>
+			<a id="piIcon" target="_blank" href="<?php echo $pinterestIcon ?>" class="pinterest hideIcon"></a>
+			<a id="yoIcon" target="_blank" href="<?php echo $youtubeIcon ?>" class="youtube hideIcon"></a>
 		</div> <!-- social -->
 
 	</div>

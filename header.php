@@ -24,8 +24,8 @@ $blog_title = get_bloginfo('name');
 
 <body <?php body_class(); ?>>
 
-	<!-- logo -->
-	<?php get_template_part('inc/templates/logo'); ?>
+	<!-- logo and social media icons -->
+	<?php get_template_part('inc/templates/logo-social'); ?>
 
 	<!-- master container -->
 	<div class="container-fluid-master">

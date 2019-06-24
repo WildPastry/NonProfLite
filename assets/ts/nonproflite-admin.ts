@@ -6,30 +6,37 @@ var twIcon = document.getElementById('twIcon');
 var inIcon = document.getElementById('inIcon');
 var piIcon = document.getElementById('piIcon');
 var yoIcon = document.getElementById('yoIcon');
-// console.log(fbIcon);
-// console.log(twIcon);
-// console.log(inIcon);
-// console.log(piIcon);
-// console.log(yoIcon);
 
-// var fbLink = fbIcon.href;
-// console.log(fbLink);
-
-// var myButton = document.getElementById('sub-accordion-section-social_media_icons');
-// console.log(myButton);
+// getting href links
 var fbLink = fbIcon.getAttribute('href');
-console.log(fbLink);
+var twLink = twIcon.getAttribute('href');
+var inLink = inIcon.getAttribute('href');
+var piLink = piIcon.getAttribute('href');
+var yoLink = yoIcon.getAttribute('href');
 
+// loop to show icons once link entered
 if (fbLink === "") {
-	console.log('blank');
-	// fbIcon.removeClass('showIcon');
 	fbIcon.className += ' hideIcon';
 } else {
-	console.log('link working with refresh');
 	fbIcon.className += ' showIcon';
-	// fbIcon.removeClass('hideIcon');
-	// fbIcon.addClass('showIcon');
 }
-
-console.log(fbLink);
-/* display social media function */
+if (twLink === "") {
+	twIcon.className += ' hideIcon';
+} else {
+	twIcon.className += ' showIcon';
+}
+if (inLink === "") {
+	inIcon.className += ' hideIcon';
+} else {
+	inIcon.className += ' showIcon';
+}
+if (piLink === "") {
+	piIcon.className += ' hideIcon';
+} else {
+	piIcon.className += ' showIcon';
+}
+if (yoLink === "") {
+	yoIcon.className += ' hideIcon';
+} else {
+	yoIcon.className += ' showIcon';
+}

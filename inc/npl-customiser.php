@@ -323,7 +323,7 @@ function npl_customize_register($wp_customize)
 
 	// facebook
 	$wp_customize->add_setting('facebook_icon_setting', array(
-		'default' => 'Facebook link...',
+		'default' => '',
 		'transport' => 'refresh'
 	));
 
@@ -340,9 +340,48 @@ function npl_customize_register($wp_customize)
 		)
 	);
 
+	// twitter
+	$wp_customize->add_setting('twitter_icon_setting', array(
+		'default' => '',
+		'transport' => 'refresh'
+	));
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'twitter_icon_control',
+			array(
+				'label' => __('Twitter', 'nonproflite'),
+				'section' => 'social_media_icons',
+				'settings' => 'twitter_icon_setting',
+				'type' => 'input',
+				'default' => 'default'
+			)
+		)
+	);
+
+	// instagram
+	$wp_customize->add_setting('instagram_icon_setting', array(
+		'default' => '',
+		'transport' => 'refresh'
+	));
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'instagram_icon_control',
+			array(
+				'label' => __('Instagram', 'nonproflite'),
+				'section' => 'social_media_icons',
+				'settings' => 'instagram_icon_setting',
+				'type' => 'input'
+			)
+		)
+	);
+
 	// pinterest
 	$wp_customize->add_setting('pinterest_icon_setting', array(
-		'default' => 'Pinterest link...',
+		'default' => '',
 		'transport' => 'refresh'
 	));
 
@@ -358,6 +397,25 @@ function npl_customize_register($wp_customize)
 			)
 		)
 	);
+
+	// youtube
+	$wp_customize->add_setting('youtube_icon_setting', array(
+		'default' => '',
+		'transport' => 'refresh'
+	));
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'youtube_icon_control',
+			array(
+				'label' => __('Youtube', 'nonproflite'),
+				'section' => 'social_media_icons',
+				'settings' => 'youtube_icon_setting',
+				'type' => 'input'
+			)
+		)
+	);
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// featured posts ––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -367,12 +425,12 @@ function npl_customize_register($wp_customize)
 	// ));
 
 	$wp_customize->add_setting('featured-post-setting', array(
-	  'default'   => ' ',
-	  'transport' => 'refresh',
+		'default'   => ' ',
+		'transport' => 'refresh',
 	));
 
 	$args = array(
-	  'posts_per_page' => -1
+		'posts_per_page' => -1
 	);
 
 	$allPosts = get_posts($args);
@@ -380,15 +438,15 @@ function npl_customize_register($wp_customize)
 	$options = array();
 	$options[''] = 'Please select a post';
 	foreach ($allPosts as $singlePost) {
-	  $options[$singlePost->ID] = $singlePost->post_title;
+		$options[$singlePost->ID] = $singlePost->post_title;
 	}
 
 	$wp_customize->add_control(new WP_Customize_Control($wp_customize, 'featured-post-control', array(
-	  'label'      => __('Featured Post', 'nonproflite'),
-	  'section'    => 'static_front_page',
-	  'settings'   => 'featured-post-setting',
-	  'type'       => 'select',
-	  'choices' => $options
+		'label'      => __('Featured Post', 'nonproflite'),
+		'section'    => 'static_front_page',
+		'settings'   => 'featured-post-setting',
+		'type'       => 'select',
+		'choices' => $options
 	)));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
