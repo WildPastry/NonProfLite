@@ -36,11 +36,11 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
 		<div class="row" id="customer_details">
-			<div class="col-8">
+			<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
 			</div>
 
-			<div class="col-4">
+			<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
 				<?php do_action( 'woocommerce_checkout_shipping' ); ?>
 			</div>
 		</div>

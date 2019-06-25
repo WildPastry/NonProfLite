@@ -15,12 +15,15 @@
  * @version 3.5.2
  */
 
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 if ( ! $order = wc_get_order( $order_id ) ) {
 	return;
 }
+
+
 
 $order_items           = $order->get_items( apply_filters( 'woocommerce_purchase_order_item_types', 'line_item' ) );
 $show_purchase_note    = $order->has_status( apply_filters( 'woocommerce_purchase_note_order_statuses', array( 'completed', 'processing' ) ) );
@@ -32,7 +35,11 @@ if ( $show_downloads ) {
 	wc_get_template( 'order/order-downloads.php', array( 'downloads' => $downloads, 'show_title' => true ) );
 }
 ?>
-<section class="woocommerce-order-details">
+
+
+
+<section class="woocommerce-order-details row">
+	<div class="col-12">
 	<?php do_action( 'woocommerce_order_details_before_order_table', $order ); ?>
 
 	<h2 class="woocommerce-order-details__title"><?php _e( 'Order details', 'woocommerce' ); ?></h2>
@@ -88,6 +95,7 @@ if ( $show_downloads ) {
 	</table>
 
 	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
+			</div>
 </section>
 
 <?php
