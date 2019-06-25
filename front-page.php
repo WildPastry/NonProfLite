@@ -6,7 +6,11 @@
 
 // get custom intro text
 $customText = get_theme_mod('custom_intro_setting');
+$customTextOne = get_theme_mod('custom_frontOne_headings_setting');
+$customTextTwo = get_theme_mod('custom_frontTwo_headings_setting');
 $defaultText = 'Welcome to CHCH Bull Breed Rescue';
+$defaultTextOne = 'Latest News';
+$defaultTextTwo = 'Latest Dogs for Adoption';
 
 get_header(); ?>
 
@@ -73,7 +77,11 @@ get_header(); ?>
 		<!-- latest news title -->
 		<div class="row mt-3">
 			<div class="col-12">
-				<h2>Latest news</h2>
+			<?php if ($customTextOne == "") : echo '<h2>' . $defaultTextOne . '</h2>';
+			else :
+				echo '<h2>' . $customTextOne . '</h2>';
+			endif;
+			?>
 			</div>
 		</div> <!-- row -->
 
@@ -148,7 +156,11 @@ get_header(); ?>
 	<!-- featured dogs title -->
 	<div class="row mt-3">
 		<div class="col-12">
-			<h2>Latest dogs for adoption</h2>
+		<?php if ($customTextTwo == "") : echo '<h2>' . $defaultTextTwo . '</h2>';
+			else :
+				echo '<h2>' . $customTextTwo . '</h2>';
+			endif;
+			?>
 		</div>
 	</div> <!-- row -->
 

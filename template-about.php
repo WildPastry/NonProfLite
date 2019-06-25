@@ -5,6 +5,10 @@
  * @package nonproflite
  */
 
+// get custom intro text
+$customText = get_theme_mod('custom_about_headings_setting');
+$defaultText = 'All News';
+
 get_header(); ?>
 
 <!-- main content area -->
@@ -50,7 +54,11 @@ get_header(); ?>
 		<!-- latest news title -->
 		<div class="row mt-3">
 			<div class="col-12">
-				<h2>All news</h2>
+			<?php if ($customText == "") : echo '<h2>' . $defaultText . '</h2>';
+			else :
+				echo '<h2>' . $customText . '</h2>';
+			endif;
+			?>
 			</div>
 		</div> <!-- row -->
 

@@ -32,12 +32,12 @@ function npl_customize_register($wp_customize)
 	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-	// create font panel –––––––––––––––––––––––––––––––––––––––––––––––––––––
-	// $wp_customize->add_panel('site_font_panel', array(
-	// 	'title'      => __('Site Font', 'nonproflite'),
-	// 	'priority'   => 20,
-	// 	'description' => 'Edit the site font'
-	// ));
+	// create page content panel –––––––––––––––––––––––––––––––––––––––––––––
+	$wp_customize->add_panel('page_content_panel', array(
+		'title'      => __('General Page Content', 'nonproflite'),
+		'priority'   => 140,
+		'description' => 'Edit general page content'
+	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// slideshow –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -69,7 +69,7 @@ function npl_customize_register($wp_customize)
 	// colours –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// background
 	$wp_customize->add_section('background_colour_section', array(
-		'title'      => __('Site background', 'nonproflite'),
+		'title'      => __('Site Background', 'nonproflite'),
 		'priority'   => 5,
 		'panel' => 'site_colours_panel'
 	));
@@ -336,7 +336,8 @@ function npl_customize_register($wp_customize)
 
 	// custom intro ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	$wp_customize->add_section('custom_intro_section', array(
-		'title'      => __('Custom intro text', 'nonproflite'),
+		'title'      => __('Custom Intro Text', 'nonproflite'),
+		'panel' => 'homepage_panel',
 		'priority'   => 25
 	));
 
@@ -349,9 +350,81 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'custom_intro_control',
 		array(
-			'label'      => __('Change custom intro text', 'nonproflite'),
-			'section'    => 'title_tagline',
+			'label'      => __('Change the custom intro text', 'nonproflite'),
+			'section'    => 'custom_intro_section',
 			'settings'   => 'custom_intro_setting',
+		)
+	));
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	// custom headings –––––––––––––––––––––––––––––––––––––––––––––––––––––
+	// about
+	$wp_customize->add_section('custom_headings_section', array(
+		'title'      => __('Custom Headings', 'nonproflite'),
+		'panel' => 'page_content_panel',
+		'priority'   => 5
+	));
+
+	$wp_customize->add_setting('custom_about_headings_setting', array(
+		'default'   => 'All News',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'custom_about_headings_control',
+		array(
+			'label'      => __('"About Page" posts heading', 'nonproflite'),
+			'section'    => 'custom_headings_section',
+			'settings'   => 'custom_about_headings_setting',
+		)
+	));
+
+	// how to help
+	$wp_customize->add_setting('custom_help_headings_setting', array(
+		'default'   => 'All Dogs',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'custom_help_headings_control',
+		array(
+			'label'      => __('"How To Help Page" posts heading', 'nonproflite'),
+			'section'    => 'custom_headings_section',
+			'settings'   => 'custom_help_headings_setting',
+		)
+	));
+
+	// front page one
+	$wp_customize->add_setting('custom_frontOne_headings_setting', array(
+		'default'   => 'Latest News',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'custom_frontOne_headings_control',
+		array(
+			'label'      => __('"Home Page" first posts heading', 'nonproflite'),
+			'section'    => 'custom_headings_section',
+			'settings'   => 'custom_frontOne_headings_setting',
+		)
+	));
+
+	// front page two
+	$wp_customize->add_setting('custom_frontTwo_headings_setting', array(
+		'default'   => 'Latest Dogs for Adoption',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'custom_frontTwo_headings_control',
+		array(
+			'label'      => __('"Home Page" second posts heading', 'nonproflite'),
+			'section'    => 'custom_headings_section',
+			'settings'   => 'custom_frontTwo_headings_setting',
 		)
 	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

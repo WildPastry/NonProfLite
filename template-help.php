@@ -5,6 +5,10 @@
  * @package nonproflite
  */
 
+// get custom intro text
+$customText = get_theme_mod('custom_help_headings_setting');
+$defaultText = 'All Dogs for Adoption';
+
 get_header(); ?>
 
 <!-- main content area -->
@@ -51,7 +55,11 @@ get_header(); ?>
 		<div class="row justify-content-center mt-3">
 			<div class="col-12">
 			<header>
-				<h2>All dogs for adoption</h2>
+			<?php if ($customText == "") : echo '<h2>' . $defaultText . '</h2>';
+			else :
+				echo '<h2>' . $customText . '</h2>';
+			endif;
+			?>
 				</header>
 			</div>
 		</div> <!-- row -->
