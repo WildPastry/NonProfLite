@@ -45,7 +45,7 @@ get_header(); ?>
 			<?php /* start posts while */ while (have_posts()) : the_post() ?>
 
 				<!-- get content -->
-				<div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
 					<article class="two-column">
 						<?php the_content(); ?>
 					</article>

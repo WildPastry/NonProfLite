@@ -1,1 +1,23 @@
-console.log("ts auto complete connected...");var input=document.getElementById("locationInput");function init(){var o=new google.maps.places.Autocomplete(input);o.setFields(["geometry","name"]),google.maps.event.addListener(o,"place_changed",function(){var e=o.getPlace();myLat=e.geometry.location.lat(),myLng=e.geometry.location.lng()})}console.log(input),console.log(input.value),google.maps.event.addDomListener(window,"load",init);
+console.log('ts auto complete connected...');
+// variables
+var input = document.getElementById('locationInput');
+console.log(input);
+console.log(input.value);
+var myLat = -43.5321;
+var myLng = 172.6362;
+console.log(myLat);
+console.log(myLng);
+// autocomplete
+function init() {
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.setFields(['geometry', 'name']);
+    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        var place = autocomplete.getPlace();
+        myLat = place.geometry.location.lat();
+        myLng = place.geometry.location.lng();
+    });
+    console.log(myLat);
+    console.log(myLng);
+    console.log(input.value);
+}
+google.maps.event.addDomListener(window, 'load', init);

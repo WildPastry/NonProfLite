@@ -77,7 +77,7 @@ gulp.task('compress', function() {
 // watchers
 gulp.task('watch', function(event) {
 	gulp.watch('assets/less/**/*.less', { usePolling: true }, gulp.series('less'));
-	gulp.watch('assets/ts/*.ts', { usePolling: true }, gulp.series('ts', 'lint', 'compress'));
+	gulp.watch('assets/ts/*.ts', { usePolling: true }, gulp.series('ts', 'lint'));
 	event();
 });
 

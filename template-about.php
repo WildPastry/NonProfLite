@@ -27,55 +27,44 @@ get_header(); ?>
 			<!-- menu -->
 			<?php get_template_part('inc/templates/menu'); ?>
 
-		</div> <!-- posts and content -->
-
 			<!-- content -->
 			<?php get_template_part('inc/templates/content-no-image'); ?>
 
-		<!-- end posts while -->
-	<?php endwhile;
+			<!-- end posts while -->
+		<?php endwhile;
 
 else : ?>
 
-	<!-- no content -->
-	<?php get_template_part('templates/content', 'none'); ?>
+		<!-- no content -->
+		<?php get_template_part('templates/content', 'none'); ?>
 
-	<!-- end posts if -->
-<?php endif; ?>
+		<!-- end posts if -->
+	<?php endif; ?>
 
-<!-- feature section -->
-<div class="container-fluid-feature container-background">
+</div> <!-- container-fluid -->
 
-	<!-- posts and content -->
-	<div class='container-fluid'>
+<!-- posts and content -->
+<div class='container-fluid-feature container-background'>
 
-		<!-- information title -->
-		<div class="row justify-content-center mt-3">
-			<div class="col-10">
-				<?php if ($customTextInfo == "") : echo '<h2>' . $defaultTextInfo . '</h2>';
-				else :
-					echo '<h2>' . $customTextInfo . '</h2>';
-				endif;
-				?>
-			</div>
-		</div> <!-- row -->
+	<!-- information title -->
+	<div class="row justify-content-center mt-3">
+		<div class="col-12">
+			<?php if ($customTextInfo == "") : echo '<h2>' . $defaultTextInfo . '</h2>';
+			else :
+				echo '<h2>' . $customTextInfo . '</h2>';
+			endif;
+			?>
+		</div>
 
-		<!-- post content -->
-		<div class="row justify-content-center">
-
-			<div class="col-10 text-center">
-				<?php if ($customTextInfoPara == "") : echo '<h5>' . $defaultTextInfoPara . '</h5>';
-				else :
-					echo '<h5>' . $customTextInfoPara . '</h5>';
-				endif;
-				?>
-			</div>
-
-		</div> <!-- row -->
-
-	</div> <!-- container-fluid -->
-
-</div> <!-- feature section -->
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 text-center mt-1">
+			<?php if ($customTextInfoPara == "") : echo '<h5>' . $defaultTextInfoPara . '</h5>';
+			else :
+				echo '<h5>' . $customTextInfoPara . '</h5>';
+			endif;
+			?>
+		</div>
+	</div> <!-- row -->
+</div>
 
 <!-- posts and content -->
 <div class='container-fluid'>

@@ -100,5 +100,11 @@ function npl_location_value()
 
 	// output value
 	echo '<input type="text" autocomplete="off" name="locationInput" id="locationInput" placeholder="Enter location here..." value="' . $map_location . '"/>';
+
+	// lat
+	// echo '<input type="hidden" name="latValue" id="latValue" value="' . $map_lat . '"/>';
+
+	// lng
+	// echo '<input type="hidden" name="lngValue" id="lngValue" value="' . $map_lng . '"/>';
 }
 
