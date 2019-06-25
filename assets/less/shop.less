@@ -1,6 +1,11 @@
 // less
 // shop
 
+.wooWrap {
+	max-width: 80%;
+	margin: @mar-0-auto;
+}
+
 // archive product button
 .product_type_simple {
 	background: @blue;
@@ -8,11 +13,6 @@
 
 .product_type_simple a {
 	color: @white;
-}
-
-// cart product button
-.wc-forward {
-	background: @blue;
 }
 
 .wc-forward a {
@@ -54,10 +54,9 @@
 	margin-top: 1em;
 	padding-top: 1em;
 	border-top: @grey-border;
-
 }
 
-.added_to_cart{
+.added_to_cart {
 	color: @white;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
@@ -73,7 +72,7 @@
 
 .woocommerce a.added_to_cart {
 	background: @green !important;
-	padding-top: .35em;
+	padding-top: 0.35em;
 	margin-bottom: 0;
 }
 
@@ -82,21 +81,25 @@
 }
 
 .woocommerce-message a {
-	background: @green !important;
+	background: @green;
 }
 
 .woocommerce-message a:hover {
-	background: @dark-green !important;
+	background: @dark-green;
 }
 
-
-
 // cart page buttons
-.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
 	color: @white;
 }
 
-.woocommerce #respond input#submit:hover , .woocommerce a.button:hover , .woocommerce button.button:hover , .woocommerce input.button:hover {
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
 	color: @white;
 }
 
@@ -108,9 +111,14 @@
 	background: @dark-green !important;
 }
 
+// cart product button
+.wc-forward {
+	background: @blue;
+}
+
 // add to cart message
 .woocommerce-message::before {
-	content: "\e015";
+	content: '\e015';
 	color: @green;
 }
 
@@ -119,7 +127,7 @@
 }
 
 .woocommerce-error::before {
-	content: "\e016";
+	content: '\e016';
 	color: @red;
 }
 
@@ -127,12 +135,42 @@
 	border-top-color: @red;
 }
 
-.woocommerce-error, .woocommerce-info, .woocommerce-message {
+.woocommerce-error,
+.woocommerce-info,
+.woocommerce-message {
 	background-color: @lightest-grey;
 	color: @grey;
 }
 
+// actual cart page
+.woocommerce #content table.cart td.actions .input-text,
+.woocommerce table.cart td.actions .input-text,
+.woocommerce-page #content table.cart td.actions .input-text,
+.woocommerce-page table.cart td.actions .input-text {
+	width: auto;
+}
 
+#coupon_code {
+	margin-right: 10px;
+}
+
+.woocommerce table.shop_table {
+	border-radius: 3px;
+}
+
+.actions {
+	color: @white !important;
+}
+
+.restore-item {
+	background: none !important;
+	color: @grey !important;
+}
+
+.restore-item:hover {
+	background: none !important;
+	color: @grey !important;
+}
 
 // product meta
 .product_meta a {
@@ -180,18 +218,19 @@
 	background-color: @green;
 }
 
-// cart page
-.actions {
-	color: @white !important;
+// woocommerce info message
+.woocommerce-info::before {
+	color: @green;
 }
 
-// .restore-item {
-// 	text-transform: uppercase;
-// 	letter-spacing: 0.5px;
-// 	cursor: pointer;
-// 	transition-duration: 500ms !important;
-// 	border-radius: 3px;
-// 	width: auto;
-// 	height: 40px;
-// 	margin: 5px 0;
-// }
+.woocommerce-info {
+	border-top-color: @green;
+}
+
+.woocommerce-info a {
+	color: @grey !important;
+}
+
+.woocommerce-info a:hover {
+	color: @grey !important;
+}

@@ -1,7 +1,7 @@
 <?php
 /**
- * cart template
- * Template Name: Cart
+ * checkout template
+ * Template Name: Checkout
  * @package nonproflite
  */
 
