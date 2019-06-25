@@ -4,6 +4,9 @@
  * @package nonproflite
  */
 
+//  cart url
+$cart_url = wc_get_cart_url();
+
 // custom logo
 $custom_logo_size = get_theme_mod('custom_logo');
 $custom_logo = wp_get_attachment_image_src($custom_logo_size, $defaults);
@@ -37,8 +40,8 @@ $url = home_url();
 
 		<!-- social -->
 		<div class="socialWrap">
-		<!-- <a href="#" class="donate">DONATE</a> -->
-			<a href="http://localhost/practice-work/pit-rescue/cart/" class="cartIcon"></a>
+			<a target="_blank" href="https://givealittle.co.nz/" class="donateButton">DONATE</a>
+			<a href="<?php echo $cart_url ?>" class="cartIcon"></a>
 			<a id="fbIcon" target="_blank" href="<?php echo $facebookIcon ?>" class="facebook hideIcon"></a>
 			<a id="twIcon" target="_blank" href="<?php echo $twitterIcon ?>" class="twitter hideIcon"></a>
 			<a id="inIcon" target="_blank" href="<?php echo $instagramIcon ?>" class="instagram hideIcon"></a>

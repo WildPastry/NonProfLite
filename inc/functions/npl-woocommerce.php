@@ -46,31 +46,3 @@ function woo_custom_product_add_to_cart_text()
 	return __('Add to cart', 'woocommerce');
 }
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-// image sizes –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// thumbnail
-// add_filter('woocommerce_get_image_size_thumbnail', function ($size) {
-// 	return array(
-// 		'width' => 300,
-// 		'height' => 0,
-// 		'crop' => 0,
-// 	);
-// });
-// gallery
-// add_filter('woocommerce_get_image_size_gallery_thumbnails', function ($size) {
-// 	return array(
-// 		'width' => 300,
-// 		'height' => 0,
-// 		'crop' => 0,
-// 	);
-// });
-// single
-// add_filter('woocommerce_get_image_size_single', function ($size) {
-// 	return array(
-// 		'width' => 900,
-// 		'height' => 0,
-// 		'crop' => 0,
-// 	);
-// });
-
-// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
