@@ -6,6 +6,17 @@
 	margin: @mar-0-auto;
 }
 
+// headings
+.woocommerce h2 {
+	text-align: left;
+	margin-bottom: 0.5em;
+}
+
+.woocommerce h3 {
+	text-align: left;
+	margin-bottom: 0.5em;
+}
+
 // archive product button
 .product_type_simple {
 	background: @blue;
@@ -318,4 +329,54 @@
 
 label {
 	margin-bottom: 0 !important;
+}
+
+.woocommerce .cart-collaterals .cart_totals,
+.woocommerce-page .cart-collaterals .cart_totals {
+	width: 100%;
+}
+
+// thank you / order complete page
+.woocommerce ul.order_details {
+	margin: 0 0 2em;
+}
+
+.woocommerce .woocommerce-customer-details a,
+.woocommerce .woocommerce-order-details a,
+.woocommerce .woocommerce-order-downloads a {
+	color: @grey;
+}
+
+.woocommerce .woocommerce-customer-details a:hover,
+.woocommerce .woocommerce-order-details a:hover,
+.woocommerce .woocommerce-order-downloads a:hover {
+	color: @grey;
+}
+
+.mySuccess {
+color: @green !important;
+font-weight: bold;
+margin-bottom: 1em;
+}
+
+.myError {
+	color: @red !important;
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+// address {
+// 	background: @lightest-grey;
+// }
+
+.woocommerce .woocommerce-customer-details address {
+	border-radius: 3px;
+}
+
+.noPadL {
+	padding-left: 0;
+}
+
+.noPadR {
+	padding-right: 0;
 }

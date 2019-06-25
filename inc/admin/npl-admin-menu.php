@@ -86,8 +86,19 @@ function npl_key_value()
 // call map location settings
 function npl_location_value()
 {
+	// get value
+	if (isset($_POST['locationInput'])) {
+		$map_location = $_POST['locationInput'];
+		update_option('locationInput', $map_location);
+	}
+
+	// check value
+	$map_location = get_option('locationInput');
+	if (FALSE === $map_location) {
+		$map_location = '';
+	}
 
 	// output value
-	echo '<input type="text" name="locationInput" id="locationInput" placeholder="Enter location here..." value=""/>';
+	echo '<input type="text" autocomplete="off" name="locationInput" id="locationInput" placeholder="Enter location here..." value="' . $map_location . '"/>';
 }
 

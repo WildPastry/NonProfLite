@@ -39,7 +39,6 @@ if ( $show_downloads ) {
 
 
 <section class="woocommerce-order-details row">
-	<div class="col-12">
 	<?php do_action( 'woocommerce_order_details_before_order_table', $order ); ?>
 
 	<h2 class="woocommerce-order-details__title"><?php _e( 'Order details', 'woocommerce' ); ?></h2>
@@ -95,7 +94,6 @@ if ( $show_downloads ) {
 	</table>
 
 	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
-			</div>
 </section>
 
 <?php

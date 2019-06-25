@@ -2,7 +2,8 @@
   "files": [
 	  "assets/ts/nonproflite.ts",
 	  "assets/ts/nonproflite-admin.ts",
-		"assets/ts/nonproflite-map.ts"
+		"assets/ts/nonproflite-map.ts",
+		"assets/ts/nonproflite-auto-complete.ts"
   ],
   "compilerOptions": {
       "noImplicitAny": true,

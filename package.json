@@ -37,8 +37,8 @@
 		"postcss-font-magician": "^2.2.1"
 	},
 	"dependencies": {
-		"typescript": "^3.5.1",
-		"@types/googlemaps": "^3.30.20",
-		"@types/jquery": "^3.3.29"
+		"@types/googlemaps": "^3.36.5",
+		"@types/jquery": "^3.3.29",
+		"typescript": "^3.5.1"
 	}
 }
