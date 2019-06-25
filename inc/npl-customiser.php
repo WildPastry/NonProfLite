@@ -380,6 +380,38 @@ function npl_customize_register($wp_customize)
 		)
 	));
 
+	// about info heading
+	$wp_customize->add_setting('custom_aboutInfo_headings_setting', array(
+		'default'   => 'Pitbull Breed Information',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'custom_aboutInfo_headings_control',
+		array(
+			'label'      => __('"About Page" special information heading', 'nonproflite'),
+			'section'    => 'custom_headings_section',
+			'settings'   => 'custom_aboutInfo_headings_setting',
+		)
+	));
+
+	// about info text
+	$wp_customize->add_setting('custom_aboutInfo_text_setting', array(
+		'default'   => 'The Pit Bull Terrier is a companion and family dog breed. Originally bred to “bait” bulls, the breed evolved into farm dogs, and later moved into the house to become “nanny dogs” because they were so gentle around children.',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'custom_aboutInfo_text_control',
+		array(
+			'label'      => __('"About Page" special information text', 'nonproflite'),
+			'section'    => 'custom_headings_section',
+			'settings'   => 'custom_aboutInfo_text_setting',
+		)
+	));
+
 	// how to help
 	$wp_customize->add_setting('custom_help_headings_setting', array(
 		'default'   => 'All Dogs',

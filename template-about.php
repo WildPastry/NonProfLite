@@ -5,9 +5,13 @@
  * @package nonproflite
  */
 
-// get custom intro text
+// get custom text
 $customText = get_theme_mod('custom_about_headings_setting');
+$customTextInfo = get_theme_mod('custom_info_headings_setting');
+$customTextInfoPara = get_theme_mod('custom_info_headings_setting');
 $defaultText = 'All News';
+$defaultTextInfo = 'Pitbull Breed Information';
+$defaultTextInfoPara = 'The Pit Bull Terrier is a companion and family dog breed. Originally bred to “bait” bulls, the breed evolved into farm dogs, and later moved into the house to become “nanny dogs” because they were so gentle around children.';
 
 get_header(); ?>
 
@@ -21,24 +25,64 @@ get_header(); ?>
 			<?php get_template_part('inc/templates/feature'); ?>
 
 			<!-- posts and content -->
-			<div class='container-fluid'>
+			<!-- <div class='container-fluid'> -->
 
-				<!-- menu -->
-				<?php get_template_part('inc/templates/menu'); ?>
+			<!-- menu -->
+			<?php get_template_part('inc/templates/menu'); ?>
 
-				<!-- content -->
-				<?php get_template_part('inc/templates/content-no-image'); ?>
+			<!-- content -->
+			<?php get_template_part('inc/templates/content-no-image'); ?>
 
-				<!-- end posts while -->
-			<?php endwhile;
+			<!-- end posts while -->
+		<?php endwhile;
 
-	else : ?>
+else : ?>
 
-			<!-- no content -->
-			<?php get_template_part('templates/content', 'none'); ?>
+		<!-- no content -->
+		<?php get_template_part('templates/content', 'none'); ?>
 
-			<!-- end posts if -->
-		<?php endif; ?>
+		<!-- end posts if -->
+	<?php endif; ?>
+
+	<!-- </div>  -->
+	<!-- posts and content -->
+
+	<!-- feature section -->
+	<div class="container-fluid-feature container-background">
+
+		<!-- posts and content -->
+		<div class='container-fluid'>
+
+			<!-- information title -->
+			<div class="row justify-content-center mt-3">
+				<div class="col-10">
+				<?php if ($customTextInfo == "") : echo '<h2>' . $defaultTextInfo . '</h2>';
+				else :
+					echo '<h2>' . $customTextInfo . '</h2>';
+				endif;
+				?>
+				</div>
+			</div> <!-- row -->
+
+			<!-- post content -->
+			<div class="row justify-content-center">
+
+				<div class="col-10 text-center">
+				<?php if ($customTextInfoPara == "") : echo '<h5>' . $defaultTextInfoPara . '</h5>';
+				else :
+					echo '<h5>' . $customTextInfoPara . '</h5>';
+				endif;
+				?>
+				</div>
+
+			</div> <!-- row -->
+
+		</div> <!-- container-fluid -->
+
+	</div> <!-- feature section -->
+
+	<!-- posts and content -->
+	<div class='container-fluid'>
 
 		<!-- latest news -->
 		<?php
@@ -54,11 +98,11 @@ get_header(); ?>
 		<!-- latest news title -->
 		<div class="row mt-3">
 			<div class="col-12">
-			<?php if ($customText == "") : echo '<h2>' . $defaultText . '</h2>';
-			else :
-				echo '<h2>' . $customText . '</h2>';
-			endif;
-			?>
+				<?php if ($customText == "") : echo '<h2>' . $defaultText . '</h2>';
+				else :
+					echo '<h2>' . $customText . '</h2>';
+				endif;
+				?>
 			</div>
 		</div> <!-- row -->
 

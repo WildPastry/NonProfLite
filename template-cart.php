@@ -1,6 +1,7 @@
 <?php
 /**
-z
+ * cart template
+ * Template Name: Cart
  * @package nonproflite
  */
 
@@ -12,9 +13,6 @@ get_header(); ?>
 	<?php  /* start posts if */ if (have_posts()) :
 		while /* start posts while */ (have_posts()) : the_post(); ?>
 
-			<!-- feature image -->
-			<?php get_template_part('inc/templates/feature'); ?>
-
 			<!-- posts and content -->
 			<div class='container-fluid'>
 
@@ -22,7 +20,7 @@ get_header(); ?>
 				<?php get_template_part('inc/templates/menu'); ?>
 
 				<!-- content -->
-				<?php get_template_part('inc/templates/content'); ?>
+				<?php the_content(); ?>
 
 				<!-- end posts while -->
 			<?php endwhile;
