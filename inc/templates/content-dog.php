@@ -54,11 +54,31 @@ if ($_POST) {
 
 	<!-- single post image -->
 	<?php /* start thumbnail if */ if (has_post_thumbnail()) : ?>
+
 		<!-- single post content -->
 		<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
 			<article>
 				<?php the_content(); ?>
 			</article>
+		</div>
+		<!-- image -->
+		<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+			<?php echo '<div class="thumbImg" style="background-image: url(' . $thumbImg . ');background-position: center; background-size: cover;  background-repeat: no-repeat;"></div>'; ?>
+		</div>
+
+	</div> <!-- row -->
+
+<?php /* else */ else : ?>
+
+	<div class="row justify-content-center">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10">
+			<article>
+				<?php the_content(); ?>
+			</article>
+		</div>
+
+	</div>
+<?php /* end thumbnail if */ endif; ?>
 
 			<!-- form errors -->
 			<?php /* start form if */ if ($_POST && !empty($errors)) : ?>
@@ -98,20 +118,3 @@ if ($_POST) {
 				</div> <!-- form outer-->
 
 			<?php /* end form post if */ endif; ?>
-		</div>
-		<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
-			<?php echo '<div class="thumbImg" style="background-image: url(' . $thumbImg . ');background-position: center; background-size: cover;  background-repeat: no-repeat;"></div>'; ?>
-		</div>
-	</div>
-
-<?php /* else */ else : ?>
-
-	<div class="row justify-content-center">
-		<div class="col-12">
-			<article class="text-center">
-				<?php the_content(); ?>
-			</article>
-		</div>
-
-	</div>
-<?php /* end thumbnail if */ endif; ?>

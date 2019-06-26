@@ -18,6 +18,9 @@ function admin_styles()
 			#mapKeyInput, #locationInput {
 				width: 360px;
 		}
+		#latValue, #lngValue {
+			width: 179px;
+	}
 	</style>';
 }
 add_action('admin_head', 'admin_styles');

@@ -14,11 +14,8 @@ function enqueue_files()
 	$gmaps = 'https://maps.googleapis.com/maps/api/js?key=' . $map_key . '&callback=initMap#asyncload';
 
 	// auto-complete info
-	$autoLat = get_option('locationInput');
-
-	// christchurch lat lng
-	$latInput = -43.5321;
-	$lngInput = 172.6362;
+	$latValue = get_option('latValue');
+	$lngValue = get_option('lngValue');
 
 	// load map key script
 	if ($pageTemplate === 'template-contact.php') {
@@ -73,8 +70,8 @@ function enqueue_files()
 
 	// localize javascript
 	wp_localize_script('nonproflite_map_js', 'latLngInput', array(
-		'latInput' => $latInput,
-		'lngInput' => $lngInput
+		'latInput' => $latValue,
+		'lngInput' => $lngValue
 	));
 
 	// async load

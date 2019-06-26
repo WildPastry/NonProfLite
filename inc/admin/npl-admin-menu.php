@@ -86,48 +86,49 @@ function npl_key_value()
 // call map location settings
 function npl_location_value()
 {
-	// get value
+	// get map location value
 	if (isset($_POST['locationInput'])) {
 		$map_location = $_POST['locationInput'];
 		update_option('locationInput', $map_location);
 	}
 
-	// check value
+	// check map location value
 	$map_location = get_option('locationInput');
 	if (FALSE === $map_location) {
 		$map_location = '';
 	}
 
-	// if (isset($_POST['latValue'])) {
-	// 	$latValue = $_POST['latValue'];
-	// 	update_option('latValue', $latValue);
-	// }
+	// get lat value
+	if (isset($_POST['latValue'])) {
+		$latValue = $_POST['latValue'];
+		update_option('latValue', $latValue);
+	}
 
-	// $latValue = get_option('latValue');
-	// if (FALSE === $latValue) {
-	// 	$latValue = '';
-	// }
+	// check lat value
+	$latValue = get_option('latValue');
+	if (FALSE === $latValue) {
+		$latValue = -43.5321;
+	}
 
-	// if (isset($_POST['lngValue'])) {
-	// 	$lngValue = $_POST['lngValue'];
-	// 	update_option('lngValue', $lngValue);
-	// }
+	// get lng value
+	if (isset($_POST['lngValue'])) {
+		$lngValue = $_POST['lngValue'];
+		update_option('lngValue', $lngValue);
+	}
 
-	// $lngValue = get_option('lngValue');
-	// if (FALSE === $lngValue) {
-	// 	$lngValue = '';
-	// }
+	// check lng value
+	$lngValue = get_option('lngValue');
+	if (FALSE === $lngValue) {
+		$lngValue = 172.6362;
+	}
 
 	// output value
-	echo '<input type="textarea" autocomplete="off" name="locationInput" id="locationInput" placeholder="Enter location here..." value="' . $map_location . '"/>';
+	echo '<input type="textarea" autocomplete="off" name="locationInput" id="locationInput" placeholder="Enter location here..." value="' . $map_location . '"/>' . '<br>';
 
-	// lat
-	echo '<input type="hidden" name="latValue" id="latValue" value=""/>';
+	// lat field
+	echo '<input hidden type="textarea" name="latValue" id="latValue" value="' . $latValue . '"/>';
 
-	// lng
-	echo '<input type="hidden" name="lngValue" id="lngValue" value=""/>';
+	// lng field
+	echo '<input hidden type="textarea" name="lngValue" id="lngValue" value="' . $lngValue . '"/>';
+
 }
-
-// var_dump($latValue);
-// var_dump($lngValue);
-// die();

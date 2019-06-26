@@ -29,7 +29,7 @@ $thumbImg = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 		<?php /* start thumbnail if */ if (has_post_thumbnail()) : ?>
 
 			<div class="row justify-content-center">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10">
 					<article class="two-column">
 						<?php the_content(); ?>
 					</article>

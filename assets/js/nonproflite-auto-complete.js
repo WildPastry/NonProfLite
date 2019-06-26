@@ -6,32 +6,23 @@ var lngValue = document.getElementById('lngValue');
 var latLngValues = [];
 var myLat = -43.5321;
 var myLng = 172.6362;
-console.log(myLat);
-console.log(myLng);
-console.log(latValue);
-console.log(lngValue);
 // autocomplete
 function init() {
     latLngValues = [];
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.setFields(['geometry', 'name']);
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        // get lat and lng values
         var place = autocomplete.getPlace();
         myLat = place.geometry.location.lat();
         myLng = place.geometry.location.lng();
-        console.log(myLat);
-        console.log(myLng);
-        console.log(input.value);
-        console.log(latValue);
-        console.log(lngValue);
+        // push values to array
         latLngValues.push(myLat);
         latLngValues.push(myLng);
-        console.log(latLngValues);
+        // convert values
         var myFinalLat = parseFloat(latLngValues[0]);
         var myFinalLng = parseFloat(latLngValues[1]);
-        console.log(myFinalLat);
-        console.log(myFinalLng);
-        console.log(latLngValues);
+        // output values
         latValue.value = +myFinalLat;
         lngValue.value = +myFinalLng;
     });

@@ -3,6 +3,7 @@ var latLngInput: any;
 console.log(latLngInput);
 var myLat = parseFloat(latLngInput.latInput);
 var myLng = parseFloat(latLngInput.lngInput);
+var myLocation = {lat: myLat, lng: myLng};
 
 // variables
 var map;
@@ -13,7 +14,7 @@ function initMap() {
     console.log('map function loaded...');
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: myLat, lng: myLng },
-        zoom: 13,
+        zoom: 17,
         disableDefaultUI: true,
         styles: [
             {
@@ -230,5 +231,10 @@ function initMap() {
                 ]
             }
         ]
-    });
+		});
+		var marker = new google.maps.Marker({
+			position: myLocation,
+			map: map,
+			title: 'Our Location'
+	});
 }
