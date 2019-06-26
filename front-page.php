@@ -17,6 +17,9 @@ get_header(); ?>
 <!-- slideshow -->
 <?php get_template_part('inc/templates/slideshow'); ?>
 
+<!-- feature image -->
+<?php get_template_part('inc/templates/feature-front'); ?>
+
 <!-- posts and content -->
 <div class='container-fluid'>
 

@@ -48,6 +48,7 @@ function npl_customize_register($wp_customize)
 		'panel' => 'homepage_panel'
 	));
 
+	// slideshow loop
 	for ($i = 1; $i <= 3; $i++) {
 		$wp_customize->add_setting('featured_slide_' . $i . '_setting', array(
 			'default'   => get_template_directory_uri() . '/assets/img/default-slide.jpg',
@@ -64,6 +65,54 @@ function npl_customize_register($wp_customize)
 			)
 		));
 	}
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	// featured image ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	$wp_customize->add_section('featured_image_section', array(
+		'title'      => __('Featured Image', 'non-prof-lite'),
+		'description' => 'Insert a feature image for the home page',
+		'priority'   => 20,
+		'panel' => 'homepage_panel'
+	));
+
+	$wp_customize->add_setting('featured_image_setting', array(
+		'default'   => get_template_directory_uri() . '/assets/img/default-home-feature.jpg',
+		'priority'   => 10,
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Image_Control(
+		$wp_customize,
+		'featured_image_control',
+		array(
+			'label'      => __('Featured Image', 'nonproflite'),
+			'description' => __('Using this option you can select a feature image for the home page'),
+			'section'    => 'featured_image_section',
+			'settings'   => 'featured_image_setting',
+		)
+	));
+
+	// enable featured image
+	$wp_customize->add_setting('enable_featured_image_setting', array(
+		'default'   => '',
+		'priority'   => 5,
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'enable_featured_image_control',
+		array(
+			'label'      => __('Enable/Disable Featured Image', 'nonproflite'),
+			'section'    => 'featured_image_section',
+			'type'           => 'radio',
+			'choices'        => array(
+					'enable'   => __( 'Enable' ),
+					'disable'  => __( 'Disable' )
+			),
+			'settings'   => 'enable_featured_image_setting',
+		)
+	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// colours –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

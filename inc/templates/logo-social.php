@@ -27,11 +27,6 @@ $url = home_url();
 
 ?>
 
-<!-- cart -->
-<?php
-// get_template_part('inc/templates/cart-logic');
-?>
-
 <!-- header -->
 <div class="headerWrap">
 	<div class="headerWrapFlex">
