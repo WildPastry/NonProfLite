@@ -98,14 +98,11 @@ add_action('wp_enqueue_scripts', 'enqueue_files');
 function add_npl_admin()
 {
 	// globals
-	global $map_key;
-
-	// map location info
-	$auto_complete = 'https://maps.googleapis.com/maps/api/js?key=' . $map_key . '&libraries=places';
+	$map_key = get_option('mapKeyInput');
 
 	// load auto-complete script
-	wp_enqueue_script('npl-auto-complete', $auto_complete, array(''), '1.0', true);
-	wp_enqueue_script('npl-admin-auto-complete', get_template_directory_uri() . '/assets/js/nonproflite-auto-complete.js', array('jquery'), '1.0', true);
+	wp_enqueue_script('npl-auto-complete-map', 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=' . $map_key . '&libraries=places', array(), '1.0', true);
+	wp_enqueue_script('npl-admin-auto-complete', get_template_directory_uri() . '/assets/js/nonproflite-auto-complete.js', array('jquery'), '2.0', true);
 }
 
 add_action('admin_enqueue_scripts', 'add_npl_admin');

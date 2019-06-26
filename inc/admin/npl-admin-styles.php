@@ -16,7 +16,7 @@ function admin_styles()
 				padding: 15px 0;
 		}
 			#mapKeyInput, #locationInput {
-				width: 320px;
+				width: 360px;
 		}
 	</style>';
 }

@@ -49,7 +49,7 @@ function add_enquiries_post_type()
 	);
 	$args = array(
 		'labels' => $labels,
-		'description' => 'Enquiries from the contact and donate form',
+		'description' => 'Enquiries from the contact and adopt form',
 		'public' => true,
 		'query_var' => true,
 		'menu_icon' => 'dashicons-email-alt',

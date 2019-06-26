@@ -80,7 +80,7 @@ function npl_key_value()
 	}
 
 	// output value
-	echo '<input type="text" name="mapKeyInput" id="mapKeyInput" placeholder="Enter key here..." value="' . $map_key . '"/>';
+	echo '<input type="textarea" name="mapKeyInput" id="mapKeyInput" placeholder="Enter key here..." value="' . $map_key . '"/>';
 }
 
 // call map location settings
@@ -98,13 +98,36 @@ function npl_location_value()
 		$map_location = '';
 	}
 
+	// if (isset($_POST['latValue'])) {
+	// 	$latValue = $_POST['latValue'];
+	// 	update_option('latValue', $latValue);
+	// }
+
+	// $latValue = get_option('latValue');
+	// if (FALSE === $latValue) {
+	// 	$latValue = '';
+	// }
+
+	// if (isset($_POST['lngValue'])) {
+	// 	$lngValue = $_POST['lngValue'];
+	// 	update_option('lngValue', $lngValue);
+	// }
+
+	// $lngValue = get_option('lngValue');
+	// if (FALSE === $lngValue) {
+	// 	$lngValue = '';
+	// }
+
 	// output value
-	echo '<input type="text" autocomplete="off" name="locationInput" id="locationInput" placeholder="Enter location here..." value="' . $map_location . '"/>';
+	echo '<input type="textarea" autocomplete="off" name="locationInput" id="locationInput" placeholder="Enter location here..." value="' . $map_location . '"/>';
 
 	// lat
-	// echo '<input type="hidden" name="latValue" id="latValue" value="' . $map_lat . '"/>';
+	echo '<input type="hidden" name="latValue" id="latValue" value=""/>';
 
 	// lng
-	// echo '<input type="hidden" name="lngValue" id="lngValue" value="' . $map_lng . '"/>';
+	echo '<input type="hidden" name="lngValue" id="lngValue" value=""/>';
 }
 
+// var_dump($latValue);
+// var_dump($lngValue);
+// die();

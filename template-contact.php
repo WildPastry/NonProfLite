@@ -38,7 +38,7 @@ get_header(); ?>
 				<!-- form errors -->
 				<?php /* start form if */ if ($_POST && !empty($errors)) : ?>
 					<div class="row justify-content-center">
-						<div class="col-10">
+						<div class="col-12">
 							<div class="alert alert-danger">
 								<ul class="text-center">
 									<?php foreach ($errors as $singleError) : ?>
@@ -52,7 +52,7 @@ get_header(); ?>
 
 				<?php /* start form post if */ if ($_POST && empty($errors)) : ?>
 					<div class="row justify-content-center">
-						<div class="col-10">
+						<div class="col-12">
 							<div class="alert alert-success">
 								<p>Your enquiry has been sent successfully</p>
 							</div>
@@ -63,7 +63,7 @@ get_header(); ?>
 
 					<!-- form outer-->
 					<div class="row justify-content-center">
-						<div class="col-10">
+						<div class="col-12">
 							<div class="contactWrap">
 
 								<!-- form inner -->

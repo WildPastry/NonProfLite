@@ -3,8 +3,6 @@
  * single-dog
  * @package nonproflite
  */
-// form logic
-get_template_part('inc/templates/form-logic');
 
 get_header(); ?>
 

@@ -8,7 +8,32 @@
 $thumbImg = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 
 // form logic
-get_template_part('inc/templates/form-logic');
+if ($_POST) {
+	$errors = array();
+	if (wp_verify_nonce($_POST['_wpnonce'], 'wp_enquiery_form')) {
+
+		if (!$_POST['enquiriesName']) {
+			array_push($errors, 'Your name is required');
+		}
+
+		if (!$_POST['enquiriesEmail']) {
+			array_push($errors, 'Your email is required');
+		}
+
+		if (empty($errors)) {
+			$args = array(
+				'post_title' => $_POST['enquiriesName'],
+				'post_type' => 'enquiries',
+				'meta_input' => array(
+					'email' => $_POST['enquiriesEmail']
+				)
+			);
+			wp_insert_post($args);
+		}
+	} else {
+		array_push($errors, 'Something went wrong with submitting the form');
+	}
+}
 ?>
 
 <!-- single post -->
