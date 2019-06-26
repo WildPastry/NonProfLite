@@ -27,6 +27,11 @@ $url = home_url();
 
 ?>
 
+<!-- cart -->
+<?php
+// get_template_part('inc/templates/cart-logic');
+?>
+
 <!-- header -->
 <div class="headerWrap">
 	<div class="headerWrapFlex">
@@ -40,8 +45,10 @@ $url = home_url();
 
 		<!-- social -->
 		<div class="socialWrap">
-			<a target="_blank" href="https://givealittle.co.nz/" class="donateButton">DONATE</a>
-			<a href="<?php echo $cart_url ?>" class="cartIcon"></a>
+			<a target="_blank" href="https://givealittle.co.nz/" class="donateButton" title="Donate Now">DONATE</a>
+			<div class="cartWrap">
+				<?php get_template_part('inc/templates/cart-logic'); ?>
+			</div>
 			<a id="fbIcon" target="_blank" href="<?php echo $facebookIcon ?>" class="facebook hideIcon"></a>
 			<a id="twIcon" target="_blank" href="<?php echo $twitterIcon ?>" class="twitter hideIcon"></a>
 			<a id="inIcon" target="_blank" href="<?php echo $instagramIcon ?>" class="instagram hideIcon"></a>
