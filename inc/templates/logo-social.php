@@ -4,6 +4,9 @@
  * @package nonproflite
  */
 
+// home url
+$url = home_url();
+
 //  cart url
 $cart_url = wc_get_cart_url();
 
@@ -22,9 +25,6 @@ $instagramIcon = get_theme_mod('instagram_icon_setting');
 $pinterestIcon = get_theme_mod('pinterest_icon_setting');
 $youtubeIcon = get_theme_mod('youtube_icon_setting');
 
-// home url
-$url = home_url();
-
 ?>
 
 <!-- header -->
@@ -33,7 +33,7 @@ $url = home_url();
 
 		<!-- logo -->
 		<div class="logoWrap">
-			<a title="<?php the_title(); ?>" href="<?php echo $url; ?>">
+			<a title="Home" href="<?php echo $url; ?>">
 				<img src="<?php echo $custom_logo; ?>" />
 			</a>
 		</div> <!-- logo -->

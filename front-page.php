@@ -20,6 +20,10 @@ Through our de-sexing program we try to help prevent dogs ending up in shelters,
 
 Owning a dog is commonly rated in the top five things to do in life and is very rewarding. If you are thinking about getting a dog or would even like to come view them, just get in touch!';
 
+// get image alt
+$thumb_id = get_post_thumbnail_id(get_the_ID());
+$alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true);
+if(count($alt)) echo $alt;
 
 get_header(); ?>
 
@@ -111,9 +115,12 @@ if ($enableFeature === 'enable') {
 
 						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 							<div class="card">
-								<a href="<?php the_permalink(); ?>">
-									<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid', 'alt' => 'image from dog post type']) ?>
-								</a>
+								<div class="tile">
+									<a href="<?php the_permalink(); ?>">
+										<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid', 'alt' => 'image from news post type']) ?>
+										<div class="tile-colour"></div>
+									</a>
+								</div>
 								<div class="card-body">
 									<h4 class="card-title"><?php the_title(); ?></h4>
 
@@ -190,9 +197,12 @@ if ($enableFeature === 'enable') {
 
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-3">
 						<div class="card">
-							<a href="<?php the_permalink(); ?>">
-								<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid', 'alt' => 'image from dog post type']) ?>
-							</a>
+							<div class="tile">
+								<a href="<?php the_permalink(); ?>">
+									<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid', 'alt' => 'image from dog post type']) ?>
+									<div class="tile-colour"></div>
+								</a>
+							</div>
 							<div class="card-body">
 								<h4 class="card-title"><?php the_title(); ?></h4>
 

@@ -761,7 +761,7 @@ function nonproflite_customize_css()
 
 		/* feature background */
 		.container-background {
-			background-color: <?php echo get_theme_mod('feature_background_colour_setting', '#f3f1e9');
+			background-color: <?php echo get_theme_mod('feature_background_colour_setting', '#2f4674');
 												?>;
 		}
 
