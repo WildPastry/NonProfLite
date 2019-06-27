@@ -72,17 +72,13 @@
 }
 
 // cart
-// .cartIcon {
-// 	.fa-icon;
-// 	.fas;
-// 	&:before {
-// 		content: @fa-var-shopping-cart;
-// 	}
-// }
-
 .cartWrap {
 	position: relative;
 	width: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .cart-contents {
@@ -95,13 +91,6 @@
 	content: @fa-var-shopping-cart;
 	font-size: 30px;
 }
-
-// .cart-contents a:hover {
-// 	color: @grey !important;
-// }
-// .cart-contents-count :hover .cart-contents{
-// 	color: @grey !important;
-// }
 
 .cart-contents-count {
 	background-color: @green;

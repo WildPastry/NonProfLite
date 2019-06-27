@@ -87,7 +87,7 @@ function register_nonproflite_dash()
 function nonproflite_dash_display()
 {
 	echo '<h2>Welcome to Non-Prof Lite</h2>' . '<br>';
-	echo '<h3>You can view our online repository <a href= ' . '"https://github.com/WildPastry/nonproflite"' . '> here</a></h3>' . '<br>';
+	echo '<h3>You can view our online repository <a target="_blank" href= ' . '"https://github.com/WildPastry/nonproflite"' . '> here</a></h3>' . '<br>';
 	echo '<h3>If you need to, you can download our full instructions<a href= ' . '"https://github.com/WildPastry/nonproflite"' . '> here</a></h3>' . '<br>';
 	echo '<h3>Any other questions or if you get stuck, feel free to email me<a href= ' . '"mailto:mike@mikeparker.co.nz"' . '> using this link</a></h3>' . '<br>';
 }

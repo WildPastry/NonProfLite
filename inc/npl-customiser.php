@@ -41,14 +41,13 @@ function npl_customize_register($wp_customize)
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// slideshow –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		// slideshow section added to homepage panel
-		$wp_customize->add_section('featured_slide_section', array(
-			'title'      => 'Slideshow', 'non-prof-lite',
-			'description' => 'Insert images for the home page slideshow',
-			'priority'   => 15,
-			'panel' => 'homepage_panel'
-		));
-
+	// slideshow section added to homepage panel
+	$wp_customize->add_section('featured_slide_section', array(
+		'title'      => 'Slideshow', 'non-prof-lite',
+		'description' => 'Insert images for the home page slideshow',
+		'priority'   => 15,
+		'panel' => 'homepage_panel'
+	));
 
 	// enable or disable slideshow
 	$wp_customize->add_setting('enable_featured_slide_setting', array(
@@ -127,10 +126,10 @@ function npl_customize_register($wp_customize)
 	));
 
 	// get slideshow count
-// $slide = get_theme_mod('add_slide_setting');
+	$slide = get_theme_mod('add_slide_setting');
 
 	// slideshow loop
-	for ($i = 1; $i <= 10; $i++) {
+	for ($i = 1; $i <= $slide; $i++) {
 		$wp_customize->add_setting('featured_slide_' . $i . '_setting', array(
 			'default'   => get_template_directory_uri() . '/assets/img/default-slide.jpg',
 			'priority'  => 20,
@@ -460,26 +459,33 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'custom_intro_control',
 		array(
-			'label'      => 'Change the custom intro text', 'nonproflite',
+			'label'      => 'Change the custom intro heading', 'nonproflite',
 			'section'    => 'custom_intro_section',
 			'settings'   => 'custom_intro_setting',
 		)
 	));
-		// about info text
-		// $wp_customize->add_setting('custom_aboutInfo_text_setting', array(
-		// 	'default'   => 'The Pit Bull Terrier is a companion and family dog breed. Originally bred to “bait” bulls, the breed evolved into farm dogs, and later moved into the house to become “nanny dogs” because they were so gentle around children.',
-		// 	'transport' => 'refresh',
-		// ));
 
-		// $wp_customize->add_control(new WP_Customize_Control(
-		// 	$wp_customize,
-		// 	'custom_aboutInfo_text_control',
-		// 	array(
-		// 		'label'      => '"About Page" special information text', 'nonproflite',
-		// 		'section'    => 'custom_headings_section',
-		// 		'settings'   => 'custom_aboutInfo_text_setting',
-		// 	)
-		// ));
+	// custom intro paragraph
+	$wp_customize->add_setting('custom_intro_para_setting', array(
+		'default'   => 'Staffys, Pitbulls, Bullys and their crosses are often over looked because of their looks and media hype. Bull breed dogs are NOT killers. They are loving, loyal, gentle souls that just need the right owner and lots of love.<br><br>
+
+		Christchurch Bull Breed Rescue provides temporary shelter, food, medical attention, and comfort to neglected and rejected dogs. We seek out new homes for these dogs and try to educate the public about the humane care of dogs. We consider the unique needs of all the dogs in our care and work compassionately to prepare a safe, appropriately socialised dog for a wonderful new life.<br><br>
+
+		Through our de-sexing program we try to help prevent dogs ending up in shelters, we do this by de-sexing the dogs in our community producing unwanted litters. Our aim is to reduce the population of unwanted, neglected, and abused bull breed dogs by preventing at risk dogs from producing litters. We approach owners, work with locals and councils to find at risk dogs, as well as helping lower income families ensure they are not adding to the problem by offering payment plans and heavily discounted procedures.<br><br>
+
+		Owning a dog is commonly rated in the top five things to do in life and is very rewarding. If you are thinking about getting a dog or would even like to come view them, just get in touch!',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'custom_intro_para_control',
+		array(
+			'label'      => 'Change the custom intro text', 'nonproflite',
+			'section'    => 'custom_intro_section',
+			'settings'   => 'custom_intro_para_setting',
+		)
+	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// custom headings –––––––––––––––––––––––––––––––––––––––––––––––––––––
