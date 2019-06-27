@@ -201,7 +201,7 @@ function npl_customize_register($wp_customize)
 
 	// feature background
 	$wp_customize->add_setting('feature_background_colour_setting', array(
-		'default'   => '#ffc5e3',
+		'default'   => '#f3f1e9',
 		'transport' => 'refresh',
 	));
 
@@ -264,20 +264,54 @@ function npl_customize_register($wp_customize)
 		'panel' => 'site_colours_panel'
 	));
 
-	// menu/footer/header background colours
-	$wp_customize->add_setting('menu-footer-bg_colour_setting', array(
-		'default'   => '#b74f87',
+	// header bg colour
+	$wp_customize->add_setting('header_bg_setting', array(
+		'default'   => '#2f4674',
 		'transport' => 'refresh',
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control(
 		$wp_customize,
-		'menu-footer-bg_colour_control',
+		'header_bg_setting',
 		array(
-			'label'      => 'Set the menu and footer background colour', 'nonproflite',
-			'description' => 'Using this option you can change the background colour of the menu and footer throughout your entire site',
+			'label'      => 'Set the header background colour', 'nonproflite',
+			'description' => 'Using this option you can change the background colour of the header throughout your entire site',
 			'section'    => 'menu-footer_colour_section',
-			'settings'   => 'menu-footer-bg_colour_setting',
+			'settings'   => 'header_bg_setting',
+		)
+	));
+
+	// menu bg colour
+	$wp_customize->add_setting('menu_bg_colour_setting', array(
+		'default'   => '#ff7064',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'menu_bg_colourcontrol',
+		array(
+			'label'      => 'Set the background colour of the menu', 'nonproflite',
+			'description' => 'Using this option you can change the background colour of the menu throughout your entire site',
+			'section'    => 'menu-footer_colour_section',
+			'settings'   => 'menu_bg_colour_setting',
+		)
+	));
+
+	// footer bg colour
+	$wp_customize->add_setting('footer_bg_colour_setting', array(
+		'default'   => '#2f4674',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'footer_bg_colour_control',
+		array(
+			'label'      => 'Set the background colour of the footer', 'nonproflite',
+			'description' => 'Using this option you can change the background colour of the footer throughout your entire site',
+			'section'    => 'menu-footer_colour_section',
+			'settings'   => 'footer_bg_colour_setting',
 		)
 	));
 
@@ -298,23 +332,6 @@ function npl_customize_register($wp_customize)
 		)
 	));
 
-	// header bg colour
-	$wp_customize->add_setting('header_bg_setting', array(
-		'default'   => '#f284bc',
-		'transport' => 'refresh',
-	));
-
-	$wp_customize->add_control(new WP_Customize_Color_Control(
-		$wp_customize,
-		'header_bg_setting',
-		array(
-			'label'      => 'Set the header background colour', 'nonproflite',
-			'description' => 'Using this option you can change the background colour of the header throughout your entire site',
-			'section'    => 'menu-footer_colour_section',
-			'settings'   => 'header_bg_setting',
-		)
-	));
-
 	// button colours
 	$wp_customize->add_section('buttons_colour_section', array(
 		'title'      => 'Buttons', 'nonproflite',
@@ -324,7 +341,7 @@ function npl_customize_register($wp_customize)
 
 	// button backgrounds
 	$wp_customize->add_setting('buttons_bg_colour_setting', array(
-		'default'   => '#00b2ff',
+		'default'   => '#e0998f',
 		'transport' => 'refresh',
 	));
 
@@ -358,7 +375,7 @@ function npl_customize_register($wp_customize)
 
 	// button hover
 	$wp_customize->add_setting('buttons_hover_colour_setting', array(
-		'default'   => '#2b2b2b',
+		'default'   => '#ff7064',
 		'transport' => 'refresh',
 	));
 
@@ -399,7 +416,7 @@ function npl_customize_register($wp_customize)
 
 	// social media hover
 	$wp_customize->add_setting('social_hover_colour_setting', array(
-		'default'   => '#2b2b2b',
+		'default'   => '#ff7064',
 		'transport' => 'refresh',
 	));
 
@@ -742,8 +759,9 @@ function nonproflite_customize_css()
 				?>;
 		}
 
+		/* feature background */
 		.container-background {
-			background-color: <?php echo get_theme_mod('feature_background_colour_setting', '#ffc5e3');
+			background-color: <?php echo get_theme_mod('feature_background_colour_setting', '#f3f1e9');
 												?>;
 		}
 
@@ -774,14 +792,28 @@ function nonproflite_customize_css()
 				?>;
 		}
 
-		/* menu and footer */
-		.menuModule li,
-		footer {
+		/* header bg */
+		.headerWrap {
 			background:
-				<?php echo get_theme_mod('menu-footer-bg_colour_setting', '#b74f87');
+				<?php echo get_theme_mod('header_bg_setting', '#2f4674');
 				?>;
 		}
 
+		/* footer bg */
+		footer {
+			background:
+				<?php echo get_theme_mod('footer_bg_colour_setting', '#2f4674');
+				?>;
+		}
+
+		/* menu bg */
+		.menuModule li, {
+			background:
+				<?php echo get_theme_mod('menu_bg_colour_setting', '#ff7064');
+				?>;
+		}
+
+		/* header / menu / footer text */
 		.menuModule a,
 		footer p,
 		footer a {
@@ -790,6 +822,7 @@ function nonproflite_customize_css()
 				?> !important;
 		}
 
+		/* menu text hover */
 		.menuModule a:hover {
 			border-bottom: 2px solid <?php echo get_theme_mod('menu-footer-text_colour_setting', '#ffffff');
 																?>;
@@ -797,19 +830,12 @@ function nonproflite_customize_css()
 														?>;
 		}
 
-		/* header  */
-		.headerWrap {
-			background:
-				<?php echo get_theme_mod('header_bg_setting', '#f284bc');
-				?>;
-		}
-
 		/* buttons */
 		.button,
 		.product_type_simple,
 		.wc-forward {
 			background:
-				<?php echo get_theme_mod('buttons_bg_colour_setting', '#00b2ff');
+				<?php echo get_theme_mod('buttons_bg_colour_setting', '#e0998f');
 				?> !important;
 		}
 
@@ -825,7 +851,7 @@ function nonproflite_customize_css()
 		.product_type_simple:hover,
 		.wc-forward:hover {
 			background:
-				<?php echo get_theme_mod('buttons_hover_colour_setting', '#2b2b2b');
+				<?php echo get_theme_mod('buttons_hover_colour_setting', '#ff7064');
 				?> !important;
 		}
 
@@ -846,7 +872,7 @@ function nonproflite_customize_css()
 		.pinterest:hover,
 		.youtube:hover {
 			color:
-				<?php echo get_theme_mod('social_hover_colour_setting', '#2b2b2b');
+				<?php echo get_theme_mod('social_hover_colour_setting', '#ff7064');
 				?> !important;
 		}
 	</style>
