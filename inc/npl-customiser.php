@@ -18,7 +18,7 @@ function npl_customize_register($wp_customize)
 
 	// create homepage panel ––––––––––––––––––––––––––––––––––––––––––––––––
 	$wp_customize->add_panel('homepage_panel', array(
-		'title'      => __('Home Page Content', 'nonproflite'),
+		'title'      => 'Home Page Content', 'nonproflite',
 		'priority'   => 120,
 		'description' => 'Edit the home page content'
 	));
@@ -26,7 +26,7 @@ function npl_customize_register($wp_customize)
 
 	// create colours panel –––––––––––––––––––––––––––––––––––––––––––––––––
 	$wp_customize->add_panel('site_colours_panel', array(
-		'title'      => __('Site Colours', 'nonproflite'),
+		'title'      => 'Site Colours', 'nonproflite',
 		'priority'   => 15,
 		'description' => 'Edit the site colours'
 	));
@@ -34,14 +34,14 @@ function npl_customize_register($wp_customize)
 
 	// create page content panel –––––––––––––––––––––––––––––––––––––––––––––
 	$wp_customize->add_panel('page_content_panel', array(
-		'title'      => __('General Page Content', 'nonproflite'),
+		'title'      => 'General Page Content', 'nonproflite',
 		'priority'   => 140,
 		'description' => 'Edit general page content'
 	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// slideshow –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	// enable featured slide
+	// enable or disable slideshow
 	$wp_customize->add_setting('enable_featured_slide_setting', array(
 		'default'   => '',
 		'priority'   => 5,
@@ -52,29 +52,61 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'enable_featured_slide_control',
 		array(
-			'label'      => __('Enable or Disable Slideshow', 'nonproflite'),
+			'label'      => 'Enable or Disable Slideshow', 'nonproflite',
 			'section'    => 'featured_slide_section',
 			'type'           => 'radio',
 			'choices'        => array(
-				'enable'   => __('Enable'),
-				'disable'  => __('Disable')
+				'enable'   => 'Enable',
+				'disable'  => 'Disable'
 			),
 			'settings'   => 'enable_featured_slide_setting',
 		)
 	));
 
+	// slideshow section added to homepage panel
 	$wp_customize->add_section('featured_slide_section', array(
-		'title'      => __('Slideshow', 'non-prof-lite'),
+		'title'      => 'Slideshow', 'non-prof-lite',
 		'description' => 'Insert images for the home page slideshow',
 		'priority'   => 15,
 		'panel' => 'homepage_panel'
+	));
+
+	// add or remove slides
+	$wp_customize->add_setting('add_slide_setting', array(
+		'default'   => '3',
+		'priority'  => 20,
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'add_slide_control',
+		array(
+			'label'      => 'Number of slides', 'nonproflite',
+			'section'    => 'featured_slide_section',
+			'type'       => 'select',
+			'default'   => '3',
+			'choices' => array(
+				'1' => 1,
+				'2' => 2,
+				'3' => 3,
+				'4' => 4,
+				'5' => 5,
+				'6' => 6,
+				'7' => 7,
+				'8' => 8,
+				'9' => 9,
+				'10' => 10
+			),
+			'settings'   => 'add_slide_setting',
+		)
 	));
 
 	// slideshow loop
 	for ($i = 1; $i <= 3; $i++) {
 		$wp_customize->add_setting('featured_slide_' . $i . '_setting', array(
 			'default'   => get_template_directory_uri() . '/assets/img/default-slide.jpg',
-			'priority'   => 10,
+			'priority'  => 25,
 			'transport' => 'refresh',
 		));
 
@@ -82,7 +114,7 @@ function npl_customize_register($wp_customize)
 			$wp_customize,
 			'featured_slide_' . $i . '_control',
 			array(
-				'label'      => __('Slideshow Image ' . $i, 'non-prof-lite'),
+				'label'      => 'Slideshow Image ' . $i, 'non-prof-lite',
 				'section'    => 'featured_slide_section',
 				'settings'   => 'featured_slide_' . $i . '_setting'
 			)
@@ -103,19 +135,19 @@ function npl_customize_register($wp_customize)
 	// 	$wp_customize,
 	// 	'enable_featured_image_control',
 	// 	array(
-	// 		'label'      => __('Enable/Disable Featured Image', 'nonproflite'),
+	// 		'label'      => 'Enable/Disable Featured Image', 'nonproflite'),
 	// 		'section'    => 'featured_image_section',
 	// 		'type'           => 'radio',
 	// 		'choices'        => array(
-	// 			'enable'   => __('Enable'),
-	// 			'disable'  => __('Disable')
+	// 			'enable'   => 'Enable'),
+	// 			'disable'  => 'Disable')
 	// 		),
 	// 		'settings'   => 'enable_featured_image_setting',
 	// 	)
 	// ));
 
 	$wp_customize->add_section('featured_image_section', array(
-		'title'      => __('Featured Image', 'non-prof-lite'),
+		'title'      => 'Featured Image', 'non-prof-lite',
 		'description' => 'Insert a feature image for the home page',
 		'priority'   => 20,
 		'panel' => 'homepage_panel'
@@ -131,8 +163,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'featured_image_control',
 		array(
-			'label'      => __('Featured Image', 'nonproflite'),
-			'description' => __('Using this option you can select a feature image for the home page'),
+			'label'      => 'Featured Image', 'nonproflite',
+			'description' => 'Using this option you can select a feature image for the home page',
 			'section'    => 'featured_image_section',
 			'settings'   => 'featured_image_setting',
 		)
@@ -143,7 +175,7 @@ function npl_customize_register($wp_customize)
 	// colours –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// background
 	$wp_customize->add_section('background_colour_section', array(
-		'title'      => __('Site Background', 'nonproflite'),
+		'title'      => 'Site Background', 'nonproflite',
 		'priority'   => 5,
 		'panel' => 'site_colours_panel'
 	));
@@ -157,8 +189,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'background_colour_control',
 		array(
-			'label'      => __('Set the background colour', 'nonproflite'),
-			'description' => __('Using this option you can change the background colour of your site'),
+			'label'      => 'Set the background colour', 'nonproflite',
+			'description' => 'Using this option you can change the background colour of your site',
 			'section'    => 'background_colour_section',
 			'settings'   => 'background_colour_setting',
 		)
@@ -174,8 +206,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'feature_background_colour_control',
 		array(
-			'label'      => __('Set the feature background colour', 'nonproflite'),
-			'description' => __('Using this option you can change the feature background colour of your site'),
+			'label'      => 'Set the feature background colour', 'nonproflite',
+			'description' => 'Using this option you can change the feature background colour of your site',
 			'section'    => 'background_colour_section',
 			'settings'   => 'feature_background_colour_setting',
 		)
@@ -183,7 +215,7 @@ function npl_customize_register($wp_customize)
 
 	// text
 	$wp_customize->add_section('text_colour_section', array(
-		'title'      => __('Text', 'nonproflite'),
+		'title'      => 'Text', 'nonproflite',
 		'priority'   => 10,
 		'panel' => 'site_colours_panel'
 	));
@@ -198,8 +230,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'heading_colour_control',
 		array(
-			'label'      => __('Set the heading text colour', 'nonproflite'),
-			'description' => __('Using this option you can change the heading colour throughout your entire site'),
+			'label'      => 'Set the heading text colour', 'nonproflite',
+			'description' => 'Using this option you can change the heading colour throughout your entire site',
 			'section'    => 'text_colour_section',
 			'settings'   => 'heading_colour_setting',
 		)
@@ -215,8 +247,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'paragraph_colour_control',
 		array(
-			'label'      => __('Set the body text colour', 'nonproflite'),
-			'description' => __('Using this option you can change the body text colour throughout your entire site'),
+			'label'      => 'Set the body text colour', 'nonproflite',
+			'description' => 'Using this option you can change the body text colour throughout your entire site',
 			'section'    => 'text_colour_section',
 			'settings'   => 'paragraph_colour_setting',
 		)
@@ -224,7 +256,7 @@ function npl_customize_register($wp_customize)
 
 	// menu/footer/header colours
 	$wp_customize->add_section('menu-footer_colour_section', array(
-		'title'      => __('Header / Menu / Footer', 'nonproflite'),
+		'title'      => 'Header / Menu / Footer', 'nonproflite',
 		'priority'   => 15,
 		'panel' => 'site_colours_panel'
 	));
@@ -239,8 +271,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'menu-footer-bg_colour_control',
 		array(
-			'label'      => __('Set the menu and footer background colour', 'nonproflite'),
-			'description' => __('Using this option you can change the background colour of the menu and footer throughout your entire site'),
+			'label'      => 'Set the menu and footer background colour', 'nonproflite',
+			'description' => 'Using this option you can change the background colour of the menu and footer throughout your entire site',
 			'section'    => 'menu-footer_colour_section',
 			'settings'   => 'menu-footer-bg_colour_setting',
 		)
@@ -256,8 +288,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'menu-footer-text_colour_control',
 		array(
-			'label'      => __('Set the menu and footer text colour', 'nonproflite'),
-			'description' => __('Using this option you can change the text colour of the menu and footer throughout your entire site'),
+			'label'      => 'Set the menu and footer text colour', 'nonproflite',
+			'description' => 'Using this option you can change the text colour of the menu and footer throughout your entire site',
 			'section'    => 'menu-footer_colour_section',
 			'settings'   => 'menu-footer-text_colour_setting',
 		)
@@ -273,8 +305,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'header_bg_setting',
 		array(
-			'label'      => __('Set the header background colour', 'nonproflite'),
-			'description' => __('Using this option you can change the background colour of the header throughout your entire site'),
+			'label'      => 'Set the header background colour', 'nonproflite',
+			'description' => 'Using this option you can change the background colour of the header throughout your entire site',
 			'section'    => 'menu-footer_colour_section',
 			'settings'   => 'header_bg_setting',
 		)
@@ -282,7 +314,7 @@ function npl_customize_register($wp_customize)
 
 	// button colours
 	$wp_customize->add_section('buttons_colour_section', array(
-		'title'      => __('Buttons', 'nonproflite'),
+		'title'      => 'Buttons', 'nonproflite',
 		'priority'   => 25,
 		'panel' => 'site_colours_panel'
 	));
@@ -297,8 +329,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'buttons_bg_colour_control',
 		array(
-			'label'      => __('Set the background colour of the buttons', 'nonproflite'),
-			'description' => __('Using this option you can change the background colour of all the buttons on your site'),
+			'label'      => 'Set the background colour of the buttons', 'nonproflite',
+			'description' => 'Using this option you can change the background colour of all the buttons on your site',
 			'section'    => 'buttons_colour_section',
 			'settings'   => 'buttons_bg_colour_setting',
 		)
@@ -314,8 +346,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'buttons_text_colour_control',
 		array(
-			'label'      => __('Set the text colour of the buttons', 'nonproflite'),
-			'description' => __('Using this option you can change the text colour of all the buttons on your site'),
+			'label'      => 'Set the text colour of the buttons', 'nonproflite',
+			'description' => 'Using this option you can change the text colour of all the buttons on your site',
 			'section'    => 'buttons_colour_section',
 			'settings'   => 'buttons_text_colour_setting',
 		)
@@ -331,8 +363,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'buttons_hover_colour_control',
 		array(
-			'label'      => __('Set the hover colour of the buttons', 'nonproflite'),
-			'description' => __('Using this option you can change the background colour when you hover over the buttons on your site'),
+			'label'      => 'Set the hover colour of the buttons', 'nonproflite',
+			'description' => 'Using this option you can change the background colour when you hover over the buttons on your site',
 			'section'    => 'buttons_colour_section',
 			'settings'   => 'buttons_hover_colour_setting',
 		)
@@ -340,7 +372,7 @@ function npl_customize_register($wp_customize)
 
 	// social media colours
 	$wp_customize->add_section('social_colour_section', array(
-		'title'      => __('Social Media Icons', 'nonproflite'),
+		'title'      => 'Social Media Icons', 'nonproflite',
 		'priority'   => 30,
 		'panel' => 'site_colours_panel'
 	));
@@ -355,8 +387,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'social_bg_colour_control',
 		array(
-			'label'      => __('Set the colour of the social media icons', 'nonproflite'),
-			'description' => __('Using this option you can change the colour of the social media icons on your site'),
+			'label'      => 'Set the colour of the social media icons', 'nonproflite',
+			'description' => 'Using this option you can change the colour of the social media icons on your site',
 			'section'    => 'social_colour_section',
 			'settings'   => 'social_bg_colour_setting',
 		)
@@ -372,8 +404,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'social_hover_colour_control',
 		array(
-			'label'      => __('Set the hover colour of the social media icons', 'nonproflite'),
-			'description' => __('Using this option you can change the hover colour of the social media icons on your site'),
+			'label'      => 'Set the hover colour of the social media icons', 'nonproflite',
+			'description' => 'Using this option you can change the hover colour of the social media icons on your site',
 			'section'    => 'social_colour_section',
 			'settings'   => 'social_hover_colour_setting',
 		)
@@ -382,7 +414,7 @@ function npl_customize_register($wp_customize)
 
 	// fonts –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	$wp_customize->add_section('custom_font_section', array(
-		'title'      => __('Site Fonts', 'nonproflite'),
+		'title'      => 'Site Fonts', 'nonproflite',
 		'priority'   => 20
 	));
 
@@ -394,8 +426,8 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'custom_font_control',
 		array(
-			'label'      => __('Set the site font', 'nonproflite'),
-			'description' => __('Using this option you can change the font throughout your entire site'),
+			'label'      => 'Set the site font', 'nonproflite',
+			'description' => 'Using this option you can change the font throughout your entire site',
 			'section'    => 'custom_font_section',
 			'settings'   => 'custom_font_setting',
 			'type'    => 'select',
@@ -410,7 +442,7 @@ function npl_customize_register($wp_customize)
 
 	// custom intro ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	$wp_customize->add_section('custom_intro_section', array(
-		'title'      => __('Custom Intro Text', 'nonproflite'),
+		'title'      => 'Custom Intro Text', 'nonproflite',
 		'panel' => 'homepage_panel',
 		'priority'   => 25
 	));
@@ -424,7 +456,7 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'custom_intro_control',
 		array(
-			'label'      => __('Change the custom intro text', 'nonproflite'),
+			'label'      => 'Change the custom intro text', 'nonproflite',
 			'section'    => 'custom_intro_section',
 			'settings'   => 'custom_intro_setting',
 		)
@@ -434,7 +466,7 @@ function npl_customize_register($wp_customize)
 	// custom headings –––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// about
 	$wp_customize->add_section('custom_headings_section', array(
-		'title'      => __('Custom Headings', 'nonproflite'),
+		'title'      => 'Custom Headings', 'nonproflite',
 		'panel' => 'page_content_panel',
 		'priority'   => 5
 	));
@@ -448,7 +480,7 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'custom_about_headings_control',
 		array(
-			'label'      => __('"About Page" posts heading', 'nonproflite'),
+			'label'      => '"About Page" posts heading', 'nonproflite',
 			'section'    => 'custom_headings_section',
 			'settings'   => 'custom_about_headings_setting',
 		)
@@ -464,7 +496,7 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'custom_aboutInfo_headings_control',
 		array(
-			'label'      => __('"About Page" special information heading', 'nonproflite'),
+			'label'      => '"About Page" special information heading', 'nonproflite',
 			'section'    => 'custom_headings_section',
 			'settings'   => 'custom_aboutInfo_headings_setting',
 		)
@@ -480,7 +512,7 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'custom_aboutInfo_text_control',
 		array(
-			'label'      => __('"About Page" special information text', 'nonproflite'),
+			'label'      => '"About Page" special information text', 'nonproflite',
 			'section'    => 'custom_headings_section',
 			'settings'   => 'custom_aboutInfo_text_setting',
 		)
@@ -496,7 +528,7 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'custom_help_headings_control',
 		array(
-			'label'      => __('"How To Help Page" posts heading', 'nonproflite'),
+			'label'      => '"How To Help Page" posts heading', 'nonproflite',
 			'section'    => 'custom_headings_section',
 			'settings'   => 'custom_help_headings_setting',
 		)
@@ -512,7 +544,7 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'custom_frontOne_headings_control',
 		array(
-			'label'      => __('"Home Page" first posts heading', 'nonproflite'),
+			'label'      => '"Home Page" first posts heading', 'nonproflite',
 			'section'    => 'custom_headings_section',
 			'settings'   => 'custom_frontOne_headings_setting',
 		)
@@ -528,7 +560,7 @@ function npl_customize_register($wp_customize)
 		$wp_customize,
 		'custom_frontTwo_headings_control',
 		array(
-			'label'      => __('"Home Page" second posts heading', 'nonproflite'),
+			'label'      => '"Home Page" second posts heading', 'nonproflite',
 			'section'    => 'custom_headings_section',
 			'settings'   => 'custom_frontTwo_headings_setting',
 		)
@@ -537,7 +569,7 @@ function npl_customize_register($wp_customize)
 
 	// social media ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	$wp_customize->add_section('social_media_icons', array(
-		'title' => __('Social Media Icons', 'nonproflite'),
+		'title' => 'Social Media Icons', 'nonproflite',
 		'description' => 'Using this option you can add your social media links'
 	));
 
@@ -552,7 +584,7 @@ function npl_customize_register($wp_customize)
 			$wp_customize,
 			'facebook_icon_control',
 			array(
-				'label' => __('Facebook', 'nonproflite'),
+				'label' => 'Facebook', 'nonproflite',
 				'section' => 'social_media_icons',
 				'settings' => 'facebook_icon_setting',
 				'type' => 'input'
@@ -571,7 +603,7 @@ function npl_customize_register($wp_customize)
 			$wp_customize,
 			'twitter_icon_control',
 			array(
-				'label' => __('Twitter', 'nonproflite'),
+				'label' => 'Twitter', 'nonproflite',
 				'section' => 'social_media_icons',
 				'settings' => 'twitter_icon_setting',
 				'type' => 'input',
@@ -591,7 +623,7 @@ function npl_customize_register($wp_customize)
 			$wp_customize,
 			'instagram_icon_control',
 			array(
-				'label' => __('Instagram', 'nonproflite'),
+				'label' => 'Instagram', 'nonproflite',
 				'section' => 'social_media_icons',
 				'settings' => 'instagram_icon_setting',
 				'type' => 'input'
@@ -610,7 +642,7 @@ function npl_customize_register($wp_customize)
 			$wp_customize,
 			'pinterest_icon_control',
 			array(
-				'label' => __('Pinterst', 'nonproflite'),
+				'label' => 'Pinterst', 'nonproflite',
 				'section' => 'social_media_icons',
 				'settings' => 'pinterest_icon_setting',
 				'type' => 'input'
@@ -629,7 +661,7 @@ function npl_customize_register($wp_customize)
 			$wp_customize,
 			'youtube_icon_control',
 			array(
-				'label' => __('Youtube', 'nonproflite'),
+				'label' => 'Youtube', 'nonproflite',
 				'section' => 'social_media_icons',
 				'settings' => 'youtube_icon_setting',
 				'type' => 'input'
@@ -640,7 +672,7 @@ function npl_customize_register($wp_customize)
 
 	// featured posts ––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// $wp_customize->add_section('front_page_section', array(
-	//   'title'      => __('Front Page Info', 'nonproflite'),
+	//   'title'      => 'Front Page Info', 'nonproflite'),
 	//   'priority'   => 25,
 	// ));
 
@@ -662,7 +694,7 @@ function npl_customize_register($wp_customize)
 	}
 
 	$wp_customize->add_control(new WP_Customize_Control($wp_customize, 'featured-post-control', array(
-		'label'      => __('Featured Post', 'nonproflite'),
+		'label'      => 'Featured Post', 'nonproflite',
 		'section'    => 'static_front_page',
 		'settings'   => 'featured-post-setting',
 		'type'       => 'select',

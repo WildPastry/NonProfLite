@@ -4,6 +4,9 @@
  * @package nonproflite
  */
 
+// get slideshow count
+$slide = get_theme_mod('add_slide_setting');
+$slideCount = $slide + 1;
 ?>
 
 <!-- feature slideshow -->
@@ -13,9 +16,14 @@
 
 		<!-- slideshow indicators -->
 		<ol id="indicators" class="carousel-indicators">
-			<li data-target="#homePageSlider" data-slide-to="0" class="active"></li>
-			<li data-target="#homePageSlider" data-slide-to="1"></li>
-			<li data-target="#homePageSlider" data-slide-to="2"></li>
+			<?php for ($i = 1; $i < $slideCount; $i++) {
+				if ($i == 1) {
+					echo '<li data-target="#homePageSlider" data-slide-to="' . $slideCount . '" class="active"></li>';
+				} else {
+					echo '<li data-target="#homePageSlider" data-slide-to="' . $slideCount . '"></li>';
+				}
+			}
+			?>
 		</ol>
 
 		<!-- inner slideshow loop -->
@@ -25,7 +33,7 @@
 			$default_slide = get_template_directory_uri() . '/assets/img/default-slide.jpg';
 
 			// theme mod loop
-			for ($i = 1; $i < 4; $i++) {
+			for ($i = 1; $i < $slideCount; $i++) {
 				$all_slides = array(
 					$featured_slide = get_theme_mod('featured_slide_' . $i . '_setting'),
 				);

@@ -12,8 +12,6 @@ $defaultText = 'Welcome to CHCH Bull Breed Rescue';
 $defaultTextOne = 'Latest News';
 $defaultTextTwo = 'Latest Dogs for Adoption';
 
-
-
 get_header(); ?>
 
 <!-- // enable and disable feature slideshow/feature image -->
