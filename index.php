@@ -6,12 +6,23 @@
 
 // get custom intro text
 $customText = get_theme_mod('custom_intro_setting');
+$customTextOne = get_theme_mod('custom_frontOne_headings_setting');
+$customTextTwo = get_theme_mod('custom_frontTwo_headings_setting');
 $defaultText = 'Welcome to CHCH Bull Breed Rescue';
+$defaultTextOne = 'Latest News';
+$defaultTextTwo = 'Latest Dogs for Adoption';
 
 get_header(); ?>
 
-<!-- slideshow -->
-<?php get_template_part('inc/templates/slideshow'); ?>
+<!-- // enable and disable feature slideshow/feature image -->
+<?php
+$enableFeature = get_theme_mod('enable_featured_slide_setting');
+if($enableFeature === 'enable'){
+	get_template_part('inc/templates/slideshow');
+} else {
+	get_template_part('inc/templates/feature-front');
+}
+?>
 
 <!-- posts and content -->
 <div class='container-fluid'>
@@ -41,8 +52,8 @@ get_header(); ?>
 			<?php /* start posts while */ while (have_posts()) : the_post() ?>
 
 				<!-- get content -->
-				<div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
-					<article class="text-center">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+					<article class="two-column">
 						<?php the_content(); ?>
 					</article>
 				</div>
@@ -73,7 +84,11 @@ get_header(); ?>
 		<!-- latest news title -->
 		<div class="row mt-3">
 			<div class="col-12">
-				<h2>Latest news</h2>
+			<?php if ($customTextOne == "") : echo '<h2>' . $defaultTextOne . '</h2>';
+			else :
+				echo '<h2>' . $customTextOne . '</h2>';
+			endif;
+			?>
 			</div>
 		</div> <!-- row -->
 
@@ -148,7 +163,11 @@ get_header(); ?>
 	<!-- featured dogs title -->
 	<div class="row mt-3">
 		<div class="col-12">
-			<h2>Latest dogs for adoption</h2>
+		<?php if ($customTextTwo == "") : echo '<h2>' . $defaultTextTwo . '</h2>';
+			else :
+				echo '<h2>' . $customTextTwo . '</h2>';
+			endif;
+			?>
 		</div>
 	</div> <!-- row -->
 

@@ -7,12 +7,20 @@
 // get slideshow count
 $slide = get_theme_mod('add_slide_setting');
 $slideCount = $slide + 1;
+
+// get slideshow type
+$slideTypeOption = get_theme_mod('type_slide_setting');
+if ($slideTypeOption === 'slide') {
+	$slideType= 'carousel-slide';
+} else {
+	$slideType = 'carousel-fade';
+}
 ?>
 
 <!-- feature slideshow -->
 <div class="container-fluid-feature">
 
-	<div id="homePageSlider" class="carousel slide carousel-slide" data-ride="carousel">
+	<div id="homePageSlider" class="carousel slide <?php echo $slideType; ?>" data-ride="carousel">
 
 		<!-- slideshow indicators -->
 		<ol id="indicators" class="carousel-indicators">

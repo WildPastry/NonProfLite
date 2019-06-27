@@ -1,6 +1,6 @@
 console.log('ts admin connected...');
 
-/* social media icons */
+// social media icons
 var fbIcon = document.getElementById('fbIcon');
 var twIcon = document.getElementById('twIcon');
 var inIcon = document.getElementById('inIcon');
@@ -40,3 +40,16 @@ if (yoLink === "") {
 } else {
 	yoIcon.className += ' showIcon';
 }
+
+// customiser function
+// var slideControl = document.getElementById('_customize-input-add_slide_control');
+// console.log(slideControl);
+
+// var menuModuleWrap = document.getElementById('menuModuleWrap');
+// console.log(menuModuleWrap);
+
+// var customize = document.getElementById('customize-info');
+// console.log(customize);
+
+var slideCount = document.getElementsByClassName('carousel-inner');
+console.log(slideCount[0].childElementCount);

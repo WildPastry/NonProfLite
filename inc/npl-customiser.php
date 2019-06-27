@@ -12,7 +12,7 @@ function npl_customize_register($wp_customize)
 	// $wp_customize->remove_section('colors'); // Colours // 40
 	$wp_customize->remove_section('header_image'); // Header Image // 60
 	$wp_customize->remove_section('background_image'); // Background Image // 80
-	// $wp_customize->remove_section('static_front_page'); // Home Page Settings // 120
+	$wp_customize->remove_section('static_front_page'); // Home Page Settings // 120
 	$wp_customize->remove_section('custom_css'); // Additional CSS // 200
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
@@ -41,6 +41,15 @@ function npl_customize_register($wp_customize)
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// slideshow –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		// slideshow section added to homepage panel
+		$wp_customize->add_section('featured_slide_section', array(
+			'title'      => 'Slideshow', 'non-prof-lite',
+			'description' => 'Insert images for the home page slideshow',
+			'priority'   => 15,
+			'panel' => 'homepage_panel'
+		));
+
+
 	// enable or disable slideshow
 	$wp_customize->add_setting('enable_featured_slide_setting', array(
 		'default'   => '',
@@ -63,21 +72,36 @@ function npl_customize_register($wp_customize)
 		)
 	));
 
-	// slideshow section added to homepage panel
-	$wp_customize->add_section('featured_slide_section', array(
-		'title'      => 'Slideshow', 'non-prof-lite',
-		'description' => 'Insert images for the home page slideshow',
-		'priority'   => 15,
-		'panel' => 'homepage_panel'
+	// type of slideshow
+	$wp_customize->add_setting('type_slide_setting', array(
+		'default'   => 'slide',
+		'priority'   => 10,
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'type_slide_control',
+		array(
+			'label'      => 'Type of Slideshow', 'nonproflite',
+			'section'    => 'featured_slide_section',
+			'type'           => 'radio',
+			'choices'        => array(
+				'slide'   => 'Slide',
+				'fade'  => 'Fade'
+			),
+			'settings'   => 'type_slide_setting',
+		)
 	));
 
 	// add or remove slides
 	$wp_customize->add_setting('add_slide_setting', array(
 		'default'   => '3',
-		'priority'  => 20,
+		'priority'  => 15,
 		'transport' => 'refresh',
 	));
 
+	// slideshow count
 	$wp_customize->add_control(new WP_Customize_Control(
 		$wp_customize,
 		'add_slide_control',
@@ -102,11 +126,14 @@ function npl_customize_register($wp_customize)
 		)
 	));
 
+	// get slideshow count
+// $slide = get_theme_mod('add_slide_setting');
+
 	// slideshow loop
-	for ($i = 1; $i <= 3; $i++) {
+	for ($i = 1; $i <= 10; $i++) {
 		$wp_customize->add_setting('featured_slide_' . $i . '_setting', array(
 			'default'   => get_template_directory_uri() . '/assets/img/default-slide.jpg',
-			'priority'  => 25,
+			'priority'  => 20,
 			'transport' => 'refresh',
 		));
 
@@ -123,29 +150,6 @@ function npl_customize_register($wp_customize)
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// featured image ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-	// enable featured image
-	// $wp_customize->add_setting('enable_featured_image_setting', array(
-	// 	'default'   => '',
-	// 	'priority'   => 5,
-	// 	'transport' => 'refresh',
-	// ));
-
-	// $wp_customize->add_control(new WP_Customize_Control(
-	// 	$wp_customize,
-	// 	'enable_featured_image_control',
-	// 	array(
-	// 		'label'      => 'Enable/Disable Featured Image', 'nonproflite'),
-	// 		'section'    => 'featured_image_section',
-	// 		'type'           => 'radio',
-	// 		'choices'        => array(
-	// 			'enable'   => 'Enable'),
-	// 			'disable'  => 'Disable')
-	// 		),
-	// 		'settings'   => 'enable_featured_image_setting',
-	// 	)
-	// ));
-
 	$wp_customize->add_section('featured_image_section', array(
 		'title'      => 'Featured Image', 'non-prof-lite',
 		'description' => 'Insert a feature image for the home page',
@@ -164,7 +168,7 @@ function npl_customize_register($wp_customize)
 		'featured_image_control',
 		array(
 			'label'      => 'Featured Image', 'nonproflite',
-			'description' => 'Using this option you can select a feature image for the home page',
+			'description' => 'You must disable the slideshow before this feature will take effect',
 			'section'    => 'featured_image_section',
 			'settings'   => 'featured_image_setting',
 		)
@@ -461,6 +465,21 @@ function npl_customize_register($wp_customize)
 			'settings'   => 'custom_intro_setting',
 		)
 	));
+		// about info text
+		// $wp_customize->add_setting('custom_aboutInfo_text_setting', array(
+		// 	'default'   => 'The Pit Bull Terrier is a companion and family dog breed. Originally bred to “bait” bulls, the breed evolved into farm dogs, and later moved into the house to become “nanny dogs” because they were so gentle around children.',
+		// 	'transport' => 'refresh',
+		// ));
+
+		// $wp_customize->add_control(new WP_Customize_Control(
+		// 	$wp_customize,
+		// 	'custom_aboutInfo_text_control',
+		// 	array(
+		// 		'label'      => '"About Page" special information text', 'nonproflite',
+		// 		'section'    => 'custom_headings_section',
+		// 		'settings'   => 'custom_aboutInfo_text_setting',
+		// 	)
+		// ));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// custom headings –––––––––––––––––––––––––––––––––––––––––––––––––––––

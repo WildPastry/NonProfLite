@@ -45,54 +45,54 @@ $metaboxes = array(
 // display meta box data ––––––––––––––––––––––––––––––––––––––––––––––––
 function output_custom_meta_box($post, $metabox)
 {
-	$fields = $metabox['args']['fields'];
+	$singleFields = $metabox['args']['fields'];
 
 	$customValues = get_post_custom($post->ID);
 
 	echo '<input type="hidden" name="post_format_meta_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '">';
 
-	if ($fields) {
-		foreach ($fields as $fieldID => $field) {
+	if ($singleFields) {
+		foreach ($singleFields as $customField => $singleField) {
 
-			if (isset($field['condition'])) {
-				$condition = 'class="conditionalField" data-condition="' . $field['condition'] . '"';
+			if (isset($singleField['condition'])) {
+				$condition = 'class="conditionalField" data-condition="' . $singleField['condition'] . '"';
 			} else {
 				$condition = '';
 			}
 
-			switch ($field['type']) {
+			switch ($singleField['type']) {
 				case 'text':
-					echo '<div id="' . $fieldID . '" ' . $condition . ' >';
-					echo '<label for="' . $fieldID . '">' . $field['title'] . '</label>';
-					echo '<input type="text" name="' . $fieldID . '" class="inputField" value="' . $customValues[$fieldID][0] . '">';
+					echo '<div id="' . $customField . '" ' . $condition . ' >';
+					echo '<label for="' . $customField . '">' . $singleField['title'] . '</label>';
+					echo '<input type="text" name="' . $customField . '" class="inputField" value="' . $customValues[$customField][0] . '">';
 					echo '</div>';
 					break;
 				case 'number':
-					echo '<label for="' . $fieldID . '">' . $field['title'] . '</label>';
-					echo '<input type="number" name="' . $fieldID . '" class="inputField" value="' . $customValues[$fieldID][0] . '">';
+					echo '<label for="' . $customField . '">' . $singleField['title'] . '</label>';
+					echo '<input type="number" name="' . $customField . '" class="inputField" value="' . $customValues[$customField][0] . '">';
 					break;
 				case 'textarea':
-					echo $customValues[$fieldID][0];
+					echo $customValues[$customField][0];
 					echo '<br>';
-					echo '<label for="' . $fieldID . '">' . $field['title'] . '</label>';
-					echo '<textarea class="inputField" name="' . $fieldID . '" rows="' . $field['rows'] . '"></textarea>';
+					echo '<label for="' . $customField . '">' . $singleField['title'] . '</label>';
+					echo '<textarea class="inputField" name="' . $customField . '" rows="' . $singleField['rows'] . '"></textarea>';
 					break;
 				case 'select':
-					echo $customValues[$fieldID][0];
+					echo $customValues[$customField][0];
 					echo '<br>';
-					echo '<label for="' . $fieldID . '">' . $field['title'] . '</label>';
-					echo '<select name="' . $fieldID . '" class="inputField customSelect">';
+					echo '<label for="' . $customField . '">' . $singleField['title'] . '</label>';
+					echo '<select name="' . $customField . '" class="inputField customSelect">';
 					echo '<option class="customSelect"> -- Please Enter a value -- </option>';
-					foreach ($field['choices'] as $choice) {
+					foreach ($singleField['choices'] as $choice) {
 						echo '<option class="customSelect" value="' . $choice . '">' . $choice . '</option>';
 					}
 					echo '</select>';
 					break;
 				default:
-					echo $customValues[$fieldID][0];
+					echo $customValues[$customField][0];
 					echo '<br>';
-					echo '<label for="' . $fieldID . '">' . $field['title'] . '</label>';
-					echo '<input type="text" name="' . $fieldID . '" class="inputField">';
+					echo '<label for="' . $customField . '">' . $singleField['title'] . '</label>';
+					echo '<input type="text" name="' . $customField . '" class="inputField">';
 					break;
 			}
 		}
@@ -125,15 +125,15 @@ function save_custom_metaboxes($postID)
 
 	foreach ($metaboxes as $metaboxID => $metabox) {
 		if ($metabox['post_type'] == $postType) {
-			$fields = $metabox['fields'];
-			foreach ($fields as $fieldID => $field) {
-				$oldValue = get_post_meta($postID, $fieldID, true);
-				$newValue = $_POST[$fieldID];
+			$singleFields = $metabox['fields'];
+			foreach ($singleFields as $customField => $singleField) {
+				$oldValue = get_post_meta($postID, $customField, true);
+				$newValue = $_POST[$customField];
 
 				if ($newValue && $newValue != $oldValue) {
-					update_post_meta($postID, $fieldID, $newValue);
-				} elseif ($newValue == '' || !isset($_POST[$fieldID])) {
-					delete_post_meta($postID, $fieldID, $oldValue);
+					update_post_meta($postID, $customField, $newValue);
+				} elseif ($newValue == '' || !isset($_POST[$customField])) {
+					delete_post_meta($postID, $customField, $oldValue);
 				}
 			}
 		}

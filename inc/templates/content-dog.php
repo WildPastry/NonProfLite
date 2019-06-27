@@ -80,41 +80,45 @@ if ($_POST) {
 	</div>
 <?php /* end thumbnail if */ endif; ?>
 
-			<!-- form errors -->
-			<?php /* start form if */ if ($_POST && !empty($errors)) : ?>
-				<div class="row">
-					<div class="col-12">
-						<div class="alert alert-danger">
-							<ul class="text-center">
-								<?php foreach ($errors as $singleError) : ?>
-									<li><?php echo $singleError; ?></li>
-								<?php endforeach; ?>
-							</ul>
-						</div>
-					</div>
-				</div>
-			<?php /* end form if */ endif; ?>
+<!-- form errors -->
+<?php /* start form if */ if ($_POST && !empty($errors)) : ?>
+	<div class="row">
+		<div class="col-12">
+			<div class="alert alert-danger">
+				<ul class="text-center">
+					<?php foreach ($errors as $singleError) : ?>
+						<li><?php echo $singleError; ?></li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+	</div>
+<?php /* end form if */ endif; ?>
 
-			<?php /* start form post if */ if ($_POST && empty($errors)) : ?>
+<?php /* start form post if */ if ($_POST && empty($errors)) : ?>
+	<div class="row">
+		<div class="col-12">
 				<div class="alert alert-success">
 					<p>Your request to adopt has been sent successfully</p>
 				</div>
+		</div>
+	</div>
 
-			<?php else : ?>
+<?php else : ?>
 
-				<!-- form outer-->
-				<div class="adoptWrap">
-					<!-- form inner -->
-					<form class="adoptForm" action="<?php echo get_permalink(); ?>" method="post">
-						<?php wp_nonce_field('wp_enquiery_form'); ?>
-						<div class="row">
-							<h4>Adoption Form</h4>
-							<input required type="text" class="contactInput" placeholder="Name" name="enquiriesName" value="<?php echo $_POST['enquiriesName'] ?>">
-							<input required type="email" class="contactInput" placeholder="Email" name="enquiriesEmail" value="">
-							<input type="submit" name="" value="Request Adoption" class="button adoptButton">
-						</div> <!-- row -->
-					</form> <!-- form inner -->
+	<!-- form outer-->
+	<div class="adoptWrap">
+		<!-- form inner -->
+		<form class="adoptForm" action="<?php echo get_permalink(); ?>" method="post">
+			<?php wp_nonce_field('wp_enquiery_form'); ?>
+			<div class="row">
+				<h4>Adoption Form</h4>
+				<input required type="text" class="contactInput" placeholder="Name" name="enquiriesName" value="<?php echo $_POST['enquiriesName'] ?>">
+				<input required type="email" class="contactInput" placeholder="Email" name="enquiriesEmail" value="">
+				<input type="submit" name="" value="Request Adoption" class="button adoptButton">
+			</div> <!-- row -->
+		</form> <!-- form inner -->
 
-				</div> <!-- form outer-->
+	</div> <!-- form outer-->
 
-			<?php /* end form post if */ endif; ?>
+<?php /* end form post if */ endif; ?>
