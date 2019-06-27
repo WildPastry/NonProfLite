@@ -12,13 +12,19 @@ $defaultText = 'Welcome to CHCH Bull Breed Rescue';
 $defaultTextOne = 'Latest News';
 $defaultTextTwo = 'Latest Dogs for Adoption';
 
+
+
 get_header(); ?>
 
-<!-- slideshow -->
-<?php get_template_part('inc/templates/slideshow'); ?>
-
-<!-- feature image -->
-<?php get_template_part('inc/templates/feature-front'); ?>
+<!-- // enable and disable feature slideshow/feature image -->
+<?php
+$enableFeature = get_theme_mod('enable_featured_slide_setting');
+if($enableFeature === 'enable'){
+	get_template_part('inc/templates/slideshow');
+} else {
+	get_template_part('inc/templates/feature-front');
+}
+?>
 
 <!-- posts and content -->
 <div class='container-fluid'>

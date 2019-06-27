@@ -41,6 +41,28 @@ function npl_customize_register($wp_customize)
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// slideshow –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	// enable featured slide
+	$wp_customize->add_setting('enable_featured_slide_setting', array(
+		'default'   => '',
+		'priority'   => 5,
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'enable_featured_slide_control',
+		array(
+			'label'      => __('Enable or Disable Slideshow', 'nonproflite'),
+			'section'    => 'featured_slide_section',
+			'type'           => 'radio',
+			'choices'        => array(
+				'enable'   => __('Enable'),
+				'disable'  => __('Disable')
+			),
+			'settings'   => 'enable_featured_slide_setting',
+		)
+	));
+
 	$wp_customize->add_section('featured_slide_section', array(
 		'title'      => __('Slideshow', 'non-prof-lite'),
 		'description' => 'Insert images for the home page slideshow',
@@ -52,6 +74,7 @@ function npl_customize_register($wp_customize)
 	for ($i = 1; $i <= 3; $i++) {
 		$wp_customize->add_setting('featured_slide_' . $i . '_setting', array(
 			'default'   => get_template_directory_uri() . '/assets/img/default-slide.jpg',
+			'priority'   => 10,
 			'transport' => 'refresh',
 		));
 
@@ -68,6 +91,29 @@ function npl_customize_register($wp_customize)
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// featured image ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	// enable featured image
+	// $wp_customize->add_setting('enable_featured_image_setting', array(
+	// 	'default'   => '',
+	// 	'priority'   => 5,
+	// 	'transport' => 'refresh',
+	// ));
+
+	// $wp_customize->add_control(new WP_Customize_Control(
+	// 	$wp_customize,
+	// 	'enable_featured_image_control',
+	// 	array(
+	// 		'label'      => __('Enable/Disable Featured Image', 'nonproflite'),
+	// 		'section'    => 'featured_image_section',
+	// 		'type'           => 'radio',
+	// 		'choices'        => array(
+	// 			'enable'   => __('Enable'),
+	// 			'disable'  => __('Disable')
+	// 		),
+	// 		'settings'   => 'enable_featured_image_setting',
+	// 	)
+	// ));
+
 	$wp_customize->add_section('featured_image_section', array(
 		'title'      => __('Featured Image', 'non-prof-lite'),
 		'description' => 'Insert a feature image for the home page',
@@ -92,27 +138,6 @@ function npl_customize_register($wp_customize)
 		)
 	));
 
-	// enable featured image
-	$wp_customize->add_setting('enable_featured_image_setting', array(
-		'default'   => '',
-		'priority'   => 5,
-		'transport' => 'refresh',
-	));
-
-	$wp_customize->add_control(new WP_Customize_Control(
-		$wp_customize,
-		'enable_featured_image_control',
-		array(
-			'label'      => __('Enable/Disable Featured Image', 'nonproflite'),
-			'section'    => 'featured_image_section',
-			'type'           => 'radio',
-			'choices'        => array(
-					'enable'   => __( 'Enable' ),
-					'disable'  => __( 'Disable' )
-			),
-			'settings'   => 'enable_featured_image_setting',
-		)
-	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// colours –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
