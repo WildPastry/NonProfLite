@@ -1,3 +1,5 @@
+// $ = jQuery;
+
 console.log('ts admin connected...');
 
 // social media icons
@@ -53,3 +55,5 @@ if (yoLink === "") {
 
 var slideCount = document.getElementsByClassName('carousel-inner');
 console.log(slideCount[0].childElementCount);
+
+// customize-control-featured_slide_10_control

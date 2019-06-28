@@ -129,7 +129,7 @@ function npl_customize_register($wp_customize)
 	$slide = get_theme_mod('add_slide_setting');
 
 	// slideshow loop
-	for ($i = 1; $i <= $slide; $i++) {
+	for ($i = 1; $i <= 10; $i++) {
 		$wp_customize->add_setting('featured_slide_' . $i . '_setting', array(
 			'default'   => get_template_directory_uri() . '/assets/img/default-slide.jpg',
 			'priority'  => 20,
