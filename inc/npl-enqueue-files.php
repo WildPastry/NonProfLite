@@ -100,6 +100,10 @@ function add_npl_admin()
 	// load auto-complete script
 	wp_enqueue_script('npl-auto-complete-map', 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=' . $map_key . '&libraries=places', array(), '1.0', true);
 	wp_enqueue_script('npl-admin-auto-complete', get_template_directory_uri() . '/assets/js/nonproflite-auto-complete.js', array('jquery'), '2.0', true);
+
+	// load alpha colour
+	wp_enqueue_style('nonproflite_alpha_css', get_template_directory_uri() . '/assets/css/vendor/alpha-color-picker.css', array(), '1.0', true);
+	wp_enqueue_script('nonproflite_alpha_js', get_template_directory_uri() . '/assets/js/vendor/alpha-color-picker.js', array(), '1.0', true);
 }
 
 add_action('admin_enqueue_scripts', 'add_npl_admin');

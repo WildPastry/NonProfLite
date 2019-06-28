@@ -42,7 +42,7 @@ $youtubeIcon = get_theme_mod('youtube_icon_setting');
 		<div class="socialWrap">
 			<a target="_blank" href="https://givealittle.co.nz/" class="donateButton" title="Donate Now">DONATE</a>
 			<div class="cartWrap">
-				<?php get_template_part('inc/templates/cart-logic'); ?>
+				<?php get_template_part('inc/templates/logic-cart'); ?>
 			</div>
 			<a id="fbIcon" target="_blank" href="<?php echo $facebookIcon ?>" class="facebook hideIcon"></a>
 			<a id="twIcon" target="_blank" href="<?php echo $twitterIcon ?>" class="twitter hideIcon"></a>

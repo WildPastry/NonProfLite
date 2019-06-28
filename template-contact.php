@@ -6,7 +6,7 @@
  */
 
 // form logic
-get_template_part('inc/templates/form-logic');
+get_template_part('inc/templates/logic-form');
 
 get_header(); ?>
 

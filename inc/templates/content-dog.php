@@ -82,7 +82,7 @@ if ($_POST) {
 
 <!-- form errors -->
 <?php /* start form if */ if ($_POST && !empty($errors)) : ?>
-	<div class="row">
+	<div class="row justify-content-center">
 		<div class="col-12">
 			<div class="alert alert-danger">
 				<ul class="text-center">
@@ -96,7 +96,7 @@ if ($_POST) {
 <?php /* end form if */ endif; ?>
 
 <?php /* start form post if */ if ($_POST && empty($errors)) : ?>
-	<div class="row">
+	<div class="row justify-content-center">
 		<div class="col-12">
 				<div class="alert alert-success">
 					<p>Your request to adopt has been sent successfully</p>

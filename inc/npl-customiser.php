@@ -176,9 +176,10 @@ function npl_customize_register($wp_customize)
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// colours –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// background
 	$wp_customize->add_section('background_colour_section', array(
-		'title'      => 'Site Background', 'nonproflite',
+		'title'      => 'Main Backgrounds', 'nonproflite',
 		'priority'   => 5,
 		'panel' => 'site_colours_panel'
 	));
@@ -201,7 +202,7 @@ function npl_customize_register($wp_customize)
 
 	// feature background
 	$wp_customize->add_setting('feature_background_colour_setting', array(
-		'default'   => '#f3f1e9',
+		'default'   => '#2f4674',
 		'transport' => 'refresh',
 	));
 
@@ -216,6 +217,25 @@ function npl_customize_register($wp_customize)
 		)
 	));
 
+	// feature border
+	$wp_customize->add_setting('feature_border_colour_setting', array(
+		'default'   => '#ff7064',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'feature_border_colour_control',
+		array(
+			'label'      => 'Set the feature border colour', 'nonproflite',
+			'description' => 'Using this option you can change the feature border colour',
+			'section'    => 'background_colour_section',
+			'settings'   => 'feature_border_colour_setting',
+		)
+	));
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// text
 	$wp_customize->add_section('text_colour_section', array(
 		'title'      => 'Text', 'nonproflite',
@@ -234,7 +254,7 @@ function npl_customize_register($wp_customize)
 		'heading_colour_control',
 		array(
 			'label'      => 'Set the heading text colour', 'nonproflite',
-			'description' => 'Using this option you can change the heading colour throughout your entire site',
+			'description' => 'Using this option you can change the heading colour',
 			'section'    => 'text_colour_section',
 			'settings'   => 'heading_colour_setting',
 		)
@@ -251,91 +271,52 @@ function npl_customize_register($wp_customize)
 		'paragraph_colour_control',
 		array(
 			'label'      => 'Set the body text colour', 'nonproflite',
-			'description' => 'Using this option you can change the body text colour throughout your entire site',
+			'description' => 'Using this option you can change the body text colour',
 			'section'    => 'text_colour_section',
 			'settings'   => 'paragraph_colour_setting',
 		)
 	));
 
-	// menu/footer/header colours
-	$wp_customize->add_section('menu-footer_colour_section', array(
-		'title'      => 'Header / Menu / Footer', 'nonproflite',
-		'priority'   => 15,
-		'panel' => 'site_colours_panel'
-	));
-
-	// header bg colour
-	$wp_customize->add_setting('header_bg_setting', array(
-		'default'   => '#2f4674',
+	// feature heading text
+	$wp_customize->add_setting('feature_heading_colour_setting', array(
+		'default'   => '#fff',
 		'transport' => 'refresh',
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control(
 		$wp_customize,
-		'header_bg_setting',
+		'feature_heading_colour_control',
 		array(
-			'label'      => 'Set the header background colour', 'nonproflite',
-			'description' => 'Using this option you can change the background colour of the header throughout your entire site',
-			'section'    => 'menu-footer_colour_section',
-			'settings'   => 'header_bg_setting',
+			'label'      => 'Set the feature heading text colour', 'nonproflite',
+			'description' => 'Using this option you can change the feature heading colour',
+			'section'    => 'text_colour_section',
+			'settings'   => 'feature_heading_colour_setting',
 		)
 	));
 
-	// menu bg colour
-	$wp_customize->add_setting('menu_bg_colour_setting', array(
-		'default'   => '#ff7064',
+	// feature paragraph text
+	$wp_customize->add_setting('feature_paragraph_colour_setting', array(
+		'default'   => '#fff',
 		'transport' => 'refresh',
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control(
 		$wp_customize,
-		'menu_bg_colourcontrol',
+		'feature_paragraph_colour_control',
 		array(
-			'label'      => 'Set the background colour of the menu', 'nonproflite',
-			'description' => 'Using this option you can change the background colour of the menu throughout your entire site',
-			'section'    => 'menu-footer_colour_section',
-			'settings'   => 'menu_bg_colour_setting',
+			'label'      => 'Set the feature body text colour', 'nonproflite',
+			'description' => 'Using this option you can change the feature body text colour',
+			'section'    => 'text_colour_section',
+			'settings'   => 'feature_paragraph_colour_setting',
 		)
 	));
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-	// footer bg colour
-	$wp_customize->add_setting('footer_bg_colour_setting', array(
-		'default'   => '#2f4674',
-		'transport' => 'refresh',
-	));
-
-	$wp_customize->add_control(new WP_Customize_Color_Control(
-		$wp_customize,
-		'footer_bg_colour_control',
-		array(
-			'label'      => 'Set the background colour of the footer', 'nonproflite',
-			'description' => 'Using this option you can change the background colour of the footer throughout your entire site',
-			'section'    => 'menu-footer_colour_section',
-			'settings'   => 'footer_bg_colour_setting',
-		)
-	));
-
-	// menu/footer/header text colours
-	$wp_customize->add_setting('menu-footer-text_colour_setting', array(
-		'default'   => '#ffffff',
-		'transport' => 'refresh',
-	));
-
-	$wp_customize->add_control(new WP_Customize_Color_Control(
-		$wp_customize,
-		'menu-footer-text_colour_control',
-		array(
-			'label'      => 'Set the menu and footer text colour', 'nonproflite',
-			'description' => 'Using this option you can change the text colour of the menu and footer throughout your entire site',
-			'section'    => 'menu-footer_colour_section',
-			'settings'   => 'menu-footer-text_colour_setting',
-		)
-	));
-
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// button colours
 	$wp_customize->add_section('buttons_colour_section', array(
 		'title'      => 'Buttons', 'nonproflite',
-		'priority'   => 25,
+		'priority'   => 15,
 		'panel' => 'site_colours_panel'
 	));
 
@@ -350,7 +331,7 @@ function npl_customize_register($wp_customize)
 		'buttons_bg_colour_control',
 		array(
 			'label'      => 'Set the background colour of the buttons', 'nonproflite',
-			'description' => 'Using this option you can change the background colour of all the buttons on your site',
+			'description' => 'Using this option you can change the background colour of the buttons on your site',
 			'section'    => 'buttons_colour_section',
 			'settings'   => 'buttons_bg_colour_setting',
 		)
@@ -367,7 +348,7 @@ function npl_customize_register($wp_customize)
 		'buttons_text_colour_control',
 		array(
 			'label'      => 'Set the text colour of the buttons', 'nonproflite',
-			'description' => 'Using this option you can change the text colour of all the buttons on your site',
+			'description' => 'Using this option you can change the text colour of the buttons on your site',
 			'section'    => 'buttons_colour_section',
 			'settings'   => 'buttons_text_colour_setting',
 		)
@@ -384,12 +365,117 @@ function npl_customize_register($wp_customize)
 		'buttons_hover_colour_control',
 		array(
 			'label'      => 'Set the hover colour of the buttons', 'nonproflite',
-			'description' => 'Using this option you can change the background colour when you hover over the buttons on your site',
+			'description' => 'Using this option you can change the hover colour of your buttons',
 			'section'    => 'buttons_colour_section',
 			'settings'   => 'buttons_hover_colour_setting',
 		)
 	));
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	// images
+	$wp_customize->add_section('images_colour_section', array(
+		'title'      => 'Images', 'nonproflite',
+		'priority'   => 20,
+		'panel' => 'site_colours_panel'
+	));
+
+	// image hover
+	$wp_customize->add_setting('images_colour_setting', array(
+		'default'   => '#ff716456',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'images_bg_colour_control',
+		array(
+			'label'      => 'Set the hover colour of your images that are links', 'nonproflite',
+			'description' => 'Using this option you can change the hover colour of your images that are links',
+			'section'    => 'images_colour_section',
+			'settings'   => 'images_colour_setting',
+		)
+	));
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	// menu/footer/header colours
+	$wp_customize->add_section('menu-footer_colour_section', array(
+		'title'      => 'Header / Menu / Footer', 'nonproflite',
+		'priority'   => 25,
+		'panel' => 'site_colours_panel'
+	));
+
+	// header bg colour
+	$wp_customize->add_setting('header_bg_setting', array(
+		'default'   => '#2f4674',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'header_bg_setting',
+		array(
+			'label'      => 'Set the header background colour', 'nonproflite',
+			'description' => 'Using this option you can change the background colour of the header',
+			'section'    => 'menu-footer_colour_section',
+			'settings'   => 'header_bg_setting',
+		)
+	));
+
+	// menu bg colour
+	$wp_customize->add_setting('menu_bg_colour_setting', array(
+		'default'   => '#ff7064',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'menu_bg_colourcontrol',
+		array(
+			'label'      => 'Set the menu background colour', 'nonproflite',
+			'description' => 'Using this option you can change the background colour of the menu',
+			'section'    => 'menu-footer_colour_section',
+			'settings'   => 'menu_bg_colour_setting',
+		)
+	));
+
+	// footer bg colour
+	$wp_customize->add_setting('footer_bg_colour_setting', array(
+		'default'   => '#2f4674',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'footer_bg_colour_control',
+		array(
+			'label'      => 'Set the footer background colour', 'nonproflite',
+			'description' => 'Using this option you can change the background colour of the footer',
+			'section'    => 'menu-footer_colour_section',
+			'settings'   => 'footer_bg_colour_setting',
+		)
+	));
+
+	// menu/footer/header text colours
+	$wp_customize->add_setting('menu-footer-text_colour_setting', array(
+		'default'   => '#fff',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control(
+		$wp_customize,
+		'menu-footer-text_colour_control',
+		array(
+			'label'      => 'Set the menu and footer text colour', 'nonproflite',
+			'description' => 'Using this option you can change the text colour of the menu and footer',
+			'section'    => 'menu-footer_colour_section',
+			'settings'   => 'menu-footer-text_colour_setting',
+		)
+	));
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// social media colours
 	$wp_customize->add_section('social_colour_section', array(
 		'title'      => 'Social Media Icons', 'nonproflite',
@@ -399,7 +485,7 @@ function npl_customize_register($wp_customize)
 
 	// social media backgrounds
 	$wp_customize->add_setting('social_bg_colour_setting', array(
-		'default'   => '#ffffff',
+		'default'   => '#fff',
 		'transport' => 'refresh',
 	));
 
@@ -430,6 +516,7 @@ function npl_customize_register($wp_customize)
 			'settings'   => 'social_hover_colour_setting',
 		)
 	));
+	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// fonts –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -447,7 +534,7 @@ function npl_customize_register($wp_customize)
 		'custom_font_control',
 		array(
 			'label'      => 'Set the site font', 'nonproflite',
-			'description' => 'Using this option you can change the font throughout your entire site',
+			'description' => 'Using this option you can change the font',
 			'section'    => 'custom_font_section',
 			'settings'   => 'custom_font_setting',
 			'type'    => 'select',
@@ -765,6 +852,14 @@ function nonproflite_customize_css()
 												?>;
 		}
 
+		/* feature border */
+		.container-background {
+			border-top: 20px solid <?php echo get_theme_mod('feature_border_colour_setting', '#ff7064');
+															?> !important;
+			border-bottom: 20px solid <?php echo get_theme_mod('feature_border_colour_setting', '#ff7064');
+																?> !important;
+		}
+
 		/* paragraph text */
 		p,
 		li,
@@ -783,6 +878,20 @@ function nonproflite_customize_css()
 			color:
 				<?php echo get_theme_mod('heading_colour_setting', '#2b2b2b');
 				?>;
+		}
+
+		/* featurte paragraph text */
+		.container-background h5 {
+			color:
+				<?php echo get_theme_mod('feature_paragraph_colour_setting', '#fff');
+				?> !important;
+		}
+
+		/* feature headings text */
+		.container-background h2 {
+			color:
+				<?php echo get_theme_mod('feature_heading_colour_setting', '#fff');
+				?> !important;
 		}
 
 		/* font */
@@ -807,26 +916,26 @@ function nonproflite_customize_css()
 		}
 
 		/* menu bg */
-		.menuModule li, {
+		.menuModule li {
 			background:
 				<?php echo get_theme_mod('menu_bg_colour_setting', '#ff7064');
-				?>;
+				?> !important;
 		}
 
-		/* header / menu / footer text */
+		/* menu and footer text */
 		.menuModule a,
 		footer p,
 		footer a {
 			color:
-				<?php echo get_theme_mod('menu-footer-text_colour_setting', '#ffffff');
+				<?php echo get_theme_mod('menu-footer-text_colour_setting', '#fff');
 				?> !important;
 		}
 
 		/* menu text hover */
 		.menuModule a:hover {
-			border-bottom: 2px solid <?php echo get_theme_mod('menu-footer-text_colour_setting', '#ffffff');
+			border-bottom: 2px solid <?php echo get_theme_mod('menu-footer-text_colour_setting', '#fff');
 																?>;
-			border-top: 2px solid <?php echo get_theme_mod('menu-footer-text_colour_setting', '#ffffff');
+			border-top: 2px solid <?php echo get_theme_mod('menu-footer-text_colour_setting', '#fff');
 														?>;
 		}
 
@@ -843,15 +952,22 @@ function nonproflite_customize_css()
 		.product_type_simple,
 		.wc-forward {
 			color:
-				<?php echo get_theme_mod('buttons_text_colour_setting', '#ffffff');
+				<?php echo get_theme_mod('buttons_text_colour_setting', '#fff');
 				?> !important;
 		}
 
-		.button a:hover,
+		.button:hover,
 		.product_type_simple:hover,
 		.wc-forward:hover {
 			background:
 				<?php echo get_theme_mod('buttons_hover_colour_setting', '#ff7064');
+				?> !important;
+		}
+
+		/* image hover */
+		.tile-colour {
+			background:
+				<?php echo get_theme_mod('images_colour_setting', '#ff7064');
 				?> !important;
 		}
 
@@ -862,7 +978,7 @@ function nonproflite_customize_css()
 		.pinterest,
 		.youtube {
 			color:
-				<?php echo get_theme_mod('social_bg_colour_setting', '#ffffff');
+				<?php echo get_theme_mod('social_bg_colour_setting', '#fff');
 				?> !important;
 		}
 
