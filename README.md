@@ -4,15 +4,16 @@ Custom WordPress theme
 
 ## Features
 
-Non-Prof Lite is a user-friendly and free WordPress theme. It is a simple, clean and professional theme that is best suited for Charity, NGO, foundations, churches, political organizations etc. It is very easy to setup and it comes with all the basic features that is needed to create your own website.
+Non-Prof Lite is a user-friendly and free WordPress theme. It was created specifically for an organisation that rescues dogs and finds new homes for them, though it can be used for other companies and is best suited for charity, NGO, foundations, churches, welfare and animal rescue organisations.
+
+It is very easy to setup and it comes with all the basic features required to create your own website.
 
 ## Install
 
-•  Instructions coming soon<br>
-•  Instructions coming soon<br>
-•  Instructions coming soon<br>
-•  Instructions coming soon<br>
-•  Instructions coming soon<br>
+• You must have Wordpress version 4.8 or later installed to use this theme<br>
+• Download the theme<br>
+• Unzip the folder and move it to your themes folder: **WORDPRESS_SITE\wp-content\themes**<br>
+• Activate the theme from the Wordpress dashboard: **Appearance > Themes > Activate**<br>
 
 <b>Download the documentation </b> [here](https://mikeparker.co.nz/)
 
@@ -38,4 +39,3 @@ Non-Prof Lite is a user-friendly and free WordPress theme. It is a simple, clean
 <b>This theme is created for educational purposes @</b> Yoobee School of Design<br>
 <b>All sample content remains ©</b> CHCH Bull Breed Rescue<br>
 <b>Design and Development by </b> [Mike Parker](https://mikeparker.co.nz/)
-

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * customiser
  * @package nonproflite
@@ -12,7 +13,7 @@ function npl_customize_register($wp_customize)
 	// $wp_customize->remove_section('colors'); // Colours // 40
 	$wp_customize->remove_section('header_image'); // Header Image // 60
 	$wp_customize->remove_section('background_image'); // Background Image // 80
-	$wp_customize->remove_section('static_front_page'); // Home Page Settings // 120
+	// $wp_customize->remove_section('static_front_page'); // Home Page Settings // 120
 	$wp_customize->remove_section('custom_css'); // Additional CSS // 200
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
@@ -45,7 +46,7 @@ function npl_customize_register($wp_customize)
 	$wp_customize->add_section('featured_slide_section', array(
 		'title'      => 'Slideshow', 'non-prof-lite',
 		'description' => 'Insert images for the home page slideshow',
-		'priority'   => 15,
+		'priority'   => 5,
 		'panel' => 'homepage_panel'
 	));
 
@@ -129,7 +130,7 @@ function npl_customize_register($wp_customize)
 	$slide = get_theme_mod('add_slide_setting');
 
 	// slideshow loop
-	for ($i = 1; $i <= 10; $i++) {
+	for ($i = 1; $i <= $slide; $i++) {
 		$wp_customize->add_setting('featured_slide_' . $i . '_setting', array(
 			'default'   => get_template_directory_uri() . '/assets/img/default-slide.jpg',
 			'priority'  => 20,
@@ -172,7 +173,6 @@ function npl_customize_register($wp_customize)
 			'settings'   => 'featured_image_setting',
 		)
 	));
-
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// colours –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -382,7 +382,7 @@ function npl_customize_register($wp_customize)
 
 	// image hover
 	$wp_customize->add_setting('images_colour_setting', array(
-		'default'   => '#ff716456',
+		'default'   => '#ff7064',
 		'transport' => 'refresh',
 	));
 
@@ -566,28 +566,6 @@ function npl_customize_register($wp_customize)
 			'label'      => 'Change the custom intro heading', 'nonproflite',
 			'section'    => 'custom_intro_section',
 			'settings'   => 'custom_intro_setting',
-		)
-	));
-
-	// custom intro paragraph
-	$wp_customize->add_setting('custom_intro_para_setting', array(
-		'default'   => 'Staffys, Pitbulls, Bullys and their crosses are often over looked because of their looks and media hype. Bull breed dogs are NOT killers. They are loving, loyal, gentle souls that just need the right owner and lots of love.<br><br>
-
-		Christchurch Bull Breed Rescue provides temporary shelter, food, medical attention, and comfort to neglected and rejected dogs. We seek out new homes for these dogs and try to educate the public about the humane care of dogs. We consider the unique needs of all the dogs in our care and work compassionately to prepare a safe, appropriately socialised dog for a wonderful new life.<br><br>
-
-		Through our de-sexing program we try to help prevent dogs ending up in shelters, we do this by de-sexing the dogs in our community producing unwanted litters. Our aim is to reduce the population of unwanted, neglected, and abused bull breed dogs by preventing at risk dogs from producing litters. We approach owners, work with locals and councils to find at risk dogs, as well as helping lower income families ensure they are not adding to the problem by offering payment plans and heavily discounted procedures.<br><br>
-
-		Owning a dog is commonly rated in the top five things to do in life and is very rewarding. If you are thinking about getting a dog or would even like to come view them, just get in touch!',
-		'transport' => 'refresh',
-	));
-
-	$wp_customize->add_control(new WP_Customize_Control(
-		$wp_customize,
-		'custom_intro_para_control',
-		array(
-			'label'      => 'Change the custom intro text', 'nonproflite',
-			'section'    => 'custom_intro_section',
-			'settings'   => 'custom_intro_para_setting',
 		)
 	));
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -800,35 +778,39 @@ function npl_customize_register($wp_customize)
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// featured posts ––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	// $wp_customize->add_section('front_page_section', array(
-	//   'title'      => 'Front Page Info', 'nonproflite'),
-	//   'priority'   => 25,
+	// $wp_customize->add_section('featured_post_section', array(
+	// 	'title'      => __('Featured Posts', 'nonproflite'),
+	// 	'panel' => 'homepage_panel',
+	// 	'priority'   => 15
 	// ));
 
-	$wp_customize->add_setting('featured-post-setting', array(
-		'default'   => ' ',
-		'transport' => 'refresh',
-	));
+	// $args = array(
+	// 	'posts_per_page' => -1,
+	// 	'post_type' => 'dog'
+	// );
 
-	$args = array(
-		'posts_per_page' => -1
-	);
+	// $allPosts = get_posts($args);
 
-	$allPosts = get_posts($args);
+	// $options = array();
+	// $options[''] = 'Please select a post to feature';
+	// foreach ($allPosts as $singlePost) {
+	// 	$options[$singlePost->ID] = $singlePost->post_title;
+	// }
 
-	$options = array();
-	$options[''] = 'Please select a post';
-	foreach ($allPosts as $singlePost) {
-		$options[$singlePost->ID] = $singlePost->post_title;
-	}
+	// for ($j = 1; $j <= 3; $j++) {
+	// 	$wp_customize->add_setting('featured_post_' . $j . '_setting', array(
+	// 		'default'   => ' ',
+	// 		'transport' => 'refresh',
+	// 	));
 
-	$wp_customize->add_control(new WP_Customize_Control($wp_customize, 'featured-post-control', array(
-		'label'      => 'Featured Post', 'nonproflite',
-		'section'    => 'static_front_page',
-		'settings'   => 'featured-post-setting',
-		'type'       => 'select',
-		'choices' => $options
-	)));
+	// 	$wp_customize->add_control(new WP_Customize_Control($wp_customize, 'featured_post_' . $j . '_control', array(
+	// 		'label'      => 'Featured Post ' . $j, 'nonproflite',
+	// 		'section'    => 'featured_post_section',
+	// 		'settings'   => 'featured_post_' . $j . '_setting',
+	// 		'type'       => 'select',
+	// 		'choices' => $options
+	// 	)));
+	// }
 	// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 } // end of customiser function

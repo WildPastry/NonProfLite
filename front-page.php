@@ -1,4 +1,5 @@
 <?php
+
 /**
  * front page
  * @package nonproflite
@@ -8,26 +9,18 @@
 $customText = get_theme_mod('custom_intro_setting');
 $customTextOne = get_theme_mod('custom_frontOne_headings_setting');
 $customTextTwo = get_theme_mod('custom_frontTwo_headings_setting');
-$customTextIntroPara = get_theme_mod('custom_intro_para_setting');
 $defaultText = 'Welcome to CHCH Bull Breed Rescue';
 $defaultTextOne = 'Latest News';
 $defaultTextTwo = 'Latest Dogs for Adoption';
-$defaultTextIntroPara = 'Staffys, Pitbulls, Bullys and their crosses are often over looked because of their looks and media hype. Bull breed dogs are NOT killers. They are loving, loyal, gentle souls that just need the right owner and lots of love.<br><br>
-
-Christchurch Bull Breed Rescue provides temporary shelter, food, medical attention, and comfort to neglected and rejected dogs. We seek out new homes for these dogs and try to educate the public about the humane care of dogs. We consider the unique needs of all the dogs in our care and work compassionately to prepare a safe, appropriately socialised dog for a wonderful new life.<br><br>
-
-Through our de-sexing program we try to help prevent dogs ending up in shelters, we do this by de-sexing the dogs in our community producing unwanted litters. Our aim is to reduce the population of unwanted, neglected, and abused bull breed dogs by preventing at risk dogs from producing litters. We approach owners, work with locals and councils to find at risk dogs, as well as helping lower income families ensure they are not adding to the problem by offering payment plans and heavily discounted procedures.<br><br>
-
-Owning a dog is commonly rated in the top five things to do in life and is very rewarding. If you are thinking about getting a dog or would even like to come view them, just get in touch!';
 
 // get image alt
 $thumb_id = get_post_thumbnail_id(get_the_ID());
 $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true);
-if(count($alt)) echo $alt;
+if (count($alt)) echo $alt;
 
 get_header(); ?>
 
-<!-- // enable and disable feature slideshow/feature image -->
+<!-- slideshow logic -->
 <?php
 $enableFeature = get_theme_mod('enable_featured_slide_setting');
 if ($enableFeature === 'enable') {
@@ -61,18 +54,18 @@ if ($enableFeature === 'enable') {
 
 	<!-- home page content -->
 	<div class="row justify-content-center">
+		<?php /* start posts if */ if (have_posts()) : ?>
+			<?php /* start posts while */ while (have_posts()) : the_post() ?>
 
-		<!-- get content -->
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10">
-			<article class="two-column">
-				<?php if ($customTextIntroPara == "") : echo '<p>' . $defaultTextIntroPara . '</p>';
-				else :
-					echo '<p>' . $customTextIntroPara . '</p>';
-				endif;
-				?>
-			</article>
-		</div>
+				<!-- get content -->
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10">
+					<article class="two-column">
+						<?php the_content(); ?>
+					</article>
+				</div>
 
+			<?php /* end posts if */ endwhile; ?>
+		<?php  /* end posts while */ endif; ?>
 	</div> <!-- row -->
 
 </div> <!-- posts and content -->

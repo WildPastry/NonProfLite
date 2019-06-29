@@ -1,4 +1,5 @@
 <?php
+
 /**
  * how to help template
  * Template Name: Help
@@ -32,7 +33,7 @@ get_header(); ?>
 				<!-- end posts while -->
 			<?php endwhile;
 
-	else : ?>
+		else : ?>
 
 			<!-- no content -->
 			<?php get_template_part('templates/content', 'none'); ?>
@@ -54,12 +55,12 @@ get_header(); ?>
 		<!-- all dogs title -->
 		<div class="row justify-content-center mt-3">
 			<div class="col-12">
-			<header>
-			<?php if ($customText == "") : echo '<h2>' . $defaultText . '</h2>';
-			else :
-				echo '<h2>' . $customText . '</h2>';
-			endif;
-			?>
+				<header>
+					<?php if ($customText == "") : echo '<h2>' . $defaultText . '</h2>';
+					else :
+						echo '<h2>' . $customText . '</h2>';
+					endif;
+					?>
 				</header>
 			</div>
 		</div> <!-- row -->
@@ -74,9 +75,12 @@ get_header(); ?>
 
 						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-3">
 							<div class="card">
-								<a href="<?php the_permalink(); ?>">
-									<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid', 'alt' => 'image from dog post type']) ?>
-								</a>
+								<div class="tile">
+									<a href="<?php the_permalink(); ?>">
+										<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid', 'alt' => 'image from dog post type']) ?>
+										<div class="tile-colour"></div>
+									</a>
+								</div>
 								<div class="card-body">
 									<h4 class="card-title"><?php the_title(); ?></h4>
 

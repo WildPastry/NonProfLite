@@ -9,9 +9,6 @@ function the_mx_customizer_controls() {
 }
 add_action( 'customize_controls_enqueue_scripts', 'the_mx_customizer_controls' );
 
-
-
-
 // customiser ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 require get_template_directory() . '/inc/npl-customiser.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
