@@ -1,4 +1,5 @@
 <?php
+
 /**
  * index
  * @package nonproflite
@@ -12,12 +13,17 @@ $defaultText = 'Welcome to CHCH Bull Breed Rescue';
 $defaultTextOne = 'Latest News';
 $defaultTextTwo = 'Latest Dogs for Adoption';
 
+// get image alt
+$thumb_id = get_post_thumbnail_id(get_the_ID());
+$alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true);
+if (count($alt)) echo $alt;
+
 get_header(); ?>
 
-<!-- // enable and disable feature slideshow/feature image -->
+<!-- slideshow logic -->
 <?php
 $enableFeature = get_theme_mod('enable_featured_slide_setting');
-if($enableFeature === 'enable'){
+if ($enableFeature === 'enable') {
 	get_template_part('inc/templates/slideshow');
 } else {
 	get_template_part('inc/templates/feature-front');
@@ -52,7 +58,7 @@ if($enableFeature === 'enable'){
 			<?php /* start posts while */ while (have_posts()) : the_post() ?>
 
 				<!-- get content -->
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10">
 					<article class="two-column">
 						<?php the_content(); ?>
 					</article>
@@ -84,11 +90,11 @@ if($enableFeature === 'enable'){
 		<!-- latest news title -->
 		<div class="row mt-3">
 			<div class="col-12">
-			<?php if ($customTextOne == "") : echo '<h2>' . $defaultTextOne . '</h2>';
-			else :
-				echo '<h2>' . $customTextOne . '</h2>';
-			endif;
-			?>
+				<?php if ($customTextOne == "") : echo '<h2>' . $defaultTextOne . '</h2>';
+				else :
+					echo '<h2>' . $customTextOne . '</h2>';
+				endif;
+				?>
 			</div>
 		</div> <!-- row -->
 
@@ -102,9 +108,12 @@ if($enableFeature === 'enable'){
 
 						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 							<div class="card">
-								<a href="<?php the_permalink(); ?>">
-									<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid', 'alt' => 'image from dog post type']) ?>
-								</a>
+								<div class="tile">
+									<a href="<?php the_permalink(); ?>">
+										<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid', 'alt' => 'image from news post type']) ?>
+										<div class="tile-colour"></div>
+									</a>
+								</div>
 								<div class="card-body">
 									<h4 class="card-title"><?php the_title(); ?></h4>
 
@@ -163,7 +172,7 @@ if($enableFeature === 'enable'){
 	<!-- featured dogs title -->
 	<div class="row mt-3">
 		<div class="col-12">
-		<?php if ($customTextTwo == "") : echo '<h2>' . $defaultTextTwo . '</h2>';
+			<?php if ($customTextTwo == "") : echo '<h2>' . $defaultTextTwo . '</h2>';
 			else :
 				echo '<h2>' . $customTextTwo . '</h2>';
 			endif;
@@ -181,9 +190,12 @@ if($enableFeature === 'enable'){
 
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-3">
 						<div class="card">
-							<a href="<?php the_permalink(); ?>">
-								<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid', 'alt' => 'image from dog post type']) ?>
-							</a>
+							<div class="tile">
+								<a href="<?php the_permalink(); ?>">
+									<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid', 'alt' => 'image from dog post type']) ?>
+									<div class="tile-colour"></div>
+								</a>
+							</div>
 							<div class="card-body">
 								<h4 class="card-title"><?php the_title(); ?></h4>
 

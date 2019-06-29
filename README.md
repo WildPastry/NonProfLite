@@ -15,7 +15,7 @@ It is very easy to setup and it comes with all the basic features required to cr
 • Unzip the folder and move it to your themes folder: **WORDPRESS_SITE\wp-content\themes**<br>
 • Activate the theme from the Wordpress dashboard: **Appearance > Themes > Activate**<br>
 
-<b>Download the documentation </b> [here](https://mikeparker.co.nz/)
+<b>View the instructions pdf in the root folder to build a dog rescue website </b>
 
 ## Plugins
 

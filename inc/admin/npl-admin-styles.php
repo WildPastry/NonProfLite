@@ -16,7 +16,7 @@ function admin_styles()
 				padding: 15px 0;
 		}
 			#mapKeyInput, #locationInput {
-				width: 360px;
+				width: 450px;
 		}
 		#latValue, #lngValue {
 			width: 179px;

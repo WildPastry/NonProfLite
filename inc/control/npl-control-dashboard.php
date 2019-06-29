@@ -88,22 +88,8 @@ function nonproflite_dash_display()
 {
 	echo '<h2>Welcome to Non-Prof Lite</h2>' . '<br>';
 	echo '<h3>You can view our online repository <a target="_blank" href= ' . '"https://github.com/WildPastry/nonproflite"' . '> here</a></h3>' . '<br>';
-	echo '<h3>If you need to, you can download our full instructions<a href= ' . '"https://github.com/WildPastry/nonproflite"' . '> here</a></h3>' . '<br>';
+	echo '<h3>If you need to, you can download our full instructions<a href= ' . '"../wp-content/themes/nonproflite/nonproflite-instructions.pdf"' . ' target="_blank" download="Non-Prof Lite Instructions.pdf"> here</a></h3>' . '<br>';
 	echo '<h3>Any other questions or if you get stuck, feel free to email me<a href= ' . '"mailto:mike@mikeparker.co.nz"' . '> using this link</a></h3>' . '<br>';
 }
 add_action('wp_dashboard_setup', 'register_nonproflite_dash');
-// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-// rename dashboard menu items –––––––––––––––––––––––––––––––––––––––––––
-// function edit_admin_menus() {
-//   global $menu;
-//   global $submenu;
-
-//   $menu[5][0] = 'Recipes'; // Change Posts to Recipes
-//   $submenu['edit.php'][5][0] = 'All Recipes';
-//   $submenu['edit.php'][10][0] = 'Add a Recipe';
-//   $submenu['edit.php'][15][0] = 'Meal Types'; // Rename categories to meal types
-//   $submenu['edit.php'][16][0] = 'Ingredients'; // Rename tags to ingredients
-// }
-// add_action( 'admin_menu', 'edit_admin_menus' );
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
