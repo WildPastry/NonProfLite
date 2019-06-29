@@ -20,6 +20,7 @@
 
 				// Send "my-custom-event" data over to the Customizer
 				self.preview.send( 'my-custom-event', window.myCustomData );
+
 			} );
 		}
 	};

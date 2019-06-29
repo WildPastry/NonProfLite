@@ -116,7 +116,6 @@ function npl_customize_register($wp_customize)
 			'type'       => 'select',
 			'default'   => '3',
 			'choices' => array(
-				'1' => 1,
 				'2' => 2,
 				'3' => 3,
 				'4' => 4,
