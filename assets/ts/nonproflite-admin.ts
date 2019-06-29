@@ -42,18 +42,3 @@ if (yoLink === "") {
 } else {
 	yoIcon.className += ' showIcon';
 }
-
-// customiser function
-// var slideControl = document.getElementById('_customize-input-add_slide_control');
-// console.log(slideControl);
-
-// var menuModuleWrap = document.getElementById('menuModuleWrap');
-// console.log(menuModuleWrap);
-
-// var customize = document.getElementById('customize-info');
-// console.log(customize);
-
-var slideCount = document.getElementsByClassName('carousel-inner');
-console.log(slideCount[0].childElementCount);
-
-// customize-control-featured_slide_10_control

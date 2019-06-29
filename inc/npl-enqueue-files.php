@@ -1,4 +1,5 @@
 <?php
+
 /**
  * enqueue files
  * @package nonproflite
@@ -100,11 +101,42 @@ function add_npl_admin()
 	// load auto-complete script
 	wp_enqueue_script('npl-auto-complete-map', 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=' . $map_key . '&libraries=places', array(), '1.0', true);
 	wp_enqueue_script('npl-admin-auto-complete', get_template_directory_uri() . '/assets/js/nonproflite-auto-complete.js', array('jquery'), '2.0', true);
-
-	// load alpha colour
-	wp_enqueue_style('nonproflite_alpha_css', get_template_directory_uri() . '/assets/css/vendor/alpha-color-picker.css', array(), '1.0', true);
-	wp_enqueue_script('nonproflite_alpha_js', get_template_directory_uri() . '/assets/js/vendor/alpha-color-picker.js', array(), '1.0', true);
 }
 
 add_action('admin_enqueue_scripts', 'add_npl_admin');
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// customiser –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// add customiser scripts for preview and backend
+add_action('customize_controls_enqueue_scripts', 'my_customize_controls_enqueue_scripts');
+function my_customize_controls_enqueue_scripts()
+{
+	wp_enqueue_script('npl-customizer-script', get_stylesheet_directory_uri() . '/assets/js/nonproflite-customize-controls.js', array('customize-controls'));
+}
+
+add_action('customize_preview_init', 'npl_customize_preview_init');
+function npl_customize_preview_init()
+{
+	// enqueue previewer scripts and styles
+	add_action('wp_enqueue_scripts', 'npl_wp_enqueue_scripts');
+}
+// this function is called only on the Previwer and enqueues scripts and styles.
+function npl_wp_enqueue_scripts()
+{
+// customiser script
+	wp_enqueue_script('npl-customizer-previewer', get_stylesheet_directory_uri() . '/assets/js/nonproflite-customize-preview.js', array('customize-preview-widgets'));
+
+	// get slideshow count
+	$slide = get_theme_mod('add_slide_setting');
+	if ($slide == "") : $slide == 3;
+	else : $slide = $slide;
+	endif;
+
+	// localize script
+	wp_localize_script('npl-customizer-previewer', 'myCustomData', array(
+		'slideCount' => $slide
+	));
+}
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+

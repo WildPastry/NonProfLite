@@ -7,7 +7,7 @@
 
 function npl_customize_register($wp_customize)
 {
-	// remove default options –––––––––––––––––––––––––––––––––––––––––––––––
+	// remove default sections ––––––––––––––––––––––––––––––––––––––––––––––
 	// $wp_customize->remove_section('installed_themes'); // Themes // 0
 	// $wp_customize->remove_section('title_tagline'); // Site Identity // 20
 	// $wp_customize->remove_section('colors'); // Colours // 40
@@ -15,6 +15,11 @@ function npl_customize_register($wp_customize)
 	$wp_customize->remove_section('background_image'); // Background Image // 80
 	// $wp_customize->remove_section('static_front_page'); // Home Page Settings // 120
 	$wp_customize->remove_section('custom_css'); // Additional CSS // 200
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	// remove default control –––––––––––––––––––––––––––––––––––––––––––––––
+	$wp_customize->remove_control('blogdescription'); // Title Tagline
+	$wp_customize->remove_control('page_for_posts'); // Page for posts
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// create homepage panel ––––––––––––––––––––––––––––––––––––––––––––––––
@@ -126,11 +131,8 @@ function npl_customize_register($wp_customize)
 		)
 	));
 
-	// get slideshow count
-	$slide = get_theme_mod('add_slide_setting');
-
 	// slideshow loop
-	for ($i = 1; $i <= $slide; $i++) {
+	for ($i = 1; $i <= 10; $i++) {
 		$wp_customize->add_setting('featured_slide_' . $i . '_setting', array(
 			'default'   => get_template_directory_uri() . '/assets/img/default-slide.jpg',
 			'priority'  => 20,

@@ -4,11 +4,6 @@
  * @package nonproflite
  */
 
-function the_mx_customizer_controls() {
-	wp_enqueue_script( 'the-mx-customizer-controls', get_template_directory_uri() . 'assets/js/customize-controls.js', array( 'jquery' ), '1', true );
-}
-add_action( 'customize_controls_enqueue_scripts', 'the_mx_customizer_controls' );
-
 // customiser ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 require get_template_directory() . '/inc/npl-customiser.php';
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
