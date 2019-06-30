@@ -19,6 +19,20 @@
 	.menuModule a {
 		font-size: 1em;
 	}
+	.contactWrap,
+	.adoptWrap {
+		max-width: 100%;
+	}
+	.adoptWrap {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.contactWrap,
+	.contactWrap .col-12,
+	.contactWrap .col-6 {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 // 768
@@ -57,6 +71,29 @@
 	.two-column {
 		column-count: 1;
 	}
+	.woocommerce .quantity .qty {
+		width: 2.5em;
+		text-align: left;
+		margin-left: 15px;
+	}
+	.noPadL {
+		padding-right: 0;
+	}
+
+	.noPadR {
+		margin-top: 2em;
+		padding-left: 0;
+	}
+}
+
+// 562
+@media screen and (max-width: 562px) {
+	.footerWrap,
+	footer {
+		text-align: center;
+		display: block;
+		margin-top: 18.5px;
+	}
 }
 
 // 440
@@ -68,6 +105,13 @@
 	#piIcon {
 		font-size: 22px;
 		margin-left: 10px;
+		margin-top: 5px;
+	}
+	.donateButton {
+		font-size: 12px;
+	}
+	.cart-contents::before {
+		font-size: 22px;
 	}
 	.logoWrap {
 		width: 250px;
