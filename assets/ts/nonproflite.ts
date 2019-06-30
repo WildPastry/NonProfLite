@@ -8,3 +8,13 @@ $(document).on("mouseenter", ".tile", function () {
 $(document).on("mouseleave", ".tile", function () {
 	$(this).find(".tile-colour").toggle()
 });
+
+// mobile menu
+var mobileMenu = document.getElementById('menuControl');
+console.log(mobileMenu);
+
+$(mobileMenu).click(
+	function () {
+			$('.menuModuleWrap').toggleClass('showMenu');
+	}
+)

@@ -43,6 +43,10 @@
 }
 
 // menu
+.menuMasterWrap {
+	position: relative;
+}
+
 .menuModuleWrap {
 	width: 100%;
 	margin-bottom: 20px;
@@ -100,6 +104,37 @@
 }
 
 .menuWarning {
-line-height: 100px;
-text-align: center;
+	line-height: 100px;
+	text-align: center;
+}
+
+// mobile menu
+.menuModuleMobileWrap {
+	visibility: hidden;
+	display: none;
+	margin-top: 5px;
+	margin-left: 1px;
+	margin-right: 1px;
+	width: 100%;
+	height: 60px;
+	background: @oj;
+}
+
+.menuModuleBurgerWrap {
+	padding-top: 8px;
+	margin: @mar-0-auto;
+	cursor: pointer;
+	width: 45px;
+}
+
+.menuModuleMobile {
+	width: 45px;
+	height: 3px;
+	background: @white;
+	margin: 10px 0;
+}
+
+.showMenu {
+	visibility: visible !important;
+	display: block !important;
 }

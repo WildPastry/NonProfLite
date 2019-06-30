@@ -899,7 +899,8 @@ function nonproflite_customize_css()
 		}
 
 		/* menu bg */
-		.menuModule li {
+		.menuModule li,
+		.menuModuleMobileWrap {
 			background:
 				<?php echo get_theme_mod('menu_bg_colour_setting', '#ff7064');
 				?> !important;
@@ -910,6 +911,12 @@ function nonproflite_customize_css()
 		footer p,
 		footer a {
 			color:
+				<?php echo get_theme_mod('menu-footer-text_colour_setting', '#fff');
+				?> !important;
+		}
+
+		.menuModuleMobile {
+			background:
 				<?php echo get_theme_mod('menu-footer-text_colour_setting', '#fff');
 				?> !important;
 		}
