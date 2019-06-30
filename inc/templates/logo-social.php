@@ -7,9 +7,6 @@
 // home url
 $url = home_url();
 
-//  cart url
-$cart_url = wc_get_cart_url();
-
 // custom logo
 $custom_logo_size = get_theme_mod('custom_logo');
 $custom_logo = wp_get_attachment_image_src($custom_logo_size, $defaults);
