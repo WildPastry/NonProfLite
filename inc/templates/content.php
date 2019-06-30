@@ -30,12 +30,12 @@ $thumbImg = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 		<!-- single post image -->
 		<?php /* start thumbnail if */ if (has_post_thumbnail()) : ?>
 			<!-- single post content -->
-			<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
 				<article>
 					<?php the_content(); ?>
 				</article>
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
 			<?php echo '<div class="thumbImg" style="background-image: url(' . $thumbImg . ');background-position: center; background-size: cover;  background-repeat: no-repeat;"></div>'; ?>
 			</div>
 		</div>

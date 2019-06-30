@@ -37,7 +37,7 @@ get_header(); ?>
 
 				<!-- form errors -->
 				<?php /* start form if */ if ($_POST && !empty($errors)) : ?>
-					<div class="row justify-content-center">
+					<div class="row">
 						<div class="col-12">
 							<div class="alert alert-danger">
 								<ul class="text-center">
@@ -51,7 +51,7 @@ get_header(); ?>
 				<?php /* end form if */ endif; ?>
 
 				<?php /* start form post if */ if ($_POST && empty($errors)) : ?>
-					<div class="row justify-content-center">
+					<div class="row">
 						<div class="col-12">
 							<div class="alert alert-success">
 								<p>Your enquiry has been sent successfully</p>
