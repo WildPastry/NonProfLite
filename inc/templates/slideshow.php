@@ -6,12 +6,15 @@
 
 // get slideshow count
 $slide = get_theme_mod('add_slide_setting');
+if ($slide === false) {
+	$slide = 3;
+}
 $slideCount = $slide + 1;
 
 // get slideshow type
 $slideTypeOption = get_theme_mod('type_slide_setting');
 if ($slideTypeOption === 'slide') {
-	$slideType= 'carousel-slide';
+	$slideType = 'carousel-slide';
 } else {
 	$slideType = 'carousel-fade';
 }
