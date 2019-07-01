@@ -4,6 +4,8 @@ Custom WordPress theme
 
 ## Features
 
+**NOTE: This theme was designed for a specific client website re-design, for educational purposes only**<br>
+
 Non-Prof Lite is a user-friendly and free WordPress theme. It was created specifically for an organisation that rescues dogs and finds new homes for them, though it can be used for other companies and is best suited for charity, NGO, foundations, churches, welfare and animal rescue organisations.
 
 It is very easy to setup and it comes with all the basic features required to create your own website.
