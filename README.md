@@ -1,6 +1,6 @@
 # Non-Prof Lite
 
-Custom WordPress theme
+Non-Prof Lite is a user-friendly and free WordPress theme
 
 ## Features
 
@@ -27,14 +27,14 @@ It is very easy to setup and it comes with all the basic features required to cr
 **AllInOne** <br>
 **Regenerate Thumbnails**
 
-## Development info
+## Development
 
-**less** <br>
-**Gulp.js** <br>
-**PHP** <br>
-**Auto-Prefix** <br>
-**Post-CSS** <br>
-**Typescript**
+* **Less** <br>
+* **Gulp** <br>
+* **PHP** <br>
+* **Auto-Prefix** <br>
+* **Post-CSS** <br>
+* **TypeScript**
 
 ## Copyrights
 
